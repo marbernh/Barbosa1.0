@@ -22,6 +22,10 @@ public class Leaderboard implements Comparator<Result> {
         this.resultboard = resultboard;
     }
 
+    Leaderboard() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public void add(Result newResult) {
         resultboard.put(newResult.getId(), newResult);
         sortList();

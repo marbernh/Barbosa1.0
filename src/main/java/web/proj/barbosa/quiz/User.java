@@ -4,6 +4,8 @@
  */
 package web.proj.barbosa.quiz;
 
+import java.util.Random;
+
 /**
  *
  * @author Filip Husnjak
@@ -13,6 +15,14 @@ public class User {
     private String name, userName, password;
     private Long id;
     public Result result;
+    private Random idMaker;
+
+    public User(String userName, String password) {
+        this.id = new Long(idMaker.nextInt(1000));
+        this.userName = userName;
+        this.password = password;
+        result = new Result(id);
+    }
 
     public User(Long id, String userName, String password) {
         this.id = id;
@@ -21,6 +31,10 @@ public class User {
         result = new Result(id);
     }
 
+    public Result getResult(){
+        return result;
+    }
+    
     public Long getId() {
         return id;
     }
