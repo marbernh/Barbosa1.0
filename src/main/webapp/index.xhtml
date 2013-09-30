@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>JSP Page</title>
+        <style>
+            #menu ul{
+                margin: 0px;
+                pasdding: 0px;
+            }
+
+            #menu li{
+                list-style-type: none;
+                display: inline;
+                margin: 0 5px 0 5px;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <h1>Project Barbosa!</h1>
+        <ul id="menu">
+            <li id="menu">Home</li>
+            <li id="menu">Game</li>
+            <li id="menu">Result</li>
+        </ul>
+
+        <h3>Gissa för fan!</h3>
+        <h:form>
+            <h:panelGrid columns="1">
+                <h:outputText value="Guess" />
+                <h:inputText id="guess" value="#{guessBean.guess}"/>
+                <h:message for="guess" />
+                <h:outputText value="#{guessBean.outcome}"/>
+            </h:panelGrid>
+            <!--  <h:button outcome="products" value="Cancel"/> -->            
+            <h:commandButton action="#{guessBean.validate}" value="OK" />
+        </h:form>
+    </h:body>
+</html>
