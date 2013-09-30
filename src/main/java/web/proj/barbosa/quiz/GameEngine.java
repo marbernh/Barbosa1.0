@@ -34,6 +34,7 @@ public class GameEngine {
         life = 3;
         int newRandom = generator.nextInt(answers.length);
         this.answer = answers[newRandom];
+        pics = searcher.searchAndFind(answer);
     }
 
     public String makeGuess(String guess) {

@@ -6,16 +6,16 @@ package web.proj.barbosa.quiz.superbean;
 
 import java.io.Serializable;
 import javax.ejb.Singleton;
+import javax.inject.Named;
 import web.proj.barbosa.quiz.GameEngine;
 import web.proj.barbosa.quiz.GameFactory;
 import web.proj.barbosa.quiz.Leaderboard;
-import web.proj.barbosa.quiz.Result;
 
 /**
  *
  * @author Filip Husnjak
  */
-@Singleton
+@Named("gameBean")
 public class GameBean implements Serializable {
     
     private final GameEngine g = new GameEngine();
@@ -24,6 +24,14 @@ public class GameBean implements Serializable {
     
     public GameBean() {
         leaderboard = gf.getLeaderboard();
+        g.newGame();
+    }
+    public void submitGuess(){
+        
+    }
+    
+    public String getPicUrl(int num){
+        return g.getPics().get(num);
     }
     
     public Leaderboard getLeaderboard(){
