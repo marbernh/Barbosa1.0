@@ -12,28 +12,58 @@ import java.util.Random;
  * @author Filip Husnjak
  */
 public class GameEngine {
-   
-    private Result result;
+
     private int life;
     private int score;
-    private String[] answers; 
+    private int guessRight,guessWrong;
+    private String[] answers = GameFactory.getTestWords();
     private String answer;
     private static Random generator;
     private Search searcher;
     private ArrayList<String> pics = new ArrayList<String>();
-    
-    public void newGame(){
+
+    public void newGame() {
         life = 3;
         score = 0;
         int random = generator.nextInt(answers.length);
-        this.answer  = answers[random];
+        this.answer = answers[random];
         pics = searcher.searchAndFind(answer);
     }
-    public void nextImage(){
-        
+
+    public void nextRound() {
+        life = 3;
+        int newRandom = generator.nextInt(answers.length);
+        this.answer = answers[newRandom];
+    }
+
+    public String makeGuess(String guess) {
+        if (guess.equals(answer)) {
+            score = life * 15;
+            this.guessRight++;
+            return "correct";
+        } else if (!(guess.equals(answer)) && life-- > 0) {
+            guessWrong++;
+            return "try again";
+        } else if (!(guess.equals(answer)) && life-- == 0) {
+            guessWrong++;
+            return "game over";
+        } else {
+            return "error";
+        }
+    }
+    public void gameOver(User user){
+        user.result.update(guessRight,guessWrong,score);
+    }
+
+    public String getAnswer() {
+        return answer;
     }
     
-    public String getAnswer(){
-        return answer;
+    public int getScore(){
+        return this.score;
+    }
+    
+    public ArrayList<String> getPics(){
+        return pics;
     }
 }
