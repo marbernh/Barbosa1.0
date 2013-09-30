@@ -21,7 +21,7 @@ import web.proj.barbosa.quiz.Result;
 public class LeaderboardBB {
     
     private GameFactory data = new GameFactory();
-    public Leaderboard board;  
+    private Leaderboard board;  
     @Inject
     private GameBean game;
     

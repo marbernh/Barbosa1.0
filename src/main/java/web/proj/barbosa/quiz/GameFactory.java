@@ -13,10 +13,11 @@ import java.util.ArrayList;
 public class GameFactory {
     
     public static Leaderboard getTestboard(boolean testData){
-        Leaderboard lb = new Leaderboard();
+      /*  Leaderboard lb = new Leaderboard();
         if(testData)
             testData(lb);
-        return lb;
+        return lb;*/
+        return null;
     }
     
     

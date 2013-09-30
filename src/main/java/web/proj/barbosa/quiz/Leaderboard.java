@@ -9,22 +9,19 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.TreeMap;
-
 /**
  *
  * @author Filip Husnjak
  */
 public class Leaderboard implements Comparator<Result> {
 
-    private TreeMap<Long, Result> resultboard = new TreeMap<Long, Result>();
+    private Map<Long, Result> resultboard = new HashMap<Long, Result>();
 
-    public Leaderboard(TreeMap<Long, Result> resultboard) {
+    public Leaderboard(Map<Long, Result> resultboard) {
         this.resultboard = resultboard;
     }
 
     Leaderboard() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public void add(Result newResult) {
@@ -39,7 +36,7 @@ public class Leaderboard implements Comparator<Result> {
         // gör något
     }
     
-    public TreeMap<Long, Result> getMap(){
+    public Map<Long, Result> getMap(){
         return resultboard;
     }
 
@@ -56,9 +53,5 @@ public class Leaderboard implements Comparator<Result> {
         return a < b ? -1
                 : a > b ? 1
                 : 0;
-    }
-
-    void add() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
