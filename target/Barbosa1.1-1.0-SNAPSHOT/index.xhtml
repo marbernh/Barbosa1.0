@@ -24,19 +24,18 @@ and open the template in the editor.
                 display: inline;
                 margin: 0 5px 0 5px;
             }
+            body {
+                background: url(background.jpg) no-repeat center center fixed; 
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+            }
+            
         </style>
     </h:head>
-    <h:body>
-        <p:dock position="top">  
-            <p:menuitem value="Home" icon="/images/dock/home.png" url="#"/>  
-            <p:menuitem value="Music" icon="/images/dock/music.png" url="#"/>  
-            <p:menuitem value="Video" icon="/images/dock/video.png" url="#"/>  
-            <p:menuitem value="Email" icon="/images/dock/email.png" url="#"/>  
-            <p:menuitem value="Portfolio" icon="/images/dock/portfolio.png" url="#"/>  
-            <p:menuitem value="Link" icon="/images/dock/link.png" url="#"/>  
-            <p:menuitem value="RSS" icon="/images/dock/rss.png" url="#"/>  
-            <p:menuitem value="History" icon="/images/dock/history.png" url="#"/>  
-        </p:dock>
+    <h:body id="body">
+
         <h1>Project Barbosa!</h1>
         <ul id="menu">
             <li id="menu">Home</li>
