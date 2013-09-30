@@ -37,6 +37,10 @@ public class Leaderboard implements Comparator<Result> {
     public void sortList() {
         // gör något
     }
+    
+    public Map<Long, Result> getMap(){
+        return resultboard;
+    }
 
     @Override
     public int compare(Result x, Result y) {

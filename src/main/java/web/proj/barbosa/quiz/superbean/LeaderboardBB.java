@@ -29,11 +29,9 @@ public class LeaderboardBB {
         ArrayList<Result> result = new ArrayList<Result>();
         board = game.getLeaderboard();
         for(int i = 0; i < 10; i++){
-            result;
-        }
-         
-        return null;
-        
+            result = (ArrayList<Result>) game.getLeaderboard().getMap().values();
+        } 
+        return result;   
     }
 
 }
