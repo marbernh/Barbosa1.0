@@ -27,14 +27,16 @@ public class GameBean implements Serializable {
     public GameBean() {
         leaderboard = gf.getLeaderboard();
     }
-    public void newGame(){
+    public String newGame(){
         g.newGame();
+        return "guess";
     }
     public void submitGuess(){
         
     }
     
     public String getPicUrl(String num){
+        System.out.println(g.getPics().get(Integer.valueOf(num)));
         return g.getPics().get(Integer.valueOf(num));
     }
     
