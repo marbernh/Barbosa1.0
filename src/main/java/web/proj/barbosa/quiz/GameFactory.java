@@ -5,6 +5,8 @@
 package web.proj.barbosa.quiz;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -12,27 +14,33 @@ import java.util.ArrayList;
  */
 public class GameFactory {
     
-    public static Leaderboard getTestboard(boolean testData){
-      /*  Leaderboard lb = new Leaderboard();
-        if(testData)
-            testData(lb);
-        return lb;*/
-        return null;
+    // Leaderboarden ligger här så länge....
+    
+    private Leaderboard testboard;
+    
+    public GameFactory(){
+        testboard = new Leaderboard(testData());
     }
+    
+    public Leaderboard getLeaderboard(){
+        return testboard;
+    }
+    
     public static String[] getTestWords(){
         String[] list = new String[]{"pig","lamp","book","tree","house","paris","duck","fork","table","sky"};
         return list;
     }
     
-    
-    private static void testData(Leaderboard testboard) {
+    private static Map<Long, Result> testData() {
         // Lägger in test data
             ArrayList<User> users = new ArrayList<User>();
-        for(int i = 1; i < 6; i++){
+            Map<Long, Result> list = new HashMap<Long, Result>();
+        for(int i = 0; i < 5; i++){
             users.add(new User("user" + i, "pass"));
         }
         for(int i = 0; i<5; i++){
-            testboard.add(users.get(i).getResult());
+            list.put(users.get(i).getId(), users.get(i).getResult());
         }
+        return list;
     }
 }
