@@ -6,6 +6,7 @@ package web.proj.barbosa.quiz.superbean;
 
 import java.io.Serializable;
 import javax.ejb.Singleton;
+import javax.enterprise.context.ConversationScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import web.proj.barbosa.quiz.GameEngine;
@@ -17,7 +18,7 @@ import web.proj.barbosa.quiz.Leaderboard;
  * @author Filip Husnjak
  */
 @Named("gameBean")
-@SessionScoped
+@ConversationScoped
 public class GameBean implements Serializable {
     
     private final GameEngine g = new GameEngine();

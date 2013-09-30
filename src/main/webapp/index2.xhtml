@@ -66,12 +66,12 @@ body {
         <h:form>
             <h:panelGrid columns="1">
                 <h:outputText value="Guess" />
-                <h:inputText id="guess" value="#{guessBean.guess}"/>
+                <!--<h:inputText id="guess" value="#{guessBean.guess}"/>-->
                 <h:message for="guess" />
-                <h:outputText value="#{guessBean.outcome}"/>
+                <!--<h:outputText value="#{guessBean.outcome}"/>-->
             </h:panelGrid>
            
-            <h:commandButton action="#{guessBean.validate}" value="OK" />
+            <!--<h:commandButton action="#{guessBean.validate}" value="OK" />-->
             <h:commandButton action="#{gameBean.newGame}" value="New game"/>
         </h:form>
     </h:body>
