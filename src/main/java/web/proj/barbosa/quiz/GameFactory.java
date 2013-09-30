@@ -5,8 +5,7 @@
 package web.proj.barbosa.quiz;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.TreeMap;
 
 /**
  *
@@ -31,10 +30,10 @@ public class GameFactory {
         return list;
     }
     
-    private static Map<Long, Result> testData() {
+    private static TreeMap<Long, Result> testData() {
         // Lägger in test data
             ArrayList<User> users = new ArrayList<User>();
-            Map<Long, Result> list = new HashMap<Long, Result>();
+            TreeMap<Long, Result> list = new TreeMap<Long, Result>();
         for(int i = 0; i < 5; i++){
             users.add(new User("user" + i, "pass"));
         }

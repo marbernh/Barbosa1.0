@@ -3,21 +3,18 @@
  * and open the template in the editor.
  */
 package web.proj.barbosa.quiz;
-
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 /**
  *
  * @author Filip Husnjak
  */
 public class Leaderboard implements Comparator<Result> {
 
-    private Map<Long, Result> resultboard = new HashMap<Long, Result>();
+    private TreeMap<Long, Result> resultboard = new TreeMap<Long, Result>();
 
-    public Leaderboard(Map<Long, Result> resultboard) {
+    public Leaderboard(TreeMap<Long, Result> resultboard) {
         this.resultboard = resultboard;
     }
 
@@ -26,17 +23,12 @@ public class Leaderboard implements Comparator<Result> {
 
     public void add(Result newResult) {
         resultboard.put(newResult.getId(), newResult);
-        sortList();
     }
     public Result getResult(Long id){
         return resultboard.get(id);
     }
-
-    public void sortList() {
-        // gör något
-    }
     
-    public Map<Long, Result> getMap(){
+    public TreeMap<Long, Result> getMap(){
         return resultboard;
     }
 
