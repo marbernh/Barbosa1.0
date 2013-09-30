@@ -19,13 +19,15 @@ import web.proj.barbosa.quiz.Result;
 public class GameBean implements Serializable {
     
     private final GameEngine g = new GameEngine();
-    private Leaderboard lb = GameFactory.getTestboard(true);
+    private GameFactory gf = new GameFactory();
+    private Leaderboard leaderboard;
     
     public GameBean() {
+        leaderboard = gf.getLeaderboard();
     }
     
     public Leaderboard getLeaderboard(){
-        return lb;
+        return leaderboard;
     }
 
     public String getAnswer(){
