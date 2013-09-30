@@ -19,6 +19,10 @@ public class GameFactory {
         return lb;*/
         return null;
     }
+    public static String[] getTestWords(){
+        String[] list = new String[]{"pig","lamp","book","tree","house","paris","duck","fork","table","sky"};
+        return list;
+    }
     
     
     private static void testData(Leaderboard testboard) {

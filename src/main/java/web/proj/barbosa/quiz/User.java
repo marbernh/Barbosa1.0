@@ -18,7 +18,7 @@ public class User {
     private Random idMaker;
 
     public User(String userName, String password) {
-        this.id = new Long(idMaker.nextInt(1000));
+        this.id = idMaker.nextLong();
         this.userName = userName;
         this.password = password;
         result = new Result(id);
