@@ -20,11 +20,11 @@ public class Result{
         score = 0;
     }
     
-    public void update(int win, int lose){
+    public void update(int win, int lose, int score ){
         gamesPlayed = win + lose;
-        this.win = win;
-        this.lose = lose;  
-        this.score = score;
+        this.win += win;
+        this.lose += lose;  
+        this.score += score;
     }
     
     public Long getId(){
