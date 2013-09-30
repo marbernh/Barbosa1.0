@@ -14,12 +14,19 @@ and open the template in the editor.
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <title>JSP Page</title>
         <style>
-body {
+            body {
                 background: url(background.jpg) no-repeat center center fixed; 
                 -webkit-background-size: cover;
                 -moz-background-size: cover;
                 -o-background-size: cover;
                 background-size: cover;
+            }
+            #menu {
+                display: block;
+                float: left;
+                line-height: 35px;
+                list-style:none;
+                margin: 0 5px;
             }
             #menu li{
                 /* This generators the gradient on top of the solid color */
@@ -50,7 +57,7 @@ body {
                 -moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.65);
                 -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.65);
             }
-            
+
         </style>
     </h:head>
     <h:body id="body">
@@ -61,7 +68,7 @@ body {
             <li id="menu">Game</li>
             <li id="menu">Result</li>
         </ul>
-        
+
         <h3>Gissa för fan!</h3>
         <h:form>
             <h:panelGrid columns="1">
