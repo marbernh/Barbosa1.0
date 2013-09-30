@@ -15,10 +15,10 @@ public class User {
     private String name, userName, password;
     private Long id;
     public Result result;
-    private Random idMaker;
+    private static Random idMaker = new Random();
 
     public User(String userName, String password) {
-        this.id = idMaker.nextLong();
+        this.id = new Long(idMaker.nextInt(1000));
         this.userName = userName;
         this.password = password;
         result = new Result(id);
