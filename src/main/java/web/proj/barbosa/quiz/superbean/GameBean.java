@@ -18,7 +18,7 @@ import web.proj.barbosa.quiz.Leaderboard;
  * @author Filip Husnjak
  */
 @Named("gameBean")
-@ConversationScoped
+@SessionScoped
 public class GameBean implements Serializable {
     
     private final GameEngine g = new GameEngine();

@@ -57,33 +57,47 @@ and open the template in the editor.
                 -moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.65);
                 -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.65);
             }
-
+            
+            #center{
+                margin: 0 auto;
+            }
+            
         </style>
     </h:head>
-     <h:body id="body">
-
-        <h1>Project Barbosa!</h1>
-        <ul id="menu">
-            <li id="menu">Home</li>
-            <li id="menu">Game</li>
-            <li id="menu">Result</li>
-        </ul>
-        <img src="#{gameBean.getPicUrl(1)}" height="150" />
-        <img src="#{gameBean.getPicUrl(2)}" height="150" />
-        <img src="#{gameBean.getPicUrl(3)}" height="150" />
-        <img src="#{gameBean.getPicUrl(4)}" height="150" />
-        <img src="#{gameBean.getPicUrl(5)}" height="150" />
-        <h3>Guess on search phrase for the image!</h3>
-        <h:form>
-            <h:panelGrid columns="1">
-                <h:outputText value="Guess" />
-                <h:inputText id="guess" value="#{guessBean.guess}"/>
-                <h:message for="guess" />
-                <h:outputText value="#{guessBean.outcome}"/>
-            </h:panelGrid>
-           
-            <h:commandButton action="#{guessBean.validate}" value="OK" />
-            <h:commandButton action="#{gameBean.newGame}" value="New game"/>
-        </h:form>
+    <h:body id="body">
+        <div style ="width:100%; ">
+            <div style="float:left; width: 20%">
+                <h3>Guess on search phrase for the image!</h3>
+                <h:form>
+                    <h:panelGrid columns="1">
+                        <h:outputText value="Guess" />
+                        <h:inputText id="guess" value="#{guessBean.guess}"/>
+                        <h:message for="guess" />
+                        <h:outputText value="#{guessBean.outcome}"/>
+                    </h:panelGrid>
+                    
+                    <h:commandButton action="#{guessBean.validate}" value="OK" />
+                    <h:commandButton action="#{gameBean.newGame}" value="New game"/>
+                </h:form>
+            </div>
+            <div style =" float: left; width: 60%;">
+                <div id="center">
+                    <h1>Project Barbosa!</h1>
+                    
+                    <img src="#{gameBean.getPicUrl(1)}" height="150" />
+                    <img src="#{gameBean.getPicUrl(2)}" height="150" />
+                    <img src="#{gameBean.getPicUrl(3)}" height="150" />
+                    <img src="#{gameBean.getPicUrl(4)}" height="150" />
+                    <img src="#{gameBean.getPicUrl(5)}" height="150" />
+                </div>
+                <div id ="center">
+                    <ul id="menu">
+                        <li id="menu">Home</li>
+                        <li id="menu">Game</li>
+                        <li id="menu">Result</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </h:body>
 </html>
