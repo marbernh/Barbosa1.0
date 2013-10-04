@@ -60,7 +60,7 @@ and open the template in the editor.
 
         </style>
     </h:head>
-    <h:body id="body">
+     <h:body id="body">
 
         <h1>Project Barbosa!</h1>
         <ul id="menu">
@@ -68,8 +68,12 @@ and open the template in the editor.
             <li id="menu">Game</li>
             <li id="menu">Result</li>
         </ul>
-
-        <h3>Gissa för fan!</h3>
+        <img src="#{gameBean.getPicUrl(1)}" height="150" />
+        <img src="#{gameBean.getPicUrl(2)}" height="150" />
+        <img src="#{gameBean.getPicUrl(3)}" height="150" />
+        <img src="#{gameBean.getPicUrl(4)}" height="150" />
+        <img src="#{gameBean.getPicUrl(5)}" height="150" />
+        <h3>Guess on search phrase for the image!</h3>
         <h:form>
             <h:panelGrid columns="1">
                 <h:outputText value="Guess" />
@@ -77,8 +81,9 @@ and open the template in the editor.
                 <h:message for="guess" />
                 <h:outputText value="#{guessBean.outcome}"/>
             </h:panelGrid>
-            <!--  <h:button outcome="products" value="Cancel"/> -->            
+           
             <h:commandButton action="#{guessBean.validate}" value="OK" />
+            <h:commandButton action="#{gameBean.newGame}" value="New game"/>
         </h:form>
     </h:body>
 </html>

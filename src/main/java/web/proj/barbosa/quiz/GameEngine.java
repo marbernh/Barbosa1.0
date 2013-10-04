@@ -16,13 +16,21 @@ public class GameEngine {
     private int life;
     private int score;
     private int guessRight,guessWrong;
-    private String[] answers = GameFactory.getTestWords();
+    private GameFactory gf;
+    private String[] answers;
     private String answer;
-    private static Random generator;
-    private Search searcher;
+    private static Random generator;// = new Random();
+    private Search searcher; //= new Search();
     private ArrayList<String> pics = new ArrayList<String>();
 
-    public void newGame() {
+    public GameEngine() {
+        generator = new Random();
+        searcher = new Search();
+        gf = new GameFactory();   
+        this.answers = gf.getTestWords();
+    }
+
+    public void newGame() { 
         life = 3;
         score = 0;
         int random = generator.nextInt(answers.length);
@@ -57,6 +65,8 @@ public class GameEngine {
     }
 
     public String getAnswer() {
+        
+        System.out.println("getanswer engine");
         return answer;
     }
     

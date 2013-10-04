@@ -22,6 +22,10 @@ public class GuessBB {
     private GameBean game;
     
     public String validate(){
+        System.out.println("validate");
+ 
+        System.out.println("answer " + game.getAnswer());
+        System.out.println("guess" + guess);
         if(game.getAnswer().equals(guess)){
             System.out.println("Stämmer " + guess);
             outcome = "Your answer is correct";

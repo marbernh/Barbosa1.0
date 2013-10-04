@@ -25,7 +25,7 @@ public class GameFactory {
         return testboard;
     }
     
-    public static String[] getTestWords(){
+    public String[] getTestWords(){
         String[] list = new String[]{"pig","lamp","book","tree","house","paris","duck","fork","table","sky"};
         return list;
     }
