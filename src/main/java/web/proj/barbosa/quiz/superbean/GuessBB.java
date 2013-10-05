@@ -21,6 +21,7 @@ public class GuessBB {
     @Inject
     private GameBean game;
     
+    
     public String validate(){
         System.out.println("validate");
  
@@ -29,6 +30,7 @@ public class GuessBB {
         if(game.getAnswer().equals(guess)){
             System.out.println("Stämmer " + guess);
             outcome = "Your answer is correct";
+            game.nextRound();
             return "guess";
         }else
             System.out.println("Stämmer ej");

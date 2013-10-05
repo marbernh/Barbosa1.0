@@ -26,7 +26,6 @@ public class GameBean implements Serializable {
     private Leaderboard leaderboard;
     
     public GameBean() {
-        
         g.newGame();
         leaderboard = gf.getLeaderboard();
     }
@@ -34,8 +33,8 @@ public class GameBean implements Serializable {
         g.newGame();
         return "guess";
     }
-    public void submitGuess(){
-        
+    public void nextRound(){
+        g.nextRound();
     }
     
     public String getPicUrl(String num){
