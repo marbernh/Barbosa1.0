@@ -31,15 +31,12 @@ public class GameEngine {
     }
 
     public void newGame() { 
-        life = 3;
-        score = 0;
         int random = generator.nextInt(answers.length);
         this.answer = answers[random];
         pics = searcher.searchAndFind(answer);
     }
 
     public void nextRound() {
-        life = 3;
         int newRandom = generator.nextInt(answers.length);
         this.answer = answers[newRandom];
         pics = searcher.searchAndFind(answer);

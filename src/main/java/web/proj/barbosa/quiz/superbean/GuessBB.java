@@ -23,18 +23,18 @@ public class GuessBB {
     
     
     public String validate(){
-        System.out.println("validate");
- 
-        System.out.println("answer " + game.getAnswer());
-        System.out.println("guess" + guess);
         if(game.getAnswer().equals(guess)){
-            System.out.println("Stämmer " + guess);
             outcome = "Your answer is correct";
+            game.increaseScore();
             game.nextRound();
             return "guess";
         }else
-            System.out.println("Stämmer ej");
+            if (game.looseLife() == 0){
+                outcome="GAME OVER";
+                game.newGame();
+            }else{
             outcome = "Your answer is wrong";
+            }
         return "guess";
     }
     

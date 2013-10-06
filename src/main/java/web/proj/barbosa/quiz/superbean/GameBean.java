@@ -23,18 +23,43 @@ public class GameBean implements Serializable {
     
     private final GameEngine g = new GameEngine();
     private GameFactory gf = new GameFactory();
+    private int life,score;
     private Leaderboard leaderboard;
     
     public GameBean() {
+        life = 3;
+        score = 0;
         g.newGame();
         leaderboard = gf.getLeaderboard();
     }
+        
     public String newGame(){
+        life = 3;
+        score = 0;
         g.newGame();
         return "guess";
     }
+    
     public void nextRound(){
+        life = 3;
         g.nextRound();
+    }
+    
+    public void increaseScore(){
+        score = life * 5;
+    }
+    
+    public int looseLife(){
+        life--;
+        return life;
+    }
+    
+    public String getLife(){
+        return Integer.toString(life);
+    }
+    
+    public String getScore(){
+        return Integer.toString(score);
     }
     
     public String getPicUrl(String num){
