@@ -30,8 +30,8 @@ and open the template in the editor.
                     <h:commandButton action="#{guessBean.validate}" value="OK" />
                     <h:commandButton action="#{gameBean.newGame}" value="New game"/>
                     <h:panelGrid columns="1">        
-                        <h:outputText value="#{gameBean.getLife}"/>
-                        <h:outputText value="#{gameBean.getScore}"/>
+                        <h:outputText value="Lifes: #{gameBean.life}"/>
+                        <h:outputText value="Score: #{gameBean.score}"/>
                     </h:panelGrid>
                 </h:form>
             </div>

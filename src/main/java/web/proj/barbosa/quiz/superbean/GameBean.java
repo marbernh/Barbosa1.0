@@ -46,7 +46,7 @@ public class GameBean implements Serializable {
     }
     
     public void increaseScore(){
-        score = life * 5;
+        score = score + (life * 5);
     }
     
     public int looseLife(){
