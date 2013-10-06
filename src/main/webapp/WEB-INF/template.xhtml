@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+    
+    <!--
+    Nya
+      THIS IS THE OVERALL LAYOUT FOR THE SITE (not accessible from outside)
+    
+    -->
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!--        <link rel="stylesheet" type="text/css" href="ImageQuiz.css" />-->
+        <h:outputStylesheet library="css" name="ImageQuiz.css"  />
+        <title>JSF Shop</title>
+    </h:head>
+    
+    <h:body id="body" >
+        <div style ="width:100%; ">
+            <ui:insert name="content">Content</ui:insert>
+
+            <!--            <div style="float:left; width: 20%">
+                            <h3>Guess on search phrase for the image!</h3>
+                            <h:form>
+                                <h:panelGrid columns="1">
+                                    <h:outputText value="Guess" />
+                                    <h:inputText id="guess" value="#{guessBean.guess}"/>
+                                    <h:message for="guess" />
+                                    <h:outputText value="#{guessBean.outcome}"/>
+                                </h:panelGrid>
+                                <h:commandButton action="#{guessBean.validate}" value="OK" />
+                                <h:commandButton action="#{gameBean.newGame}" value="New game"/>
+                                <h:panelGrid columns="1">        
+                                    <h:outputText value="Lifes: #{gameBean.life}"/>
+                                    <h:outputText value="Score: #{gameBean.score}"/>
+                                </h:panelGrid>
+                            </h:form>
+                        </div>
+                        <h1 align="center">Project Barbosa!</h1>
+                        <div class="GameBox">
+                            <div class ="Pictures"> 
+                                <img src="#{gameBean.getPicUrl(0)}" height="150" width="200"/>
+                                <img src="#{gameBean.getPicUrl(1)}" height="150" width="200"/>
+                                <img src="#{gameBean.getPicUrl(2)}" height="150" width="200"/>
+                                <img src="#{gameBean.getPicUrl(3)}" height="150" width="200"/>
+                                <img src="#{gameBean.getPicUrl(4)}" height="150" width="200"/>
+                                <img src="#{gameBean.getPicUrl(5)}" height="150" width="200"/>
+                                <p style="color: #777">[These images are from Google Image search results.]</p>
+                            </div>
+                        </div>-->
+            <div class="MenuBox">
+                <ul id="menu">
+                    <li id="menu">Home</li>
+                    <li id="menu">Game</li>
+                    <li id="menu">Result</li>
+                    <li id="menu"><h:button outcome="login" value="Log in"/></li>
+                    <!--id="menu">Log In-->
+                    <li id="menu">About</li>
+                </ul>
+            </div>
+        </div>
+    </h:body>
+    
+</html>
