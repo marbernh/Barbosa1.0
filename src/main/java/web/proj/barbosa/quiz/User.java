@@ -12,7 +12,7 @@ import java.util.Random;
  */
 public class User {
 
-    private String name, userName, password;
+    private String userName, password;
     private Long id;
     public Result result;
     private static Random idMaker = new Random();
@@ -43,13 +43,13 @@ public class User {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
+//    public String getName() {
+//        return name;
+//    }
+//
+//    public void setName(String name) {
+//        this.name = name;
+//    }
 
     public String getUserName() {
         return userName;

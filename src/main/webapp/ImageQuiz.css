@@ -57,7 +57,9 @@ body {
 
 .GameBox {
     background: #ffffff;
-    /* opacity:0.6; /*För alla andra */
+    /*    background-color: rgb(0, 0, 0);
+        background-color: rgba(127, 255, 0, 0.6);*/
+/*    opacity:0.6; För alla andra /*
     /* filter:alpha(opacity=60); /*För IE*/
     position: relative;
     width: 608px;
@@ -73,6 +75,7 @@ body {
     border: 1px solid black;
 }
 
+
 .MenuBox {
     position: relative;
     width: auto;
@@ -80,5 +83,5 @@ body {
     margin-left: 35%;
     margin-right: 35%;
     height: 100%;
-   /* border: 1px solid black;*/
+    /* border: 1px solid black;*/
 }
