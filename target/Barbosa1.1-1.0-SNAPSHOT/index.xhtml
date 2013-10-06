@@ -27,9 +27,12 @@ and open the template in the editor.
                         <h:message for="guess" />
                         <h:outputText value="#{guessBean.outcome}"/>
                     </h:panelGrid>
-                    
                     <h:commandButton action="#{guessBean.validate}" value="OK" />
                     <h:commandButton action="#{gameBean.newGame}" value="New game"/>
+                    <h:panelGrid columns="1">        
+                        <h:outputText value="Lifes: #{gameBean.life}"/>
+                        <h:outputText value="Score: #{gameBean.score}"/>
+                    </h:panelGrid>
                 </h:form>
             </div>
             <h1 align="center">Project Barbosa!</h1>
