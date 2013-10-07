@@ -102,10 +102,12 @@ body {
     width: 380px;
     height: 99px;
     float: left;
+    border: 1px solid black;
 }
 #InfoBox{
-    margin-top: 8%;
+    margin-top: 5%;
     float: left;
     width: auto;
     height: auto;
+    border: 1px solid black;
 }

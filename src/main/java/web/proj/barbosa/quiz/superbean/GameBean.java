@@ -5,6 +5,7 @@
 package web.proj.barbosa.quiz.superbean;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import javax.ejb.Singleton;
 import javax.enterprise.context.ConversationScoped;
 import javax.enterprise.context.SessionScoped;
@@ -21,12 +22,14 @@ import web.proj.barbosa.quiz.Leaderboard;
 @SessionScoped
 public class GameBean implements Serializable {
     
+    private ArrayList<String> lifes;
     private final GameEngine g = new GameEngine();
     private GameFactory gf = new GameFactory();
     private int life,score;
     private Leaderboard leaderboard;
     
     public GameBean() {
+
         life = 3;
         score = 0;
         g.newGame();
@@ -35,6 +38,10 @@ public class GameBean implements Serializable {
         
     public String newGame(){
         life = 3;
+//        lifes.clear();
+//        for(int i = 0; i < life; i++){
+//            lifes.add("");
+//        }
         score = 0;
         g.newGame();
         return "guess";
@@ -50,8 +57,15 @@ public class GameBean implements Serializable {
     }
     
     public int looseLife(){
+
+
         life--;
         return life;
+    }
+    
+    
+    public ArrayList<String> getLifes(){
+        return lifes;
     }
     
     public String getLife(){

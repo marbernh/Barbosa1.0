@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
 
     <h:body>
         <ui:composition>
@@ -25,19 +26,20 @@
                     <div id="InfoBox">
                         <h:form>
                             <h:panelGrid columns="1">        
-                                <h:outputText value="Lifes: #{gameBean.life}"/>
+                                <c:forEach begin="1" end="#{gameBean.life}">
+                                    <tr>
+                                        <img src="#{resource['img:heart.png']}" height="25" width="25"/>
+                                    </tr>
+                                </c:forEach>
                                 <h:outputText value="Score: #{gameBean.score}"/>
                             </h:panelGrid>
                         </h:form>
                     </div> <!-- info -->
                 </div><!-- middle -->
                 <div class="GameBox">
-                    <img src="#{gameBean.getPicUrl(0)}" height="150" width="200"/>
-                    <img src="#{gameBean.getPicUrl(1)}" height="150" width="200"/>
-                    <img src="#{gameBean.getPicUrl(2)}" height="150" width="200"/>
-                    <img src="#{gameBean.getPicUrl(3)}" height="150" width="200"/>
-                    <img src="#{gameBean.getPicUrl(4)}" height="150" width="200"/>
-                    <img src="#{gameBean.getPicUrl(5)}" height="150" width="200"/>
+                    <c:forEach var="i" begin="0" end="5">
+                        <img src="#{gameBean.getPicUrl(i)}" height="150" width="200"/>
+                    </c:forEach>
                     <p style="color: #777">[These images are from Google Image search results.]</p>
                 </div>
             </div>
