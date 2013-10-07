@@ -4,31 +4,34 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets">
-          
+
     <h:body>
-        
         <ui:composition>
-            <!--            <ui:define name="content"> -->
-            <div style="float:left; width: 20%">
-                <h3>Guess on search phrase for the image!</h3>
-                <h:form>
-                    <h:panelGrid columns="1">
-                        <h:outputText value="Guess" />
-                        <h:inputText id="guess" value="#{guessBean.guess}"/>
-                        <h:message for="guess" />
-                        <h:outputText value="#{guessBean.outcome}"/>
-                    </h:panelGrid>
-                    <h:commandButton action="#{guessBean.validate}" value="OK" />
-                    <h:commandButton action="#{gameBean.newGame}" value="New game"/>
-                    <h:panelGrid columns="1">        
-                        <h:outputText value="Lifes: #{gameBean.life}"/>
-                        <h:outputText value="Score: #{gameBean.score}"/>
-                    </h:panelGrid>
-                </h:form>
-            </div>
-            <h1 align="center">Project Barbosa!</h1>
-            <div class="GameBox">
-                <div class ="Pictures"> 
+            <div class="MainBox">
+                <div id="BannerBox"></div>
+                <div id="middleBox">
+                    <div id="GuessBox">
+                        <h:form>
+                            <h:outputText value="Your Guess is?" />
+                            <h:panelGrid columns="2">
+                                <h:panelGrid>
+                                    <h:inputText id="guess" value="#{guessBean.guess}"/>
+                                </h:panelGrid>
+                                <h:commandButton action="#{guessBean.validate}" value="Submit" />
+                                <h:outputText value="#{guessBean.outcome}"/>
+                            </h:panelGrid>
+                        </h:form>
+                    </div> <!-- guess -->
+                    <div id="InfoBox">
+                        <h:form>
+                            <h:panelGrid columns="1">        
+                                <h:outputText value="Lifes: #{gameBean.life}"/>
+                                <h:outputText value="Score: #{gameBean.score}"/>
+                            </h:panelGrid>
+                        </h:form>
+                    </div> <!-- info -->
+                </div><!-- middle -->
+                <div class="GameBox">
                     <img src="#{gameBean.getPicUrl(0)}" height="150" width="200"/>
                     <img src="#{gameBean.getPicUrl(1)}" height="150" width="200"/>
                     <img src="#{gameBean.getPicUrl(2)}" height="150" width="200"/>
@@ -38,8 +41,6 @@
                     <p style="color: #777">[These images are from Google Image search results.]</p>
                 </div>
             </div>
-            <!--            </ui:define>-->
         </ui:composition>
-            
     </h:body>
 </html>
