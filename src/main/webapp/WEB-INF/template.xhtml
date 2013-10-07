@@ -13,33 +13,9 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <h:outputStylesheet library="css" name="ImageQuiz.css"  />
         <title>JSF Shop</title>
-        <script>
-            function startTime()
-            {
-                var today=new Date();
-                var h=today.getHours();
-                var m=today.getMinutes();
-                var s=today.getSeconds();
-
-                m=checkTime(m);
-                s=checkTime(s);
-                document.getElementById('txt').innerHTML=h+":"+m+":"+s;
-                t=setTimeout(function(){startTime()},500);
-            }
-    
-            function checkTime(i)
-            {
-                if (i<10)
-                {
-                    i="0" + i;
-                }
-                return i;
-            }
-        </script>
     </h:head>
     
-            <h:body id="body">
-                onload="startTime()";
+            <h:body id="body">  
                 <div style ="width:100%; ">
             
             <ui:insert name="content">Content</ui:insert>
