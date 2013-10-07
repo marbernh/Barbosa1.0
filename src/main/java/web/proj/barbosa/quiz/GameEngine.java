@@ -58,7 +58,7 @@ public class GameEngine {
         }
     }
     public void gameOver(User user){
-        user.result.update(guessRight,guessWrong,score);
+        user.getResult().update(guessRight,guessWrong,score);
     }
 
     public String getAnswer() {

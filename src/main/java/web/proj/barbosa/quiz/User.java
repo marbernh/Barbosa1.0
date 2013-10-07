@@ -5,26 +5,19 @@
 package web.proj.barbosa.quiz;
 
 import java.util.Random;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
 /**
  *
  * @author Filip Husnjak
  */
-@Entity
 public class User {
 
     private String userName, password;
-    
-    @Id
-    @GeneratedValue
     private Long id;
     public Result result;
-    //private static Random idMaker = new Random();
+    private static Random idMaker = new Random();
 
     public User(String userName, String password) {
+        this.id = new Long(idMaker.nextInt(1000));
         this.userName = userName;
         this.password = password;
         result = new Result(id);

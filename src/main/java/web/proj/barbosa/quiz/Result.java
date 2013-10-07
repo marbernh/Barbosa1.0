@@ -5,18 +5,14 @@
 package web.proj.barbosa.quiz;
 
 import java.io.Serializable;
-import javax.persistence.*;
 
 /**
  *
  * @author Filip Husnjak
  */
-@Entity
 public class Result implements Serializable {
 
-    @Id
     private Long id;
-    @OneToOne
     private int gamesPlayed, win, lose, score, topGameScore;
 
     protected Result() {
