@@ -4,15 +4,25 @@
  */
 package web.proj.barbosa.quiz;
 
+import java.io.Serializable;
+import javax.persistence.*;
+
 /**
  *
  * @author Filip Husnjak
  */
-public class Result{
+@Entity
+public class Result implements Serializable {
+
+    @Id
     private Long id;
+    @OneToOne
     private int gamesPlayed, win, lose, score, topGameScore;
-    
-    public Result(Long id){
+
+    protected Result() {
+    }
+
+    protected Result(Long id) {
         this.id = id;
         gamesPlayed = 0;
         win = 0;
@@ -20,38 +30,38 @@ public class Result{
         score = 0;
         topGameScore = 0;
     }
-    
-    public void update(int win, int lose, int score ){
+
+    public void update(int win, int lose, int score) {
         gamesPlayed = win + lose;
         this.win += win;
-        this.lose += lose;  
+        this.lose += lose;
         this.score += score;
-        if(score > topGameScore){
+        if (score > topGameScore) {
             topGameScore = score;
         }
     }
-    
-    public Long getId(){
+
+    public Long getId() {
         return id;
     }
-    
-    public int getScore(){
+
+    public int getScore() {
         return score;
     }
-    
-    public int getWin(){
+
+    public int getWin() {
         return win;
     }
-    
-    public int getLost(){
+
+    public int getLost() {
         return lose;
     }
-    
-    public int getGamesPlayed(){
+
+    public int getGamesPlayed() {
         return gamesPlayed;
     }
-    
-    public int getTopGameScore(){
+
+    public int getTopGameScore() {
         return topGameScore;
     }
 }
