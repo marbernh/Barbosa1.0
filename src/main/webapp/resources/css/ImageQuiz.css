@@ -78,10 +78,11 @@ body {
 
 .MenuBox {
     position: relative;
-    width: auto;
+    width: 608px;
+/*    margin: 0 auto;*/
     margin-top: 2%;
-/*    margin-left: 35%;
-    margin-right: 35%;*/
+    margin-left: auto;
+    margin-right: auto;
     height: 100%;
     /* border: 1px solid black;*/
 }
