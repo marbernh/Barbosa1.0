@@ -16,6 +16,7 @@ public class GameFactory {
     // Leaderboarden ligger här så länge....
     
     private Leaderboard testboard;
+    private WordsMaker wm = new WordsMaker();
     
     public GameFactory(){
         testboard = new Leaderboard(testData());
@@ -26,7 +27,7 @@ public class GameFactory {
     }
     
     public String[] getTestWords(){
-        String[] list = new String[]{"pig","lamp","book","tree","house","paris","duck","fork","table","sky"};
+        String[] list = wm.getWords();
         return list;
     }
     
