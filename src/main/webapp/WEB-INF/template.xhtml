@@ -13,20 +13,45 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <h:outputStylesheet library="css" name="ImageQuiz.css"  />
         <title>JSF Shop</title>
+        <script>
+            function startTime()
+            {
+                var today=new Date();
+                var h=today.getHours();
+                var m=today.getMinutes();
+                var s=today.getSeconds();
+
+                m=checkTime(m);
+                s=checkTime(s);
+                document.getElementById('txt').innerHTML=h+":"+m+":"+s;
+                t=setTimeout(function(){startTime()},500);
+            }
+    
+            function checkTime(i)
+            {
+                if (i<10)
+                {
+                    i="0" + i;
+                }
+                return i;
+            }
+        </script>
     </h:head>
     
-    <h:body id="body" >
-        <div style ="width:100%; ">
+            <h:body id="body">
+                onload="startTime()";
+                <div style ="width:100%; ">
+            
             <ui:insert name="content">Content</ui:insert>
-            <div class="MenuBox">
-                <ul id="menu">
-                    <li id="menu">Home</li>
-                    <li id="menu">Game</li>
-                    <li id="menu">Result</li>
-                    <li id="menu"><h:button outcome="login" value="Log in"/></li>
-                    <li id="menu">About</li>
-                </ul>
-            </div>
+        <div class="MenuBox">
+            <ul id="menu">
+                <li id="menu">Home</li>
+                <li id="menu">Game</li>
+                <li id="menu">Result</li>
+                <li id="menu"><h:button outcome="login" value="Log in"/></li>
+                <li id="menu">About</li>
+            </ul>
+        </div>
         </div>
     </h:body>
 </html>
