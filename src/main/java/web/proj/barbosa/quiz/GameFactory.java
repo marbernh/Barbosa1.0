@@ -30,9 +30,10 @@ public class GameFactory {
         users.add(user);
     }
     
-    public User getUser(Long id){
+    public User getUser(String userName){
         for(User user: users){
-            if(user.getId() == id){
+            System.out.println("mf " + user.getUserName());
+            if(user.getUserName().equals(userName)){
                 return user;
             }
         }

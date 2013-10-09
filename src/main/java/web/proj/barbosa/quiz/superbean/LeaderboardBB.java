@@ -27,14 +27,14 @@ public class LeaderboardBB {
     private String score;
 
     public String getScore() {
-        this.score = "" + getFirstResult().getScore();
+        this.score = "" + getFirstResult().getTotalScore();
         return score;
     }
 
     public Result getFirstResult() {
         Leaderboard list = game.getLeaderboard();
         Result result = list.getMap().firstEntry().getValue();
-        System.out.println(list.getMap().firstEntry().getValue().getScore());
+        System.out.println(list.getMap().firstEntry().getValue().getTotalScore());
         return result;
     }
 }
