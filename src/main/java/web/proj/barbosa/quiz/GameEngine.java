@@ -39,12 +39,15 @@ public class GameEngine {
     }
 
     public void getNewPics() {
-        pics = null;
-        while (pics == null) {
+        boolean filled = false;
+        while (!filled) {
             int newRandom = generator.nextInt(answers.length);
             this.answer = answers[newRandom];
             pics = searcher.searchAndFind(answer);
+            if(pics != null && !(pics.isEmpty()))
+                filled = true;
         }
+        System.out.println(pics);
 
     }
 

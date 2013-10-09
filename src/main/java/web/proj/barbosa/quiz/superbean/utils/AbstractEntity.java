@@ -1,77 +1,54 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package web.proj.barbosa.quiz.superbean.utils;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import java.io.Serializable;
+import java.util.Objects;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 
 /**
- * This abstract class is "copied" from the JPA lab and first athured by hajo
- * but later changed by us in the workshop.
- * @author Filip Husnjak
+ * Base class for all entities (later to be stored in database), 
+ * Product, Order, etc
+ * @author hajo
  */
-public abstract class AbstractEntity<T, K> {
+@MappedSuperclass
+public abstract class AbstractEntity implements Serializable{
+    
+    @Id
+    @GeneratedValue
+    private Long id;
 
-    protected EntityManagerFactory emf;
-    private final Class<T> clazz;
-
-    protected AbstractEntity(Class<T> clazz, String puName) {
-        this.clazz = clazz;
-        emf = Persistence.createEntityManagerFactory(puName);
+    public AbstractEntity(){
     }
 
-    public void add(T t) {
-        EntityManager em = emf.createEntityManager();
-        try {
-            em.getTransaction().begin();
-            em.persist(t);
-            em.getTransaction().commit();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        } finally {
-            if (em != null) {
-                em.close();
-            }
+    protected AbstractEntity(Long id){
+        this.id = id;
+    }
+    
+    public Long getId(){
+        return id;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 71 * hash + Objects.hashCode(this.id);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
         }
-    }
-
-    public void remove(K id) {
-        EntityManager em = emf.createEntityManager();
-        try {
-            em.getTransaction().begin();
-            T t = em.getReference(clazz, id);
-            em.remove(t);
-            em.getTransaction().commit();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        } finally {
-            if (em != null) {
-                em.close();
-            }
+        if (getClass() != obj.getClass()) {
+            return false;
         }
-    }
-
-    public void update(T t) {
-        EntityManager em = emf.createEntityManager();
-        try {
-            em.getTransaction().begin();
-            em.merge(t);
-            em.getTransaction().commit();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        } finally {
-            if (em != null) {
-                em.close();
-            }
+        final AbstractEntity other = (AbstractEntity) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
         }
-    }
-
-    public T find(K id) {
-        EntityManager em = emf.createEntityManager();
-        T item = em.find(clazz, id);
-        return item;
+        return true;
     }
 }
