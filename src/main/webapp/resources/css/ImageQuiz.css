@@ -58,9 +58,9 @@ body {
         /* filter:alpha(opacity=60); /*För IE*/
     position: relative;
     margin: auto;
-    width: 608px;
-    padding-left: 20px;
-    padding-right: 20px;
+    width: 610px;
+    padding-left: 19px;
+    padding-right: 19px;
     padding-top: 15px;
     padding-bottom: 0px;
     -min-height: 100%;
@@ -112,8 +112,10 @@ body {
     height: auto;
 }
 #Leaderboard{
-    float: right;
-    position: relative;
+    position: absolute;
+    left: 1230px;
+    top: -21px;
+    overflow: hidden;
     margin: 9em;
     width: 15%;
     height: 23.3em;
