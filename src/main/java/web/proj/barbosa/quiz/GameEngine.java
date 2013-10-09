@@ -15,7 +15,7 @@ public class GameEngine {
 
     private int life;
     private int score;
-    private int guessRight,guessWrong;
+    private int guessRight, guessWrong;
     private GameFactory gf;
     private String[] answers;
     private String answer;
@@ -26,20 +26,26 @@ public class GameEngine {
     public GameEngine() {
         generator = new Random();
         searcher = new Search();
-        gf = new GameFactory();   
+        gf = new GameFactory();
         this.answers = gf.getTestWords();
     }
 
-    public void newGame() { 
-        int random = generator.nextInt(answers.length);
-        this.answer = answers[random];
-        pics = searcher.searchAndFind(answer);
+    public void newGame() {
+        getNewPics();
     }
 
     public void nextRound() {
-        int newRandom = generator.nextInt(answers.length);
-        this.answer = answers[newRandom];
-        pics = searcher.searchAndFind(answer);
+        getNewPics();
+    }
+
+    public void getNewPics() {
+        pics = null;
+        while (pics == null) {
+            int newRandom = generator.nextInt(answers.length);
+            this.answer = answers[newRandom];
+            pics = searcher.searchAndFind(answer);
+        }
+
     }
 
     public String makeGuess(String guess) {
@@ -57,21 +63,22 @@ public class GameEngine {
             return "error";
         }
     }
-    public void gameOver(User user){
-        user.getResult().update(guessRight,guessWrong,score);
+
+    public void gameOver(User user) {
+        user.getResult().update(guessRight, guessWrong, score);
     }
 
     public String getAnswer() {
-        
+
         System.out.println("getanswer engine");
         return answer;
     }
-    
-    public int getScore(){
+
+    public int getScore() {
         return this.score;
     }
-    
-    public ArrayList<String> getPics(){
+
+    public ArrayList<String> getPics() {
         return pics;
     }
 }

@@ -426,7 +426,6 @@ horse
 horses 
 hose
 hospital
-hot
 hour
 house
 houses 
