@@ -12,17 +12,21 @@
                 <div id="BannerBox"></div>
                 <div id="middleBox">
                     <div id="GuessBox">
-                        <h:form>
+                        <h:form id="guessForm">
                             <h:outputText value="Your Guess is?" />
                             <h:panelGrid columns="2">
                                 <h:panelGrid>
                                     <h:inputText id="guess" autocomplete ="off" value="#{guessBean.guess}"/>
+
                                 </h:panelGrid>
                                 <h:commandButton action="#{guessBean.validate}" value="Submit" />
                                 <h:outputText value="#{guessBean.outcome}"/>
                             </h:panelGrid>
                         </h:form>
                     </div> <!-- guess -->
+                    <script type="text/javascript">  
+                            document.forms[0].elements[1].focus();
+                    </script> 
                     <div id="InfoBox">
                         <h:form>
                             <h:panelGrid columns="1">        
