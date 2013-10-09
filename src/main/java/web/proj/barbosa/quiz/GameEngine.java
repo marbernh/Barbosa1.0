@@ -63,11 +63,11 @@ public class GameEngine {
             return "error";
         }
     }
-
-    public void gameOver(User user) {
-        user.getResult().update(guessRight, guessWrong, score);
-    }
-
+//
+//    public void gameOver(User user) {
+//        user.getResult().update(guessRight, guessWrong, score);
+//    }
+//
     public String getAnswer() {
 
         System.out.println("getanswer engine");
