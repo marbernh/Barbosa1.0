@@ -4,12 +4,13 @@
  */
 package web.proj.barbosa.quiz;
 
+import java.io.Serializable;
 import java.util.Random;
 /**
  *
  * @author Filip Husnjak
  */
-public class User {
+public class User implements Serializable{
 
     private String userName, password;
     private Long id;

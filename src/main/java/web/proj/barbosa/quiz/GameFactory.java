@@ -14,7 +14,7 @@ import java.util.TreeMap;
 public class GameFactory {
     
     // Leaderboarden ligger här så länge....
-    
+    private ArrayList<User> users = new ArrayList<User>();
     private Leaderboard testboard;
     private WordsMaker wm = new WordsMaker();
     
@@ -26,14 +26,27 @@ public class GameFactory {
         return testboard;
     }
     
+    public void setUser(User user){
+        users.add(user);
+    }
+    
+    public User getUser(Long id){
+        for(User user: users){
+            if(user.getId() == id){
+                return user;
+            }
+        }
+        return null;
+    }
+    
     public String[] getTestWords(){
         String[] list = wm.getWords();
         return list;
     }
     
-    private static TreeMap<Long, Result> testData() {
+    private TreeMap<Long, Result> testData() {
         // Lägger in test data
-            ArrayList<User> users = new ArrayList<User>();
+//            ArrayList<User> users = new ArrayList<User>();
             TreeMap<Long, Result> list = new TreeMap<Long, Result>();
         for(int i = 0; i < 5; i++){
             users.add(new User("user" + i, "pass"));
