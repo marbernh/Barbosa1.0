@@ -21,7 +21,7 @@ public class GameEngine {
     private String answer;
     private static Random generator;// = new Random();
     private Search searcher; //= new Search();
-    private ArrayList<String> pics = new ArrayList<String>();
+    private ArrayList<String> pics;
 
     public GameEngine() {
         generator = new Random();

@@ -37,8 +37,8 @@
                     </div> <!-- info -->
                 </div><!-- middle -->
                 <div class="GameBox">
-                    <c:forEach var="i" begin="0" end="5">
-                        <img src="#{gameBean.getPicUrl(i)}" height="150" width="200"/>
+                    <c:forEach var="pic" items="#{gameBean.picUrl}">
+                        <img src="#{pic}" height="150" width="200"/>
                     </c:forEach>
                     <p style="color: #777">[These images are from Google Image search results.]</p>
                 </div>

@@ -25,12 +25,14 @@ public class GameBean implements Serializable {
     private GameFactory gf = new GameFactory();
     private int life,score;
     private Leaderboard leaderboard;
+    private ArrayList<String> picUrl = new ArrayList<String>();
     
     public GameBean() {
 
         life = 3;
         score = 0;
         g.newGame();
+        picUrl = g.getPics();
         leaderboard = gf.getLeaderboard(); // test Leaderboard.
     }
         
@@ -42,12 +44,14 @@ public class GameBean implements Serializable {
 //        }
         score = 0;
         g.newGame();
+        picUrl = g.getPics();
         return "guess";
     }
     
     public void nextRound(){
         life = 3;
         g.nextRound();
+        picUrl = g.getPics();
     }
     
     public void increaseScore(){
@@ -72,8 +76,8 @@ public class GameBean implements Serializable {
         return Integer.toString(score);
     }
     
-    public String getPicUrl(String num){
-        return g.getPics().get(Integer.valueOf(num));
+    public ArrayList<String> getPicUrl(){
+        return picUrl;
     }
     
     public Leaderboard getLeaderboard(){

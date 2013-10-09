@@ -21,8 +21,7 @@ public class Search {
 		String str = search(word);
 		if (str != null && !(str.equals("error"))) {
 			ArrayList<String> urlResults = filter(str);
-                        System.out.println("klar");
-			return urlResults;
+                        return urlResults;
 		} else {
                     System.out.println("fel");
 			return null;
