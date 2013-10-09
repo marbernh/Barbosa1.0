@@ -89,4 +89,7 @@ public class GameBean implements Serializable {
         return g.getAnswer();
     }
     
+    public GameFactory getGameFactory(){
+        return gf;
+    }
 }

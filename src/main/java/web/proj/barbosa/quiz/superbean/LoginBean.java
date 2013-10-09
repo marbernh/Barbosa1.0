@@ -25,17 +25,17 @@ import web.proj.barbosa.quiz.User;
  */
 @Named("loginBean")
 @SessionScoped  // NOTE enterprise package, else disaster!!!
-public class LoginBean implements Serializable {
+public class LoginBean implements Serializable{
 
-    @Inject  
-    private GameFactory gf;
+    @Inject
+    private GameBean game;
     private boolean loggedIn = false;
     private String username;
     private String password;
 
     // Handled by GlassFish file realm
     public String login() {
-        User user = gf.getUser(username);
+        User user = game.getGameFactory().getUser(username);
         if (user == null){
             return "loginFail";
         }
