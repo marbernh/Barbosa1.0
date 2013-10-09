@@ -34,6 +34,7 @@ public class GuessBB {
             outcome = "Your answer is correct";
             game.increaseScore();
             game.nextRound();
+            guess = "";
             return "guess";
         }else
             if (game.looseLife() == 0){
@@ -45,6 +46,7 @@ public class GuessBB {
             }else{
             outcome = "Your answer is wrong";
             }
+        guess = "";
         return "guess";
     }
     

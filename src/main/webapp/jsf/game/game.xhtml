@@ -16,7 +16,7 @@
                             <h:outputText value="Your Guess is?" />
                             <h:panelGrid columns="2">
                                 <h:panelGrid>
-                                    <h:inputText id="guess" value="#{guessBean.guess}"/>
+                                    <h:inputText id="guess" autocomplete ="off" value="#{guessBean.guess}"/>
                                 </h:panelGrid>
                                 <h:commandButton action="#{guessBean.validate}" value="Submit" />
                                 <h:outputText value="#{guessBean.outcome}"/>
