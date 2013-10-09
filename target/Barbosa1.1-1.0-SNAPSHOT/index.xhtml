@@ -18,7 +18,14 @@ and open the template in the editor.
     <h:body>
         <ui:composition template="/WEB-INF/template.xhtml">
             <ui:define name="content">
-                <ui:include src="jsf/game/game.xhtml" />
+                <div class="MainBox">
+                    <div id="Leaderboard">
+                        <h:outputText value="Score: #{leaderboardBean.score}"/>
+                    </div>
+                    <div id="CenterBox">
+                        <ui:include src="jsf/game/game.xhtml" />
+                    </div>
+                </div>
             </ui:define>
         </ui:composition>
     </h:body>
