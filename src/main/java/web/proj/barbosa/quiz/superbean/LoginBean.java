@@ -8,6 +8,7 @@ import java.io.Serializable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -16,37 +17,42 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import web.proj.barbosa.quiz.GameFactory;
+import web.proj.barbosa.quiz.User;
 
 /**
  *
  * @author hajo
  */
 @Named("loginBean")
-@RequestScoped  // NOTE enterprise package, else disaster!!!
+@SessionScoped  // NOTE enterprise package, else disaster!!!
 public class LoginBean implements Serializable {
 
     @Inject  
     private GameFactory gf;
+    private boolean loggedIn = false;
     private String username;
     private String password;
-    // We don't use FacesMessage, to avful...
-    private String loginMessage = "";
 
     // Handled by GlassFish file realm
     public String login() {
-        FacesContext context = FacesContext.getCurrentInstance();
-        HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest();
-        return "";
+        User user = gf.getUser(username);
+        if (user == null){
+            return "loginFail";
+        }
+        if (user.getPassword().equals(password)){
+            loggedIn = true;
+            return "loginPass";
+        }
+        
+        else {
+            return "loginFail";
+        }
     }
 
-    public String logout() {
-        return "";
-    }
+//    public String logout() {
+//        return "";
+//    }
    
-    public String getLoginMessage() {
-        return loginMessage;
-    }
-
     public void setUsername(String username) {
         this.username = username;
     }
@@ -61,5 +67,9 @@ public class LoginBean implements Serializable {
 
     public String getPassword() {
         return password;
+    }
+    
+    public boolean getLoggedIn() {
+        return loggedIn;
     }
 }

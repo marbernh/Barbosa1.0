@@ -32,18 +32,24 @@ public class Leaderboard implements Comparator<Result> {
         return resultboard;
     }
 
-    @Override
-    public int compare(Result x, Result y) {
-        // TODO: Handle null x or y values
-        int startComparison = compare(x.getScore(), y.getScore());
-        return startComparison != 0 ? startComparison
-                : compare(x.getWin(), y.getWin());
-    }
+//    @Override
+//    public int compare(Result x, Result y) {
+//        // TODO: Handle null x or y values
+//        int startComparison = compare(x.getTotalScore(), y.getTotalScore());
+//        return startComparison != 0 ? startComparison
+//                : compare(x.getWin(), y.getWin());
+//    }
 
     // I don't know why this isn't in Long...
+    
     private static int compare(int a, int b) {
         return a < b ? -1
                 : a > b ? 1
                 : 0;
+    }
+
+    @Override
+    public int compare(Result o1, Result o2) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

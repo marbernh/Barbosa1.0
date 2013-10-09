@@ -13,7 +13,7 @@ import java.io.Serializable;
 public class Result implements Serializable {
 
     private Long id;
-    private int gamesPlayed, win, lose, score, topGameScore;
+    private int gamesPlayed, totalScore, topGameScore;
 
     protected Result() {
     }
@@ -21,17 +21,17 @@ public class Result implements Serializable {
     protected Result(Long id) {
         this.id = id;
         gamesPlayed = 0;
-        win = 0;
-        lose = 0;
-        score = 0;
+//        win = 0;
+//        lose = 0;
+        totalScore = 0;
         topGameScore = 0;
     }
 
-    public void update(int win, int lose, int score) {
-        gamesPlayed = win + lose;
-        this.win += win;
-        this.lose += lose;
-        this.score += score;
+    public void update(int score) {
+        gamesPlayed = gamesPlayed + 1;
+//        this.win += win;
+//        this.lose += lose;
+        this.totalScore += score;
         if (score > topGameScore) {
             topGameScore = score;
         }
@@ -41,17 +41,17 @@ public class Result implements Serializable {
         return id;
     }
 
-    public int getScore() {
-        return score;
+    public int getTotalScore() {
+        return totalScore;
     }
 
-    public int getWin() {
-        return win;
-    }
-
-    public int getLost() {
-        return lose;
-    }
+//    public int getWin() {
+//        return win;
+//    }
+//
+//    public int getLost() {
+//        return lose;
+//    }
 
     public int getGamesPlayed() {
         return gamesPlayed;

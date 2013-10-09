@@ -7,6 +7,8 @@ package web.proj.barbosa.quiz.superbean;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import web.proj.barbosa.quiz.GameFactory;
+import web.proj.barbosa.quiz.User;
 
 /**
  *
@@ -16,10 +18,15 @@ import javax.inject.Named;
 @RequestScoped
 public class GuessBB {
     
+    
+    @Inject  
+    private GameFactory gf;
     private String guess;
     private String outcome = "";
     @Inject
     private GameBean game;
+    @Inject
+    private LoginBean login;
     
     
     public String validate(){
@@ -30,6 +37,9 @@ public class GuessBB {
             return "guess";
         }else
             if (game.looseLife() == 0){
+                if (login.getLoggedIn()){
+                    gf.getUser(login.getUsername()).getResult().update(Integer.parseInt(game.getScore()));
+                }
                 outcome="GAME OVER";
                 game.newGame();
             }else{
