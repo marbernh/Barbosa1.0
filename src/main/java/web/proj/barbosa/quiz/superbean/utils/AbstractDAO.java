@@ -24,13 +24,18 @@ public abstract class AbstractDAO<T, K> {
     }
 
     public void add(T t) {
+                    System.out.println("ASDASDASDSAD");
+
         EntityManager em = emf.createEntityManager();
         try {
+            System.out.println("ASDASDASDSAD");
             em.getTransaction().begin();
             em.persist(t);
             em.getTransaction().commit();
         } catch (Exception ex) {
+            
             ex.printStackTrace();
+            
         } finally {
             if (em != null) {
                 em.close();

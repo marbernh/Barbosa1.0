@@ -5,16 +5,14 @@
 package web.proj.barbosa.quiz;
 
 import java.io.Serializable;
-import java.util.Random;
 import javax.persistence.*;
-import web.proj.barbosa.quiz.superbean.utils.AbstractDAO;
 import web.proj.barbosa.quiz.superbean.utils.AbstractEntity;
 /**
  *
  * @author Filip Husnjak
  */
 @Entity
-public class UserDBTest extends AbstractEntity implements Serializable{
+public class UserDBTest extends AbstractEntity {
     
     private String userName, password;
 

@@ -60,7 +60,7 @@ baseball
 basin
 basket
 basketball
-bat
+batman
 bath
 battle
 bead
@@ -836,6 +836,7 @@ suggestion
 suit
 summer
 sun
+superman
 support
 surprise
 sweater
