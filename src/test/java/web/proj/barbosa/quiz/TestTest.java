@@ -22,12 +22,8 @@ public class TestTest {
         //UserRegister r = (UserRegister) UserRegister.newInstance("embedded_image_quiz_PU");
     }
 
-    @After
-    public void tearDown() {
-    }
-
     @Test
-    public void hello() {
+    public void TestQuizBase() {
         UserRegister r = (UserRegister) UserRegister.newInstance("quiz_test_pu");
         
         UserDBTest u1 = new UserDBTest("Daniel", "1234567");
@@ -48,14 +44,15 @@ public class TestTest {
         r.update(u3);
         assertTrue(!(u1.getUserName().equals(r.find(u3.getId()).getUserName())));
         
-        //Test getById 
-//        UserDBTest collectedU1 = r.getById(u3.getId()).get(0);
-//        assertTrue(collectedU1.equals(u1));
-        
         //TEST getByName
         UserDBTest collectedU1 = r.getByName("Filip").get(0);
         assertTrue(collectedU1.getUserName().equals("Filip"));
         
+        //Test getById
+        UserDBTest u4 = new UserDBTest("player", "1234567");
+        r.add(u4);
+        //UserDBTest collectedU2 = r.getById(u4.getId()).get(0);
+        //assertTrue(collectedU2.getUserName().equals("player"));
         
         //Test Remove
         r.remove(u1.getId());
