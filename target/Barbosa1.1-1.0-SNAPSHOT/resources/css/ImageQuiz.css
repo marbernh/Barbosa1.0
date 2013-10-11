@@ -1,0 +1,125 @@
+/* 
+    Document   : ImageQuiz
+    Created on : 2013-okt-05, 10:58:11
+    Author     : Filip Husnjak
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+body {
+    background: url("#{resource['img:background.jpg']}") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+#menu {
+    display: block;
+    float: left;
+    line-height: 35px;
+    list-style:none;
+    margin: 0 5px;
+}
+#menu li{
+    /* This generators the gradient on top of the solid color */
+    background-image: -webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0, rgba(255,255,255,.5)),
+        color-stop(1, rgba(0,0,0,.1))
+        );
+    background-image: -moz-linear-gradient(
+        center top,
+        rgba(255,255,255,.5) 0%,
+        rgba(0,0,0,.1) 100%
+        );
+    color: #f4f4f4; /* IE */
+    color: rgba(255, 255, 255, 0.8);
+    display: block;
+    font: bold 18px "Myriad Pro","Lucida Grande",Helvetica,Arial,sans-serif;
+    outline:none;
+    padding: 5px 15px;
+    text-decoration: none;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.65);
+    -moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.65);
+    -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.65);
+}
+
+.GameBox {
+    background: #ffffff;
+    /*    background-color: rgb(0, 0, 0);
+        background-color: rgba(127, 255, 0, 0.6);*/
+    /*    opacity:0.6; För alla andra /*
+        /* filter:alpha(opacity=60); /*För IE*/
+    position: relative;
+    margin: auto;
+    width: 610px;
+    padding-left: 19px;
+    padding-right: 19px;
+    padding-top: 15px;
+    padding-bottom: 0px;
+    -min-height: 100%;
+    height: 100%;
+    border: 1px solid black;
+}
+
+.MenuBox {
+    margin-top: 10%;
+    position: relative;
+    width: 608px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+}
+
+.MainBox{
+    height: auto;
+    width: auto;
+    border: 1px solid red;
+}
+
+#CenterBox{
+    width: 650px;
+    height: auto;
+    margin: auto;
+    border: 1px solid yellow;
+}
+
+#BannerBox{
+    width: 650px;
+    height: 150px;
+    margin: auto;
+    background-image:url("#{resource['img:projectbarbosa.png']}");
+}
+#middleBox{
+    width: 649px;
+    height: 100px;
+}
+#GuessBox{
+    width: 380px;
+    height: 99px;
+    float: left;
+}
+#InfoBox{
+    margin-top: 4.2%;
+    float: left;
+    width: auto;
+    height: auto;
+}
+#Leaderboard{
+    position: absolute;
+    left: 1230px;
+    top: -21px;
+    overflow: hidden;
+    margin: 9em;
+    width: 15%;
+    height: 23.3em;
+    margin-top: 13.5%;
+    background-color: darkgray;
+    border: 2px solid blue;
+}

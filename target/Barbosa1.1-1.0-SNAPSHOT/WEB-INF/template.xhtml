@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+    
+    <!--
+    Nya
+      THIS IS THE OVERALL LAYOUT FOR THE SITE (not accessible from outside)
+    
+    -->
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet library="css" name="ImageQuiz.css"  />
+        <title>JSF Shop</title>
+    </h:head>
+    
+            <h:body id="body">  
+                <div style ="width:100%; ">
+            
+            <ui:insert name="content">Content</ui:insert>
+        <div class="MenuBox">
+            <ul id="menu">
+                <li id="menu">Home</li>
+                <li id="menu">Game</li>
+                <li id="menu">Result</li>
+                <li id="menu"><h:button outcome="login" value="Log in"/></li>
+                <li id="menu">About</li>
+            </ul>
+        </div>
+        </div>
+    </h:body>
+</html>
