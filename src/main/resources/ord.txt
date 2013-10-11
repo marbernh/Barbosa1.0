@@ -261,7 +261,6 @@ direction
 dirt
 discovery
 discussion
-disease
 disgust
 distance
 distribution
