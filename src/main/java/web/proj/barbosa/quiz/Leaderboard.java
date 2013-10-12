@@ -3,34 +3,45 @@
  * and open the template in the editor.
  */
 package web.proj.barbosa.quiz;
-import java.util.Comparator;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 /**
  *
  * @author Filip Husnjak
  */
-public class Leaderboard implements Comparator<Result> {
+public class Leaderboard {
 
-    private TreeMap<Long, Result> resultboard = new TreeMap<Long, Result>();
-
-    public Leaderboard(TreeMap<Long, Result> resultboard) {
-        this.resultboard = resultboard;
+//    private TreeMap<Long, Result> resultboard = new TreeMap<Long, Result>();
+    private ArrayList<User> topList = new ArrayList<>();
+    public Leaderboard(ArrayList<User> users) {
+        buildTopList(users);
     }
 
     Leaderboard() {
     }
-
-    public void add(Result newResult) {
-        resultboard.put(newResult.getId(), newResult);
-    }
-    public Result getResult(Long id){
-        return resultboard.get(id);
+    
+    private void buildTopList(ArrayList<User> users){
+        Collections.sort(users);
     }
     
-    public TreeMap<Long, Result> getMap(){
-        return resultboard;
+    public ArrayList<User> getTopList(){
+        return topList;
     }
+          
+    public void addResult(User user){
+        topList.add(user);
+        Collections.sort(topList);
+    }
+//            
+//    public void add(Result newResult) {
+//        resultboard.put(newResult.getId(), newResult);
+//    }
+//    public Result getResult(Long id){
+//        return resultboard.get(id);
+//    }
+//    
+//    public TreeMap<Long, Result> getMap(){
+//        return resultboard;
+//    }
 
 //    @Override
 //    public int compare(Result x, Result y) {
@@ -42,14 +53,15 @@ public class Leaderboard implements Comparator<Result> {
 
     // I don't know why this isn't in Long...
     
-    private static int compare(int a, int b) {
-        return a < b ? -1
-                : a > b ? 1
-                : 0;
-    }
-
-    @Override
-    public int compare(Result o1, Result o2) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+//    private static int compare(int a, int b) {
+//        return a < b ? -1
+//                : a > b ? 1
+//                : 0;
+//    }
+//
+//
+//    @Override
+//    public int compare(User o1, User o2) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
 }

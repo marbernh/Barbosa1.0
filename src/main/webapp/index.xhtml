@@ -19,11 +19,27 @@ and open the template in the editor.
             <ui:define name="content">
                 <div class="MainBox">
                     <div id="Leaderboard">
-                        <table>
+                        <table width="100%" border="1">
                             <tr>
-                                <td>Namn</td>
-                                <td><h:outputText value="Score: #{leaderboardBean.score}"/></td>
-                                
+                                <td>
+                                    name
+                                    <c:forEach var="user" items="#{leaderboardBean.getLeaderboard}">
+                                        <tr>
+                                            #{user.getName}
+                                            hej tast
+                                        </tr>
+                                    </c:forEach>
+                                </td>
+                                <!--<td><h:outputText value="Score: #{leaderboardBean.score}"/></td>-->
+
+                            </tr>
+                            <tr>
+                                <td>
+                                    hej2
+                                </td>
+                                <td>
+                                    hej3
+                                </td>
                             </tr>
                             
                         </table>

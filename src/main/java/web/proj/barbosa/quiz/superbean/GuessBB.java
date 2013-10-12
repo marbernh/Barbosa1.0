@@ -39,7 +39,8 @@ public class GuessBB {
         }else
             if (game.looseLife() == 0){
                 if (login.getLoggedIn()){
-                    gf.getUser(login.getUsername()).getResult().update(Integer.parseInt(game.getScore()));
+                    gf.getUser(login.getUsername()).getResult().
+                            update(Integer.parseInt(game.getScore()));
                 }
                 outcome="GAME OVER";
                 game.newGame();
