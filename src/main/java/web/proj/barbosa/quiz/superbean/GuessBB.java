@@ -38,7 +38,9 @@ public class GuessBB {
             return "guess";
         }else
             if (game.looseLife() == 0){
+                        System.out.println("GuessBB 1");
                 if (login.getLoggedIn()){
+                            System.out.println("GuessBB 2");
                     gf.getUser(login.getUsername()).getResult().
                             update(Integer.parseInt(game.getScore()));
                 }

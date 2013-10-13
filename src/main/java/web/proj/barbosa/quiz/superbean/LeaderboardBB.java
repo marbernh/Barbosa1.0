@@ -32,16 +32,14 @@ public class LeaderboardBB implements Serializable{
     private int topListSize = 0;
     
     public LeaderboardBB(){
-        System.out.println("LB 1");
+
     }
     
     public int getTopListSize() {
         topList = gf.getLeaderboard().getTopList();
-        System.out.println("LB 2");
         setNamesInTop(topList);
         setScoreInTop(topList);
         topListSize = topList.size() - 1;
-        System.out.println("LB 3");
         return topListSize;
     }
 

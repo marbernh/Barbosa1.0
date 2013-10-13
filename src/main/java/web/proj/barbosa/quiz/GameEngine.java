@@ -47,7 +47,6 @@ public class GameEngine {
             if(pics != null && !(pics.isEmpty()))
                 filled = true;
         }
-        System.out.println(pics);
 
     }
 
@@ -72,8 +71,6 @@ public class GameEngine {
 //    }
 //
     public String getAnswer() {
-
-        System.out.println("getanswer engine");
         return answer;
     }
 

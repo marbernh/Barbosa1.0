@@ -28,6 +28,7 @@ public class Result implements Serializable {
     }
 
     public void update(int score) {
+        System.out.println("update");
         gamesPlayed = gamesPlayed + 1;
 //        this.win += win;
 //        this.lose += lose;

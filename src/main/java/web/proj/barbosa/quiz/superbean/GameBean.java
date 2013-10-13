@@ -35,15 +35,12 @@ public class GameBean implements Serializable {
 
     
     public GameBean() {
-        System.out.println("GB 2");
         life = 3;
         score = 0;
         g.newGame();
         picUrl = g.getPics();
 //        leaderboard = gf.getLeaderboard(); // test Leaderboard.
-                System.out.println("GB 3");
 //        boardBB.updateLB(leaderboard);
-        System.out.println("GB 3");
     }
       
     public String newGame(){
@@ -95,7 +92,6 @@ public class GameBean implements Serializable {
 //    }
 
     public String getAnswer(){
-        System.out.println("getanswer gamebean");
         return g.getAnswer();
     }
     
