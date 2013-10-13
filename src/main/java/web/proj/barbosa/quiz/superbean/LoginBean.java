@@ -5,18 +5,9 @@
 package web.proj.barbosa.quiz.superbean;
 
 import java.io.Serializable;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
-import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-import web.proj.barbosa.quiz.GameFactory;
 import web.proj.barbosa.quiz.User;
 
 /**

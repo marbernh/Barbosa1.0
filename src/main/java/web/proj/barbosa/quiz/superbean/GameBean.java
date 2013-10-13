@@ -25,22 +25,27 @@ public class GameBean implements Serializable {
     private final GameEngine g = new GameEngine();
     private GameFactory gf = new GameFactory();
     private int life,score;
+    
 //    @Inject
 //    private LeaderboardBB boardBB;
-//              
+              
 //    private Leaderboard leaderboard;
     private ArrayList<String> picUrl = new ArrayList<>();
     
-    public GameBean() {
 
+    
+    public GameBean() {
+        System.out.println("GB 2");
         life = 3;
         score = 0;
         g.newGame();
         picUrl = g.getPics();
-//        boardBB.updateLB();
 //        leaderboard = gf.getLeaderboard(); // test Leaderboard.
+                System.out.println("GB 3");
+//        boardBB.updateLB(leaderboard);
+        System.out.println("GB 3");
     }
-        
+      
     public String newGame(){
         life = 3;
 //        lifes.clear();

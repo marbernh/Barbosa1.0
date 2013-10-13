@@ -23,6 +23,7 @@ public class GameFactory {
         for(int i = 0; i < 5; i++){
             users.add(new User("user" + i, "pass"));
         }
+        testboard = new Leaderboard(users);
 //        testboard = new Leaderboard(testData());
     }
     

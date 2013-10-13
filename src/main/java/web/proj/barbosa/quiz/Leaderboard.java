@@ -9,19 +9,19 @@ import java.util.*;
  *
  * @author Filip Husnjak
  */
-public class Leaderboard implements Serializable{
+public class Leaderboard {
 
 //    private TreeMap<Long, Result> resultboard = new TreeMap<Long, Result>();
     private ArrayList<User> topList = new ArrayList<>();
+    
     public Leaderboard(ArrayList<User> users) {
         buildTopList(users);
     }
 
-    Leaderboard() {
-    }
     
     private void buildTopList(ArrayList<User> users){
-        Collections.sort(users);
+        topList = users; 
+        Collections.sort(topList);
     }
     
     public ArrayList<User> getTopList(){

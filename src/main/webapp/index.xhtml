@@ -20,29 +20,22 @@ and open the template in the editor.
                 <div class="MainBox">
                     <div id="Leaderboard">
                         <table width="100%" border="1">
-                            <tr>
-                                <td>
-                                    name
-<!--                                    <c:forEach var="user" items="#{leaderboardBean.topList}">
-                                        <tr>
-                                            hfdh
-                                            #{user.getName}
-                                            hej tast
-                                        </tr>
-                                    </c:forEach>-->
-                                </td>
-                                <!--<td><h:outputText value="Score: #{leaderboardBean.score}"/></td>-->
 
-                            </tr>
-                            <tr>
-                                <td>
-                                    hej2
-                                </td>
-                                <td>
-                                    hej3
-                                </td>
-                            </tr>
-                            
+                                    <tr>
+                                        <td>Name:</td>
+                                        <td>Score:</td>
+                                    </tr>
+                                    <c:forEach var="i" begin="0" end="#{leaderboardBean.topListSize}">
+                                        <tr>
+                                            <td>
+                                                <h:outputText value="#{leaderboardBean.getNamesInTop(i)}"/>    
+                                            </td>
+                                            <td>
+                                                <h:outputText value="#{leaderboardBean.getScoreInTop(i)}"/>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+
                         </table>
 
                     </div>
