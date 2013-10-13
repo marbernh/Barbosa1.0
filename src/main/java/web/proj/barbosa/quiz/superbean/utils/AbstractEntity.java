@@ -6,6 +6,7 @@ import java.util.Objects;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
+import javax.xml.bind.annotation.XmlAttribute;
 
 /**
  * Base class for all entities (later to be stored in database), 
@@ -26,6 +27,7 @@ public abstract class AbstractEntity implements Serializable{
         this.id = id;
     }
     
+    @XmlAttribute
     public Long getId(){
         return id;
     }

@@ -21,6 +21,10 @@
             <to-view-id>/jsf/login/login.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
+            <from-outcome>login2</from-outcome>
+            <to-view-id>/content/login.html</to-view-id>
+        </navigation-case>
+        <navigation-case>
             <from-outcome>home</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
         </navigation-case>

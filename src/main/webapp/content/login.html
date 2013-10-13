@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sv" xml:lang="sv">
+    <head>
+        <title>Products</title> 
+        <script type="text/javascript" src="js/gui/login.js" ></script>
+    </head>
+    <body>
+        <button id="login">Log in</button>
+        <button id="register">Register</button>
+        <!--NOTE: hidden -->
+        <div id="dialog-form" title="Set this in code" hidden="hidden">
+            <p class="validateTips">All form fields are required.</p>
+            <form>
+                <fieldset>
+                    <label for="username">Name</label>
+                    <input type="text" name="username" id="username" value="" class="text ui-widget-content ui-corner-all" />
+                    <label for="password">Password</label>
+                    <input type="text" name="password" id="password" value="" class="text ui-widget-content ui-corner-all" />
+                </fieldset>
+            </form>
+        </div>
+
+        <div id="dialog-message" title="Set this in code" hidden="hidden">
+            <p>
+                <span class="ui-icon ui-icon-circle-check" 
+                      style="float: left; margin: 0 7px 50px 0;">
+                </span> 
+                <span id="msg">Set this in code </span>           
+            </p>
+        </div>  
+    </body>
+</html>
+
+
