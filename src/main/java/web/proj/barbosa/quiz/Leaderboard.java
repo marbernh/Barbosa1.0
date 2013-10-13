@@ -3,12 +3,13 @@
  * and open the template in the editor.
  */
 package web.proj.barbosa.quiz;
+import java.io.Serializable;
 import java.util.*;
 /**
  *
  * @author Filip Husnjak
  */
-public class Leaderboard {
+public class Leaderboard implements Serializable{
 
 //    private TreeMap<Long, Result> resultboard = new TreeMap<Long, Result>();
     private ArrayList<User> topList = new ArrayList<>();

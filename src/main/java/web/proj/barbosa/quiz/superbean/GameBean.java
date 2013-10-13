@@ -7,6 +7,7 @@ package web.proj.barbosa.quiz.superbean;
 import java.io.Serializable;
 import java.util.ArrayList;
 import javax.enterprise.context.SessionScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 import web.proj.barbosa.quiz.GameEngine;
 import web.proj.barbosa.quiz.GameFactory;
@@ -24,8 +25,11 @@ public class GameBean implements Serializable {
     private final GameEngine g = new GameEngine();
     private GameFactory gf = new GameFactory();
     private int life,score;
-    private Leaderboard leaderboard;
-    private ArrayList<String> picUrl = new ArrayList<String>();
+//    @Inject
+//    private LeaderboardBB boardBB;
+//              
+//    private Leaderboard leaderboard;
+    private ArrayList<String> picUrl = new ArrayList<>();
     
     public GameBean() {
 
@@ -33,7 +37,8 @@ public class GameBean implements Serializable {
         score = 0;
         g.newGame();
         picUrl = g.getPics();
-        leaderboard = gf.getLeaderboard(); // test Leaderboard.
+//        boardBB.updateLB();
+//        leaderboard = gf.getLeaderboard(); // test Leaderboard.
     }
         
     public String newGame(){
@@ -80,9 +85,9 @@ public class GameBean implements Serializable {
         return picUrl;
     }
     
-    public Leaderboard getLeaderboard(){
-        return leaderboard;
-    }
+//    public Leaderboard getLeaderboard(){
+//        return leaderboard;
+//    }
 
     public String getAnswer(){
         System.out.println("getanswer gamebean");
