@@ -19,7 +19,25 @@ and open the template in the editor.
             <ui:define name="content">
                 <div class="MainBox">
                     <div id="Leaderboard">
-                        <h:outputText value="Score: #{leaderboardBean.score}"/>
+                        <table width="100%" border="1">
+
+                                    <tr>
+                                        <td>Name:</td>
+                                        <td>Score:</td>
+                                    </tr>
+                                    <c:forEach var="i" begin="0" end="#{leaderboardBean.topListSize}">
+                                        <tr>
+                                            <td>
+                                                <h:outputText value="#{leaderboardBean.getNamesInTop(i)}"/>    
+                                            </td>
+                                            <td>
+                                                <h:outputText value="#{leaderboardBean.getScoreInTop(i)}"/>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+
+                        </table>
+
                     </div>
                     <div id="CenterBox">
                         <ui:include src="jsf/game/game.xhtml" />

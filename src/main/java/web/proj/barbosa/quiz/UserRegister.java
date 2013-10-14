@@ -13,32 +13,31 @@ import web.proj.barbosa.quiz.superbean.utils.AbstractDAO;
  *
  * @author husnjak
  */
-public class UserRegister extends AbstractDAO<UserDBTest, Long> 
-            implements IUserRegister{
-    
+public class UserRegister extends AbstractDAO<UserDB, Long>
+        implements IUserRegister {
+
     public static IUserRegister newInstance(String pooName) {
         return new UserRegister(pooName);
     }
 
     private UserRegister(String puName) {
-        super(UserDBTest.class, puName);
+        super(UserDB.class, puName);
     }
 
     @Override
-        public List<UserDBTest> getByName(String name) {
-         EntityManager em = emf.createEntityManager();
-         return em.createQuery(
-                 "SELECT u FROM UserDBTest u WHERE u.userName LIKE :name ")
-                 .setParameter("name", name)
-                 .getResultList();
-    }
-    
-    public List<UserDBTest> getById(Long id){
+    public List<UserDB> getByName(String name) {
         EntityManager em = emf.createEntityManager();
-         return em.createQuery(
-                 "SELECT u FROM UserDBTest u WHERE u.id LIKE :id ")
-                 .setParameter("id", id)
-                 .getResultList();
+        return em.createQuery(
+                "SELECT u FROM UserDB u WHERE u.userName LIKE :name ")
+                .setParameter("name", name)
+                .getResultList();
     }
-    
+
+    public List<UserDB> getTopTen() {
+        System.out.println("getTopTen");
+        EntityManager em = emf.createEntityManager();
+        return em.createQuery(
+                "SELECT u FROM UserDB u").setMaxResults(10)
+                .getResultList();
+    }
 }

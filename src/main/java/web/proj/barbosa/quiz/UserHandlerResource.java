@@ -38,7 +38,7 @@ public class UserHandlerResource {
             @FormParam("password") String password) {
 
         log.log(Level.INFO, "User added, OK", new Object[]{userName});
-        UserDBTest u = new UserDBTest(userName, password);
+        UserDB u = new UserDB(userName, password);
         try {
             register.add(u);
             URI uri = uriInfo.getAbsolutePathBuilder().path(String.valueOf(u.getId())).build(u);
@@ -57,7 +57,7 @@ public class UserHandlerResource {
             @FormParam("password") String password) {
         log.log(Level.INFO, "PUT id {0}, OK", id);
         try {
-            UserDBTest u = new UserDBTest(id, userName, password);
+            UserDB u = new UserDB(id, userName, password);
             register.update(u);
             return Response.ok(u).build();
         } catch (IllegalArgumentException e) {
@@ -70,7 +70,7 @@ public class UserHandlerResource {
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public Response login(@FormParam("userName") String userName,
             @FormParam("password") String password) {
-        UserDBTest userlogin = register.getByName(userName).get(0);
+        UserDB userlogin = register.getByName(userName).get(0);
         try {
             if (userlogin == null || !(userlogin.getPassword().equals(password))) {
                 return Response.ok("login fail").build();

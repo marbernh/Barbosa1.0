@@ -11,6 +11,6 @@ import web.proj.barbosa.quiz.superbean.utils.IDAO;
  *
  * @author husnjak
  */
-public interface IUserRegister extends IDAO<UserDBTest, Long> {
-    List<UserDBTest> getByName(String name);
+public interface IUserRegister extends IDAO<UserDB, Long> {
+    List<UserDB> getByName(String name);
 }

@@ -4,6 +4,7 @@ package web.proj.barbosa.quiz;
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
+import java.util.Random;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -15,6 +16,7 @@ import static org.junit.Assert.*;
 public class TestTest {
 
     private IUserRegister r;
+    private Random scoreMaker = new Random();
 
     @Before
     public void before() {
@@ -24,37 +26,55 @@ public class TestTest {
     @Test
     public void TestQuizBase() {
         UserRegister r = (UserRegister) UserRegister.newInstance("quiz_test_pu");
-        
-        UserDBTest u1 = new UserDBTest("Daniel", "1234567");
-        
 
-        
+        UserDB u1 = new UserDB("Daniel", "1234567");
+
+
+
         //Test add
         r.add(u1);
         assertTrue(r.find(u1.getId()).getUserName().equals("Daniel"));
-        
+
         //Test find
-        UserDBTest u2 = r.find(u1.getId());
+        UserDB u2 = r.find(u1.getId());
         assertTrue(u2.equals(u1));
-        assertTrue(!(u1 == u2));   
-        
+        assertTrue(!(u1 == u2));
+
         //Test Update
-        UserDBTest u3 = new UserDBTest(u1.getId(),"Filip","1234567");
+        UserDB u3 = new UserDB(u1.getId(), "Filip", "1234567");
         r.update(u3);
         assertTrue(!(u1.getUserName().equals(r.find(u3.getId()).getUserName())));
-        
+
         //TEST getByName
-        UserDBTest collectedU1 = r.getByName("Filip").get(0);
+        UserDB collectedU1 = r.getByName("Filip").get(0);
         assertTrue(collectedU1.getUserName().equals("Filip"));
-        
-        //Test getById
-        UserDBTest u4 = new UserDBTest("player", "1234567");
-        r.add(u4);
-        //UserDBTest collectedU2 = r.getById(u4.getId()).get(0);
-        //assertTrue(collectedU2.getUserName().equals("player"));
-        
+
         //Test Remove
         r.remove(u1.getId());
-        assertTrue(r.find(u1.getId())== null);
+        assertTrue(r.find(u1.getId()) == null);
+
+        /**
+         * ********************Result*******************************
+         */
+        UserDB u5 = new UserDB("Marcus", "lösen");
+        r.add(u5);
+        u5 = r.find(u5.getId());
+        u5.update(150);
+        r.update(u5);
+        System.out.println("" + r.find(u5.getId()).getTopGameScore());
+        assertTrue((r.find(u5.getId()).getTopGameScore()) == 150);
+
+        /**
+         * ***************getTopTen*******************************
+         */
+        for (int i = 1; i < 10; i++) {
+            UserDB u = new UserDB("Player nr: " + i, "password");
+            r.add(u);
+            u = r.find(u.getId());
+            u.update(scoreMaker.nextInt(500));
+            r.update(u);
+            System.out.println("name: " + r.find(u.getId()).getUserName() + " Score: " + r.find(u.getId()).getTopGameScore());
+        }
+        assertTrue((r.getTopTen().size()) == 10);
     }
 }
