@@ -17,7 +17,7 @@ public class GameEngine {
     private int score;
     private int guessRight, guessWrong;
     private GameFactory gf;
-    private String[] answers;
+    private ArrayList<String> answers;
     private String answer;
     private static Random generator;// = new Random();
     private Search searcher; //= new Search();
@@ -31,7 +31,8 @@ public class GameEngine {
     }
 
     public void newGame() {
-        getNewPics();
+       this.answers = gf.getTestWords();
+       getNewPics();
     }
 
     public void nextRound() {
@@ -41,12 +42,14 @@ public class GameEngine {
     public void getNewPics() {
         boolean filled = false;
         while (!filled) {
-            int newRandom = generator.nextInt(answers.length);
-            this.answer = answers[newRandom];
+            int newRandom = generator.nextInt(answers.size());
+            this.answer = answers.get(newRandom);
             pics = searcher.searchAndFind(answer);
+            answers.remove(answer);
             if(pics != null && !(pics.isEmpty()))
                 filled = true;
         }
+        System.out.println(pics);
 
     }
 
@@ -71,6 +74,8 @@ public class GameEngine {
 //    }
 //
     public String getAnswer() {
+
+        System.out.println("getanswer engine");
         return answer;
     }
 
@@ -81,4 +86,5 @@ public class GameEngine {
     public ArrayList<String> getPics() {
         return pics;
     }
+    
 }

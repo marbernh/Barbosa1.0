@@ -58,4 +58,5 @@ public class Search {
 		}
 		return url;
 	}
+
 }

@@ -19,13 +19,13 @@ public class WordsMaker {
 
     final static Charset ENCODING = StandardCharsets.UTF_8;
 
-    public String[] getWords()  {
+    public ArrayList<String> getWords()  {
         ArrayList<String> ws = readFile();
-        String[] list = new String[ws.size()];
-        for (int i = 0; i < ws.size(); i++) {
-            list[i] = ws.get(i);
-        }
-        return list;
+//        String[] list = new String[ws.size()];
+//        for (int i = 0; i < ws.size(); i++) {
+//            list[i] = ws.get(i);
+//        }
+        return ws;
     }
 
      public static ArrayList<String> readFile() {

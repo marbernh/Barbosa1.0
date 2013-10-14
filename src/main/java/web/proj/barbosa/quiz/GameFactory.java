@@ -14,12 +14,17 @@ import java.util.TreeMap;
 public class GameFactory {
     
     // Leaderboarden ligger här så länge....
-    private ArrayList<User> users = new ArrayList<User>();
+    private ArrayList<User> users = new ArrayList<>();
+    
     private Leaderboard testboard;
     private WordsMaker wm = new WordsMaker();
     
     public GameFactory(){
-        testboard = new Leaderboard(testData());
+        for(int i = 0; i < 5; i++){
+            users.add(new User("user" + i, "pass"));
+        }
+        testboard = new Leaderboard(users);
+//        testboard = new Leaderboard(testData());
     }
     
     public Leaderboard getLeaderboard(){
@@ -45,16 +50,16 @@ public class GameFactory {
         return list;
     }
     
-    private TreeMap<Long, Result> testData() {
-        // Lägger in test data
-//            ArrayList<User> users = new ArrayList<User>();
-            TreeMap<Long, Result> list = new TreeMap<Long, Result>();
-        for(int i = 0; i < 5; i++){
-            users.add(new User("user" + i, "pass"));
-        }
-        for(int i = 0; i<5; i++){
-            list.put(users.get(i).getId(), users.get(i).getResult());
-        }
-        return list;
-    }
+//    private TreeMap<Long, Result> testData() {
+//        // Lägger in test data
+////            ArrayList<User> users = new ArrayList<User>();
+//            TreeMap<Long, Result> list = new TreeMap<Long, Result>();
+//        for(int i = 0; i < 5; i++){
+//            users.add(new User("user" + i, "pass"));
+//        }
+//        for(int i = 0; i<5; i++){
+//            list.put(users.get(i).getId(), users.get(i).getResult());
+//        }
+//        return list;
+//    }
 }
