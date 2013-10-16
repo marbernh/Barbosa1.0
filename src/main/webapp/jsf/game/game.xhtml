@@ -13,13 +13,14 @@
                 <div id="middleBox">
                     <div id="GuessBox">
                         <h:form id="guessForm">
-                            <h:outputText value="Your Guess is?" />
+                            <h:outputText value="#{guessBean.start}" />
                             <h:panelGrid columns="2">
                                 <h:panelGrid>
                                     <h:inputText id="guess" autocomplete ="off" value="#{guessBean.guess}"/>
 
                                 </h:panelGrid>
                                 <h:commandButton action="#{guessBean.validate}" value="Submit" />
+                                <h:outputText value="#{guessBean.timeOutString}"/>
                                 <h:outputText value="#{guessBean.outcome}"/>
                             </h:panelGrid>
                         </h:form>

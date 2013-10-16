@@ -4,6 +4,10 @@
  */
 package web.proj.barbosa.quiz.superbean;
 
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -23,32 +27,51 @@ public class GuessBB {
     private GameFactory gf;
     private String guess;
     private String outcome = "";
+    private String start = "Your Guess is?";
+    private String timeOutString = "";
     @Inject
     private GameBean game;
     @Inject
     private LoginBean login;
+    private static boolean timeOut = false;
+    private Timer timer = new Timer();
     
+    
+    public String getStart(){
+        timer.schedule(new AlertTask(this), 30000);
+        return this.start;
+    }
+    public void setTimeOutString(String str){
+        timeOut = true;
+        setOutcome("GAME OVER");
+        timeOutString = str;
+    }
+    public String getTimeOutString(){
+        return timeOutString;
+    }
     
     public String validate(){
-        if(game.getAnswer().equals(guess)){
+        if(!timeOut && game.getAnswer().equals(guess)){
             outcome = "Your answer is correct";
             game.increaseScore();
             game.nextRound();
             guess = "";
             return "guess";
-        }else
-            if (game.looseLife() == 0){
-                        System.out.println("GuessBB 1");
-                if (login.getLoggedIn()){
-                            System.out.println("GuessBB 2");
-                    gf.getUser(login.getUsername()).getResult().
-                            update(Integer.parseInt(game.getScore()));
-                }
-                outcome="GAME OVER";
-                game.newGame();
-            }else{
-            outcome = "Your answer is wrong";
+        }else if (game.looseLife() == 0){
+            System.out.println("GuessBB 1");
+            if (login.getLoggedIn()){
+                System.out.println("GuessBB 2");
+                gf.getUser(login.getUsername()).getResult().
+                update(Integer.parseInt(game.getScore()));
             }
+        else if (timeOut){ 
+            timeOutString= timeOut ? "Time is Out" : "";
+            outcome= "GAME OVER";
+            game.newGame();
+        }
+        }else {
+            outcome = "Your answer is wrong";
+        }
         guess = "";
         return "guess";
     }
