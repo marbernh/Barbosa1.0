@@ -5,6 +5,7 @@
 package web.proj.barbosa.quiz;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.TreeMap;
 
 /**
@@ -12,58 +13,25 @@ import java.util.TreeMap;
  * @author Filip Husnjak
  */
 public class GameFactory {
-    
-    // Leaderboarden ligger här så länge....
-    private ArrayList<User> users = new ArrayList<>();
-    private UserRegister r;
-    private Leaderboard testboard;
+
     private WordsMaker wm = new WordsMaker();
-    
-    public GameFactory(){
-        for(int i = 0; i < 5; i++){
-            users.add(new User("user" + i, "pass"));
+    private UserRegister reg = (UserRegister) UserRegister.newInstance("quiz_pu");
+    private static Random scoreMaker = new Random();
+
+    public GameFactory() {
+    }
+
+    public void createCompetition(int players) {
+        for (int i = 1; i <= players; i++) {
+            UserDB u = new UserDB("Player nr: " + i, "password");
+            u.update(scoreMaker.nextInt(1000));
+            reg.add(u);
+            System.out.println("player: "+u.getUserName()+"  score: "+u.getTopGameScore() );
         }
-        testboard = new Leaderboard(users);
-//        testboard = new Leaderboard(testData());
     }
-    
-    public UserRegister getRegister(){
-        return r;
-    }
-    
-    public Leaderboard getLeaderboard(){
-        return testboard;
-    }
-    
-    public void setUser(User user){
-        users.add(user);
-    }
-    
-    public User getUser(String userName){
-        for(User user: users){
-            System.out.println("mf " + user.getUserName());
-            if(user.getUserName().equals(userName)){
-                return user;
-            }
-        }
-        return null;
-    }
-    
-    public ArrayList<String> getTestWords(){
+
+    public ArrayList<String> getTestWords() {
         ArrayList<String> list = wm.getWords();
         return list;
     }
-    
-//    private TreeMap<Long, Result> testData() {
-//        // Lägger in test data
-////            ArrayList<User> users = new ArrayList<User>();
-//            TreeMap<Long, Result> list = new TreeMap<Long, Result>();
-//        for(int i = 0; i < 5; i++){
-//            users.add(new User("user" + i, "pass"));
-//        }
-//        for(int i = 0; i<5; i++){
-//            list.put(users.get(i).getId(), users.get(i).getResult());
-//        }
-//        return list;
-//    }
 }

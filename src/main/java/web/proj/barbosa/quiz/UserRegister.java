@@ -38,7 +38,7 @@ public class UserRegister extends AbstractDAO<UserDB, Long>
         System.out.println("getTopTen");
         EntityManager em = emf.createEntityManager();
         return em.createQuery(
-                "SELECT u FROM UserDB u").setMaxResults(10)
+                "SELECT u FROM UserDB u order by u.topGameScore desc").setMaxResults(10)
                 .getResultList();
     }
 }

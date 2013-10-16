@@ -23,13 +23,7 @@ public class GameBean implements Serializable {
     
     private ArrayList<String> lifes;
     private final GameEngine g = new GameEngine();
-    private GameFactory gf = new GameFactory();
     private int life,score;
-    
-//    @Inject
-//    private LeaderboardBB boardBB;
-              
-//    private Leaderboard leaderboard;
     private ArrayList<String> picUrl = new ArrayList<>();
     
 
@@ -39,8 +33,6 @@ public class GameBean implements Serializable {
         score = 0;
         g.newGame();
         picUrl = g.getPics();
-//        leaderboard = gf.getLeaderboard(); // test Leaderboard.
-//        boardBB.updateLB(leaderboard);
     }
       
     public String newGame(){
@@ -70,7 +62,6 @@ public class GameBean implements Serializable {
         return life;
     }
     
-    
     public ArrayList<String> getLifes(){
         return lifes;
     }
@@ -86,16 +77,8 @@ public class GameBean implements Serializable {
     public ArrayList<String> getPicUrl(){
         return picUrl;
     }
-    
-//    public Leaderboard getLeaderboard(){
-//        return leaderboard;
-//    }
 
     public String getAnswer(){
         return g.getAnswer();
-    }
-    
-    public GameFactory getGameFactory(){
-        return gf;
     }
 }

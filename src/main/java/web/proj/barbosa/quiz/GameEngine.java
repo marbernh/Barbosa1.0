@@ -27,12 +27,14 @@ public class GameEngine {
         generator = new Random();
         searcher = new Search();
         gf = new GameFactory();
+        gf.createCompetition(1); // Skapar test spelare.....
         this.answers = gf.getTestWords();
     }
 
     public void newGame() {
        this.answers = gf.getTestWords();
        getNewPics();
+       
     }
 
     public void nextRound() {

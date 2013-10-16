@@ -4,6 +4,7 @@ package web.proj.barbosa.quiz;
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
+import java.util.List;
 import java.util.Random;
 import org.junit.Before;
 import org.junit.Test;
