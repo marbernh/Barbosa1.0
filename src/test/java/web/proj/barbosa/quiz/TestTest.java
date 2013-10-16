@@ -15,22 +15,18 @@ import static org.junit.Assert.*;
  */
 public class TestTest {
 
-    private IUserRegister r;
     private Random scoreMaker = new Random();
 
     @Before
     public void before() {
-        //UserRegister r = (UserRegister) UserRegister.newInstance("embedded_image_quiz_PU");
     }
 
     @Test
     public void TestQuizBase() {
-        UserRegister r = (UserRegister) UserRegister.newInstance("quiz_test_pu");
+        UserRegister r = (UserRegister) UserRegister.newInstance("quiz_pu");
 
         UserDB u1 = new UserDB("Daniel", "1234567");
-
-
-
+        
         //Test add
         r.add(u1);
         assertTrue(r.find(u1.getId()).getUserName().equals("Daniel"));

@@ -15,7 +15,7 @@ public class GameFactory {
     
     // Leaderboarden ligger här så länge....
     private ArrayList<User> users = new ArrayList<>();
-    
+    private UserRegister r;
     private Leaderboard testboard;
     private WordsMaker wm = new WordsMaker();
     
@@ -25,6 +25,10 @@ public class GameFactory {
         }
         testboard = new Leaderboard(users);
 //        testboard = new Leaderboard(testData());
+    }
+    
+    public UserRegister getRegister(){
+        return r;
     }
     
     public Leaderboard getLeaderboard(){

@@ -6,93 +6,41 @@ package web.proj.barbosa.quiz.superbean;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.TreeMap;
+import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
-import javax.enterprise.context.SessionScoped;
-import javax.inject.Inject;
 import javax.inject.Named;
-import web.proj.barbosa.quiz.GameFactory;
-import web.proj.barbosa.quiz.Leaderboard;
-import web.proj.barbosa.quiz.Result;
-import web.proj.barbosa.quiz.User;
+import web.proj.barbosa.quiz.UserDB;
+import web.proj.barbosa.quiz.UserRegister;
 
-/**
- *
+
+/*
  * @author Filip Husnjak
  */
-@Named("leaderboardBean")
+@Named //("leaderboardBean")
 @RequestScoped
-public class LeaderboardBB implements Serializable{
+public class LeaderboardBB implements Serializable {
 
-    @Inject  
-    private GameFactory gf;
-    private ArrayList<User> topList = new ArrayList<>();
-    private ArrayList<String> namesInTop = new ArrayList<>();
-    private ArrayList<String> scoreInTop = new ArrayList<>();
-    private int topListSize = 0;
+    private UserRegister reg = (UserRegister) UserRegister.newInstance("quiz_pu");
+    private List<UserDB> topList = new ArrayList<>();
     
-    public LeaderboardBB(){
-
-    }
-    
-    public int getTopListSize() {
-        topList = gf.getLeaderboard().getTopList();
-        setNamesInTop(topList);
-        setScoreInTop(topList);
-        topListSize = topList.size() - 1;
-        return topListSize;
+    public LeaderboardBB() {
+        System.out.println("Im alive!" + this);
     }
 
-//    public void updateLB(){
-//
-//    }
-    
-//    public ArrayList<String> getNamesInTop() {
-//        return namesInTop;
-//    }
-    
-    public String getNamesInTop(int i) {
-        return namesInTop.get(i);
+    @PostConstruct
+    public void postConstruct() {
+        System.out.println("*************************PostConstr");
+        reg = (UserRegister) UserRegister.newInstance("quiz_pu");
+        reg.add(new UserDB("nnn", "sdfsad"));
     }
 
-    public void setNamesInTop(ArrayList<User> topList) {
-        for(int i = 0; i < topList.size(); i++){
-            this.namesInTop.add(i, topList.get(i).getUserName());
-        }
-        
+    public String getHello() {
+        return "sadsad";
     }
 
-    public String getScoreInTop(int i) {
-        return scoreInTop.get(i);
-    }
-
-    public void setScoreInTop(ArrayList<User> topList) {
-        for(int i = 0; i < topList.size(); i++){
-            this.scoreInTop.add(i, Integer.toString(topList.get(i)
-                    .getResult().getTopGameScore()));
-        }
-    }
-    
-//    public ArrayList<User> get1TopList(){
-//        return lBoard.getTopList();
-//    }
-
-    
-    public ArrayList<User> getTopList(){
+    public List<UserDB> getLeaderboard() {
+        topList = reg.getTopTen();
         return topList;
     }
-    
-//    private String score;
-
-//    public String getScore() {
-//        this.score = "" + getFirstResult().getTotalScore();
-//        return score;
-//    }
-//
-//    public Result getFirstResult() {
-//        Leaderboard list = game.getLeaderboard();
-//        Result result = list.getMap().firstEntry().getValue();
-//        System.out.println(list.getMap().firstEntry().getValue().getTotalScore());
-//        return result;
-//    }
 }

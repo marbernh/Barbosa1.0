@@ -4,6 +4,7 @@
  */
 package web.proj.barbosa.quiz.superbean.utils;
 
+import java.io.Serializable;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -13,29 +14,26 @@ import javax.persistence.Persistence;
  * but later changed by us in the workshop.
  * @author Filip Husnjak
  */
-public abstract class AbstractDAO<T, K> {
+public abstract class AbstractDAO<T, K> implements Serializable{
 
     protected EntityManagerFactory emf;
     private final Class<T> clazz;
 
     protected AbstractDAO(Class<T> clazz, String puName) {
         this.clazz = clazz;
-        emf = Persistence.createEntityManagerFactory(puName);
+        System.out.println("2 "+ puName);
+        emf = Persistence.createEntityManagerFactory("quiz_pu");
+        System.out.println("Abstrc");
     }
 
     public void add(T t) {
-                    System.out.println("ASDASDASDSAD");
-
         EntityManager em = emf.createEntityManager();
         try {
-            System.out.println("ASDASDASDSAD");
             em.getTransaction().begin();
             em.persist(t);
             em.getTransaction().commit();
         } catch (Exception ex) {
-            
             ex.printStackTrace();
-            
         } finally {
             if (em != null) {
                 em.close();

@@ -16,8 +16,9 @@ import web.proj.barbosa.quiz.superbean.utils.AbstractDAO;
 public class UserRegister extends AbstractDAO<UserDB, Long>
         implements IUserRegister {
 
-    public static IUserRegister newInstance(String pooName) {
-        return new UserRegister(pooName);
+    public static IUserRegister newInstance(String puName) {
+        System.out.println("1 " + puName);
+        return new UserRegister(puName);
     }
 
     private UserRegister(String puName) {
