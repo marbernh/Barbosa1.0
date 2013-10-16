@@ -11,87 +11,19 @@ $(function() {
     $("#login")
             .button()
             .click(function() {
-        createLoginDialog().dialog("open");
+        quiz.getRegister().login(getFormData());
     });
     
     $("#register")
             .button()
             .click(function() {
-        createRegisterDialog().dialog("open");
+        quiz.getRegister().add(getFormData());
     });
-
-    function createLoginDialog() {
-        $("#dialog-form").dialog({
-            autoOpen: false,
-            modal: true,
-            stack: true,
-            buttons: {
-                Register: function() {
-                    var def = register.newInstance("quiz_pu").login(getFormDialogData());
-                    def.done(function() {
-                        alert("User added!");
-                    });
-                    def.fail(function() {
-                        alert("Failure!!");
-                    })
-                    $(this).dialog("close");
-                },
-                Cancel: function() {
-                    $(this).dialog("close");
-                }
-            }
-        });
-        return $('#dialog-form');
-    }
     
-        function createRegisterDialog() {
-        $("#dialog-form").dialog({
-            autoOpen: false,
-            modal: true,
-            stack: true,
-            buttons: {
-                Register: function() {
-                    var def = shop.getProductCatalogue().add(getFormDialogData());
-                    def.done(function() {
-                        alert("Product added!");
-                    });
-                    def.fail(function() {
-                        alert("Failure!!");
-                    });
-                    $(this).dialog("close");
-                },
-                Cancel: function() {
-                    $(this).dialog("close");
-                }
-            }
-        });
-        return $('#dialog-form');
-    }
-
-    function createErrorDialog(message) {
-        // Using JQueryUI dialog
-        $("#dialog-message").dialog({
-            autoOpen: false,
-            modal: true,
-            stack: true,
-            buttons: {
-                Ok: function() {
-                    $(this).dialog("close");
-                },
-                Cancel: function() {
-                    $(this).dialog("close");
-                }
-            }
-        });
-        $('#dialog-message').dialog('option', 'title', 'Something went! wrong');
-        $("#dialog-message #msg").text(message);
-        return $('#dialog-message');
-    }
-
-    function getFormDialogData() {
+    function getFormData() {
         var user = {};
-        user.userName = $("#dialog-form #username").val();
-        user.password = $("#dialog-form #password").val();
+        user.userName = $("#login-form #username").val();
+        user.password = $("#login-form #password").val();
         return user;
     }
 });

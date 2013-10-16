@@ -21,9 +21,8 @@ import web.proj.barbosa.quiz.User;
 @Named("guessBean")
 @RequestScoped
 public class GuessBB {
-    
-    
-    @Inject  
+
+    @Inject
     private GameFactory gf;
     private String guess;
     private String outcome = "";
@@ -35,47 +34,44 @@ public class GuessBB {
     private LoginBean login;
     private static boolean timeOut = false;
     private Timer timer = new Timer();
-    
-    
-    public String getStart(){
+
+    public String getStart() {
         timer.schedule(new AlertTask(this), 30000);
         return this.start;
     }
-    public void setTimeOutString(String str){
+
+    public void setTimeOutString(String str) {
         timeOut = true;
         setOutcome("GAME OVER");
         timeOutString = str;
     }
-    public String getTimeOutString(){
+
+    public String getTimeOutString() {
         return timeOutString;
     }
-    
-    public String validate(){
-        if(!timeOut && game.getAnswer().equals(guess)){
+
+    public String validate() {
+
+        if (!timeOut && game.getAnswer().equals(guess)) {
             outcome = "Your answer is correct";
             game.increaseScore();
             game.nextRound();
             guess = "";
             return "guess";
-        }else if (game.looseLife() == 0){
-            System.out.println("GuessBB 1");
-            if (login.getLoggedIn()){
-                System.out.println("GuessBB 2");
-                gf.getUser(login.getUsername()).getResult().
-                update(Integer.parseInt(game.getScore()));
-            }
-        else if (timeOut){ 
-            timeOutString= timeOut ? "Time is Out" : "";
-            outcome= "GAME OVER";
+        } else if (game.looseLife() == 0){
+            outcome = "GAME OVER";
             game.newGame();
-        }
-        }else {
+//        } else if (timeOut) {
+//            timeOutString = timeOut ? "Time is Out" : "";
+//            outcome = "GAME OVER";
+//            game.newGame();
+        } else {
             outcome = "Your answer is wrong";
         }
         guess = "";
         return "guess";
     }
-    
+
     public String getGuess() {
         return guess;
     }
@@ -83,7 +79,8 @@ public class GuessBB {
     public void setGuess(String guess) {
         this.guess = guess;
     }
-        public String getOutcome() {
+
+    public String getOutcome() {
         return outcome;
     }
 
