@@ -3,7 +3,7 @@
     Created on : 2013-okt-05, 10:58:11
     Author     : Filip Husnjak
     Description:
-        Purpose of the stylesheet follows.
+        The CSS-file for image-quiz
 */
 
 body {
@@ -52,10 +52,6 @@ body {
 
 .GameBox {
     background: #ffffff;
-    /*    background-color: rgb(0, 0, 0);
-        background-color: rgba(127, 255, 0, 0.6);*/
-    /*    opacity:0.6; För alla andra /*
-        /* filter:alpha(opacity=60); /*För IE*/
     position: relative;
     margin: auto;
     width: 610px;
@@ -111,13 +107,28 @@ body {
     width: auto;
     height: auto;
 }
+
+#about{
+    margin: auto;
+    margin-top: 13.5%;
+    background: #ffffff;
+    width: 610px;
+    padding-left: 19px;
+    padding-right: 19px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 1px solid black;
+}
+
 #Leaderboard{
     position: absolute;
-    left: 1230px;
+    right: 10px;
+    /*margin-right: 10%;*/
+/*    left: 1400px;*/
     top: -21px;
     overflow: hidden;
-    margin: 9em;
-    width: 15%;
+/*    margin:auto;*/
+    width: 200px;
     height: 23.3em;
     margin-top: 13.5%;
     background-color: darkgray;
