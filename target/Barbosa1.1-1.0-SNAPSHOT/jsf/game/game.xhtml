@@ -8,46 +8,74 @@
 
     <h:body>
         <ui:composition>
-          <!--  <div class="MainBox"> -->
-                <div id="BannerBox"></div>
-                <div id="middleBox">
-                    <div id="GuessBox">
-                        <h:form id="guessForm">
-                            <h:outputText value="#{guessBean.start}" />
-                            <h:panelGrid columns="2">
-                                <h:panelGrid>
-                                    <h:inputText id="guess" autocomplete ="off" value="#{guessBean.guess}"/>
+            <!--  <div class="MainBox"> -->
+            <div id="BannerBox">    
+                <script type = "text/javascript">
+                    var timeInSecs;
+                    var ticker;
 
-                                </h:panelGrid>
-                                <h:commandButton action="#{guessBean.validate}" value="Submit" />
-                                <h:outputText value="#{guessBean.timeOutString}"/>
-                                <h:outputText value="#{guessBean.outcome}"/>
+                    function startTimer(secs) {
+                        timeInSecs = parseInt(secs) - 1;
+                        ticker = setInterval("tick()", 1000);   // every second
+                    }
+
+                    function tick() {
+                        var secs = timeInSecs;
+                        if (secs > 0) {
+                            timeInSecs--;
+                        }
+                        else {
+                            clearInterval(ticker); // stop counting at zero
+                            // startTimer(30);  // remove forward slashes in front of startTimer to repeat if required
+                        }
+
+                        document.getElementById("countdown").innerHTML = secs;
+                    }
+
+                    startTimer(30);  // 60 seconds 
+
+                </script>
+            </div>
+            <div id="middleBox">
+                <div id="GuessBox">
+                    <h:form id="guessForm">
+                        <h:outputText value="#{guessBean.start}" />
+                        <h:panelGrid columns="2">
+                            <h:panelGrid>
+                                <h:inputText id="guess" autocomplete ="off" value="#{guessBean.guess}"/>
+
                             </h:panelGrid>
-                        </h:form>
-                    </div> <!-- guess -->
-                    <script type="text/javascript">  
-                            document.forms[0].elements[1].focus();
-                    </script> 
-                    <div id="InfoBox">
-                        <h:form>
-                            <h:panelGrid columns="1">        
-                                <c:forEach begin="1" end="#{gameBean.life}">
-                                    <tr>
-                                        <img src="#{resource['img:heart.png']}" height="25" width="25"/>
-                                    </tr>
-                                </c:forEach>
-                                <h:outputText value="Score: #{gameBean.score}"/>
-                            </h:panelGrid>
-                        </h:form>
-                    </div> <!-- info -->
-                </div><!-- middle -->
-                <div class="GameBox">
-                    <c:forEach var="pic" items="#{gameBean.picUrl}">
-                        <img src="#{pic}" height="150" width="200"/>
-                    </c:forEach>
-                    <p style="color: #777">[These images are from Google Image search results.]</p>
-                </div>
-           <!-- </div> -->
+                            <h:commandButton action="#{guessBean.validate}" value="Submit" >
+                                <span id="countdown" style="font-weight: bold; color: red;">30</span>
+                            </h:commandButton>
+                            <h:outputText value="#{guessBean.timeOutString}"/>
+                            <h:outputText value="#{guessBean.outcome}"/>
+                        </h:panelGrid>
+                    </h:form>
+                </div> <!-- guess -->
+                <script type="text/javascript">
+                    document.forms[0].elements[1].focus();
+                </script> 
+                <div id="InfoBox">
+                    <h:form>
+                        <h:panelGrid columns="1">        
+                            <c:forEach begin="1" end="#{gameBean.life}">
+                                <tr>
+                                    <img src="#{resource['img:heart.png']}" height="25" width="25"/>
+                                </tr>
+                            </c:forEach>
+                            <h:outputText value="Score: #{gameBean.score}"/>
+                        </h:panelGrid>
+                    </h:form>
+                </div> <!-- info -->
+            </div><!-- middle -->
+            <div class="GameBox">
+                <c:forEach var="pic" items="#{gameBean.picUrl}">
+                    <img src="#{pic}" height="150" width="200"/>
+                </c:forEach>
+                <p style="color: #777">[These images are from Google Image search results.]</p>
+            </div>
+            <!-- </div> -->
         </ui:composition>
     </h:body>
 </html>
