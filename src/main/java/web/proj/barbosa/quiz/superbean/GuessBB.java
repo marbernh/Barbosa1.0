@@ -52,7 +52,7 @@ public class GuessBB {
 
     public String validate() {
 
-        if (!timeOut && game.getAnswer().equals(guess)) {
+        if (game.getAnswer().equals(guess)) {
             outcome = "Your answer is correct";
             game.increaseScore();
             game.nextRound();
