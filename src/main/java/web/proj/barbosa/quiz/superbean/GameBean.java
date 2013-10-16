@@ -12,6 +12,8 @@ import javax.inject.Named;
 import web.proj.barbosa.quiz.GameEngine;
 import web.proj.barbosa.quiz.GameFactory;
 import web.proj.barbosa.quiz.Leaderboard;
+import web.proj.barbosa.quiz.UserDB;
+import web.proj.barbosa.quiz.UserRegister;
 
 /**
  *
@@ -21,11 +23,14 @@ import web.proj.barbosa.quiz.Leaderboard;
 @SessionScoped
 public class GameBean implements Serializable {
     
+    
+    @Inject
+    private LoginBean lb;
     private ArrayList<String> lifes;
     private final GameEngine g = new GameEngine();
     private int life,score;
     private ArrayList<String> picUrl = new ArrayList<>();
-    
+    private UserRegister ur = (UserRegister) UserRegister.newInstance("quiz_pu");
 
     
     public GameBean() {
@@ -36,11 +41,14 @@ public class GameBean implements Serializable {
     }
       
     public String newGame(){
+        if(lb.getLoggedIn()){
+            UserDB user = ur.getByName(lb.getUsername()).get(0);
+            if(score > user.getTopGameScore()){
+                user.update(score);
+                ur.update(user);
+            }
+        }
         life = 3;
-//        lifes.clear();
-//        for(int i = 0; i < life; i++){
-//            lifes.add("");
-//        }
         score = 0;
         g.newGame();
         picUrl = g.getPics();

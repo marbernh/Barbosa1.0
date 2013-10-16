@@ -46,7 +46,7 @@ public class LoginBean implements Serializable {
 
     public String checkLogged() {
         if (loggedIn) {
-            return "Logged in as:" + username;
+            return "Logged in as: " + username;
         } else {
             return "";
         }
