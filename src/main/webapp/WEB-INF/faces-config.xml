@@ -17,8 +17,12 @@
             <to-view-id>/index.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-outcome>login</from-outcome>
+            <from-outcome>loggedoff</from-outcome>
             <to-view-id>/jsf/login/login.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>myacc</from-outcome>
+            <to-view-id>/jsf/login/mypage.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>login2</from-outcome>
@@ -39,7 +43,7 @@
 
 
     </navigation-rule>
-    <!-- Product pages -->
+    <!-- login pages -->
     <navigation-rule>
         <from-view-id>/jsf/login/login.xhtml</from-view-id>
         <navigation-case>
@@ -51,49 +55,24 @@
             <to-view-id>/jsf/login/loginFail.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
+            <from-outcome>register</from-outcome>
+            <to-view-id>/jsf/login/register.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <!--register page-->
+    <navigation-rule>
+        <from-view-id>/jsf/login/register.xhtml</from-view-id>
+            <navigation-case>
             <from-outcome>registerPass</from-outcome>
             <to-view-id>/jsf/login/login.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>registerFail</from-outcome>
+            <to-view-id>/jsf/login/register.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
             <to-view-id>/jsf/login/login.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
-    <navigation-rule>
-        <from-view-id>/jsf/products/editProduct.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>PRODUCT_SUCCESS</from-outcome>
-            <to-view-id>/jsf/products/products.xhtml</to-view-id>
-        </navigation-case>
-    </navigation-rule>
-    <navigation-rule>
-        <from-view-id>/jsf/products/deleteProduct.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>PRODUCT_SUCCESS</from-outcome>
-            <to-view-id>/jsf/products/products.xhtml</to-view-id>  
-        </navigation-case>
-    </navigation-rule>
-
-    <!-- Login -->
-    <!--    <navigation-rule>
-        <from-view-id>/jsf/login.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>login-success</from-outcome>
-            <to-view-id>/jsf/products/products.xhtml</to-view-id> 
-            <redirect/> 
-        </navigation-case> 
-        <navigation-case>
-            <from-outcome>login-fail</from-outcome>
-            <to-view-id>/jsf/login.xhtml</to-view-id>  
-        </navigation-case> 
-    </navigation-rule>
-    <navigation-rule>
-        <from-view-id>/jsf/products/products.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>logout-success</from-outcome>
-            <to-view-id>/index.xhtml</to-view-id>  
-            <redirect/>
-        </navigation-case>
-    </navigation-rule>-->
-    
 </faces-config>

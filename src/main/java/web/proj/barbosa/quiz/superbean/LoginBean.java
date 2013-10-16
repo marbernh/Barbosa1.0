@@ -22,10 +22,12 @@ public class LoginBean implements Serializable {
     private boolean loggedIn = false;
     private String username;
     private String password;
+    private String cPassword;
     private LoginManager lm = new LoginManager();
 
     // Handled by GlassFish file realm
     public String login() {
+        
         UserDB user = new UserDB(username, password);
         loggedIn = lm.login(user);
         if (loggedIn) {
@@ -43,8 +45,14 @@ public class LoginBean implements Serializable {
             return "registerFail";
         }
     }
+    public String checklogged(){
+        if(loggedIn){
+            return "myacc";
+        }
+        return "loggedoff";
+    }
 
-    public String checkLogged() {
+    public String logDisp() {
         if (loggedIn) {
             return "Logged in as: " + username;
         } else {
@@ -52,9 +60,9 @@ public class LoginBean implements Serializable {
         }
     }
 
-//    public String logout() {
-//        return "";
-//    }
+    public String logout() {
+        return ""; //DETTA SKA JAG FIXA!!!!!!!!!!!!!!!
+    }
     
     public void setUsername(String username) {
         this.username = username;
@@ -75,4 +83,13 @@ public class LoginBean implements Serializable {
     public boolean getLoggedIn() {
         return loggedIn;
     }
+
+    public String getcPassword() {
+        return cPassword;
+    }
+
+    public void setcPassword(String cPassword) {
+        this.cPassword = cPassword;
+    }
+    
 }
