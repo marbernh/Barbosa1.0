@@ -23,10 +23,8 @@
                             <h:outputText value="Confirm Password : "></h:outputText>
                             <h:inputSecret id="cPassword" value="#{AccountBean.cPassword}"/>
                             <h:message for="cPassword" style="color:red"/>
-                            <f:facet name="footer">
                                 <h:commandButton value="Register" action="#{AccountBean.register}" type="submit"/>
                                 <h:commandButton value="Cancel" action="cancel" type="submit"/>
-                            </f:facet>   
                             <h:outputText value="#{AccountBean.errorMsg}" style="color: red"/>
                         </h:panelGrid>
                     </h:form>

@@ -2,15 +2,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets">
     <!--
-    The login page
+    The login page. Field for login and a button for registration
     -->
     <h:body>
-        
         <ui:composition template="/WEB-INF/template.xhtml">
-            
             <ui:define name="content">
                 <div id="about">
                     <h1>Login</h1>
@@ -22,10 +19,9 @@
                             <h:outputText value="Password : "></h:outputText>
                             <h:inputSecret id="password" value="#{AccountBean.password}"/>
                             <h:message for="password" style="color:red"/>
-                            <f:facet name="footer">
-                                <h:commandButton value="Login" action="#{AccountBean.login}" type="submit"/>
-                                <h:commandButton value="Register" action="register" type="submit"/>
-                            </f:facet>   
+                            <h:commandButton value="Login" action="#{AccountBean.login}" type="submit"/>
+                            <h:outputText value="Don't have an account? Head over to the register page!"></h:outputText>
+                            <h:commandButton value="Register" action="register" type="submit"/>  
                         </h:panelGrid>
                     </h:form>
                 </div>
