@@ -5,32 +5,30 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets">
     <!--
-    Author: lab 3
+    The login page
     -->
     <h:body>
         
         <ui:composition template="/WEB-INF/template.xhtml">
             
             <ui:define name="content">
-                <h3>Add product</h3>
-                <h:form id="login-form"> <!--css-->
-                    <h:outputText value="Login" styleClass="warning"/>
-                    <h:panelGrid columns="3">
-                        <f:facet name="header">
-                            Login Panel
-                        </f:facet>
-                        <h:outputText value="Username : "></h:outputText>
-                        <h:inputText id="username" value="#{AccountBean.username}"/>
-                        <h:message for="username" style="color:red"/>
-                        <h:outputText value="Password : "></h:outputText>
-                        <h:inputSecret id="password" value="#{AccountBean.password}"/>
-                        <h:message for="password" style="color:red"/>
-                        <f:facet name="footer">
-                            <h:commandButton value="Login" action="#{AccountBean.login}" type="submit"/>
-                            <h:commandButton value="Register" action="register" type="submit"/>
-                        </f:facet>   
-                    </h:panelGrid>
-                </h:form>
+                <div id="about">
+                    <h1>Login</h1>
+                    <h:form id="login-form"> 
+                        <h:panelGrid columns="3">
+                            <h:outputText value="Username : "></h:outputText>
+                            <h:inputText id="username" value="#{AccountBean.username}"/>
+                            <h:message for="username" style="color:red"/>
+                            <h:outputText value="Password : "></h:outputText>
+                            <h:inputSecret id="password" value="#{AccountBean.password}"/>
+                            <h:message for="password" style="color:red"/>
+                            <f:facet name="footer">
+                                <h:commandButton value="Login" action="#{AccountBean.login}" type="submit"/>
+                                <h:commandButton value="Register" action="register" type="submit"/>
+                            </f:facet>   
+                        </h:panelGrid>
+                    </h:form>
+                </div>
             </ui:define>
         </ui:composition>
     </h:body>

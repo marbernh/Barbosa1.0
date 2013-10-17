@@ -1,11 +1,16 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+        
+<!--
+The game page. Show box with six pictures, hearts as lifes, an inputtext where 
+you are suppose to submit your answer.
+-->
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:c="http://java.sun.com/jsp/jstl/core">
-          
+    
     <h:body>
         
         <ui:composition>
@@ -31,12 +36,16 @@
                         </h:panelGrid>
                     </h:form>
                 </div> <!-- guess -->
+                
+                <!--Script to set the focus on the input field-->
                 <script type="text/javascript">
                     document.forms[0].elements[1].focus();
                 </script> 
+                
                 <div id="InfoBox">
                     <h:form>
-                        <h:panelGrid columns="1">        
+                        <h:panelGrid columns="1">      
+                            <!-- Show the hearts on the game page, based on the number of lifes -->
                             <c:forEach begin="1" end="#{gameBean.life}">
                                 <tr>
                                     <img src="#{resource['img:heart.png']}" height="25" width="25"/>
@@ -51,8 +60,8 @@
                 <c:forEach var="pic" items="#{gameBean.picUrl}">
                     <img src="#{pic}" height="150" width="200"/>
                 </c:forEach>
-                <p style="color: #777">[These images are from Google Image search results.]</p>
-            </div>
+                <p style="color: #777">[These images are from Google Image search.]</p>
+            </div><!-- Gamebox  -->
         </ui:composition>
     </h:body>
 </html>

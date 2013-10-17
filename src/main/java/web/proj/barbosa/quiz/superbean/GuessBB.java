@@ -29,11 +29,11 @@ public class GuessBB {
             outcome = "Your answer is correct";
             game.increaseScore();
             game.nextRound();
-            guess = "";
-            return "index";
+            
         } else if (game.looseLife() == 0) {
             outcome = "GAME OVER";
-            game.newGame();
+            guess = "";
+            return "gameOver";
         } else {
             outcome = "Your answer is wrong";
         }
