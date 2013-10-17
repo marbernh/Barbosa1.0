@@ -10,8 +10,6 @@ import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import web.proj.barbosa.quiz.GameEngine;
-import web.proj.barbosa.quiz.GameFactory;
-import web.proj.barbosa.quiz.Leaderboard;
 import web.proj.barbosa.quiz.UserDB;
 import web.proj.barbosa.quiz.UserRegister;
 

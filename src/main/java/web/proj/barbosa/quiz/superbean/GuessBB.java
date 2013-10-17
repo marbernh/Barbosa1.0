@@ -12,7 +12,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import web.proj.barbosa.quiz.GameFactory;
-import web.proj.barbosa.quiz.User;
+import web.proj.barbosa.quiz.UserDB;
 
 /**
  *

@@ -18,7 +18,7 @@ import web.proj.barbosa.quiz.UserRegister;
 /*
  * @author Filip Husnjak
  */
-@Named //("leaderboardBean")
+@Named
 @RequestScoped
 public class LeaderboardBB implements Serializable {
 
