@@ -23,7 +23,7 @@ public class GameBean implements Serializable {
     
     
     @Inject
-    private LoginBean lb;
+    private AccountBB lb;
     private ArrayList<String> lifes;
     private final GameEngine g = new GameEngine();
     private int life,score;
