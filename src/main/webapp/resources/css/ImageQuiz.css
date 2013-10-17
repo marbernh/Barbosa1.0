@@ -76,21 +76,21 @@ body {
 .MainBox{
     height: auto;
     width: auto;
-    border: 1px solid red;
+    /*border: 1px solid red;*/
 }
 
 #CenterBox{
     width: 650px;
     height: auto;
     margin: auto;
-    border: 1px solid yellow;
+    /*border: 1px solid yellow;*/
 }
 
 #BannerBox{
     width: 650px;
     height: 150px;
     margin: auto;
-    background-image:url("#{resource['img:projectbarbosa.png']}");
+    background-image:url("#{resource['img:imagequiz.png']}");
 }
 #middleBox{
     width: 649px;
@@ -98,11 +98,13 @@ body {
 }
 #GuessBox{
     width: 380px;
-    height: 99px;
+    height: 78px;
     float: left;
+    padding-top: 20px;
 }
 #InfoBox{
     margin-top: 4.2%;
+    margin-left: 7.5%;
     float: left;
     width: auto;
     height: auto;
@@ -121,16 +123,22 @@ body {
 }
 
 #Leaderboard{
-    position: absolute;
-    right: 10px;
-    /*margin-right: 10%;*/
-/*    left: 1400px;*/
-    top: -21px;
+    position: fixed;
+    right: 15%;
     overflow: hidden;
-/*    margin:auto;*/
     width: 200px;
     height: 18em;
-    margin-top: 13.5%;
-    background-color: darkgray;
+    margin-top: 13.2%;
+    background-color: white;
     border: 2px solid blue;
+}
+
+#table{
+    width: 100%;
+}
+#table tr:nth-of-type(2n) {
+  background: #ffffff;
+}
+#table tr:nth-of-type(2n-1) {
+  background: #eee
 }
