@@ -40,7 +40,7 @@ public class GameBean implements Serializable {
       
     public String newGame(){
         if(lb.getLoggedIn()){
-            UserDB user = ur.getByName(lb.getUsername()).get(0);
+            UserDB user = ur.getByName(lb.getUsername());
             if(score > user.getTopGameScore()){
                 user.update(score);
                 ur.update(user);

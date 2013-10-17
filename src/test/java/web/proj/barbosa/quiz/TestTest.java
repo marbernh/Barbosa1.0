@@ -43,7 +43,7 @@ public class TestTest {
         assertTrue(!(u1.getUserName().equals(r.find(u3.getId()).getUserName())));
 
         //TEST getByName
-        UserDB collectedU1 = r.getByName("Filip").get(0);
+        UserDB collectedU1 = r.getByName("Filip");
         assertTrue(collectedU1.getUserName().equals("Filip"));
 
         //Test Remove

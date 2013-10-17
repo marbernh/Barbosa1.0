@@ -17,7 +17,6 @@ public class UserRegister extends AbstractDAO<UserDB, Long>
         implements IUserRegister {
 
     public static IUserRegister newInstance(String puName) {
-        System.out.println("1 " + puName);
         return new UserRegister(puName);
     }
 
@@ -26,19 +25,28 @@ public class UserRegister extends AbstractDAO<UserDB, Long>
     }
 
     @Override
-    public List<UserDB> getByName(String name) {
+    public UserDB getByName(String name) {
         EntityManager em = emf.createEntityManager();
-        return em.createQuery(
+        List<UserDB> us =  em.createQuery(
                 "SELECT u FROM UserDB u WHERE u.userName LIKE :name ")
                 .setParameter("name", name)
                 .getResultList();
+        if(us.isEmpty()){
+            return null;
+        }else{
+            return us.get(0);
+        }
     }
 
     public List<UserDB> getTopTen() {
-        System.out.println("getTopTen");
         EntityManager em = emf.createEntityManager();
         return em.createQuery(
                 "SELECT u FROM UserDB u order by u.topGameScore desc").setMaxResults(10)
                 .getResultList();
+    }
+    public List<UserDB> getAll(){
+        EntityManager em = emf.createEntityManager();
+        return em.createQuery(
+                "SELECT u FROM UserDB u").getResultList();
     }
 }

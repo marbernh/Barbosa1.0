@@ -13,9 +13,6 @@ import java.util.Random;
  */
 public class GameEngine {
 
-    private int life;
-    private int score;
-    private int guessRight, guessWrong;
     private GameFactory gf;
     private ArrayList<String> answers;
     private String answer;
@@ -27,7 +24,7 @@ public class GameEngine {
         generator = new Random();
         searcher = new Search();
         gf = new GameFactory();
-        gf.createCompetition(1); // Skapar test spelare.....
+        gf.createCompetition(); // Skapar test spelare.....
         this.answers = gf.getTestWords();
     }
 
@@ -54,37 +51,11 @@ public class GameEngine {
         System.out.println(pics);
 
     }
-
-    public String makeGuess(String guess) {
-        if (guess.equals(answer)) {
-            score = life * 15;
-            this.guessRight++;
-            return "correct";
-        } else if (!(guess.equals(answer)) && life-- > 0) {
-            guessWrong++;
-            return "try again";
-        } else if (!(guess.equals(answer)) && life-- == 0) {
-            guessWrong++;
-            return "game over";
-        } else {
-            return "error";
-        }
-    }
-//
-//    public void gameOver(User user) {
-//        user.getResult().update(guessRight, guessWrong, score);
-//    }
-//
+    
     public String getAnswer() {
-
-        System.out.println("getanswer engine");
         return answer;
     }
-
-    public int getScore() {
-        return this.score;
-    }
-
+    
     public ArrayList<String> getPics() {
         return pics;
     }

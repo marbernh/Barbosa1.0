@@ -70,7 +70,7 @@ public class UserHandlerResource {
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public Response login(@FormParam("userName") String userName,
             @FormParam("password") String password) {
-        UserDB userlogin = register.getByName(userName).get(0);
+        UserDB userlogin = register.getByName(userName);
         try {
             if (userlogin == null || !(userlogin.getPassword().equals(password))) {
                 return Response.ok("login fail").build();

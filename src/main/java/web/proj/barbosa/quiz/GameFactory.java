@@ -21,12 +21,13 @@ public class GameFactory {
     public GameFactory() {
     }
 
-    public void createCompetition(int players) {
-        for (int i = 1; i <= players; i++) {
-            UserDB u = new UserDB("Player nr: " + i, "password");
-            u.update(scoreMaker.nextInt(1000));
-            reg.add(u);
-            System.out.println("player: "+u.getUserName()+"  score: "+u.getTopGameScore() );
+    public void createCompetition() {
+        if (reg.getAll().isEmpty()) {
+            for (int i = 1; i <= 10; i++) {
+                UserDB u = new UserDB("Player nr: " + i, "password");
+                u.update(scoreMaker.nextInt(750));
+                reg.add(u);
+            }
         }
     }
 

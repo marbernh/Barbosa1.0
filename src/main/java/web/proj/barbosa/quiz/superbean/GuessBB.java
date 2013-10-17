@@ -22,8 +22,6 @@ import web.proj.barbosa.quiz.UserDB;
 @RequestScoped
 public class GuessBB {
 
-    @Inject
-    private GameFactory gf;
     private String guess;
     private String outcome = "";
     private String start = "Your Guess is?";

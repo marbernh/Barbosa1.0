@@ -4,7 +4,6 @@
  */
 package web.proj.barbosa.quiz;
 
-import java.util.List;
 import web.proj.barbosa.quiz.superbean.utils.IDAO;
 
 /**
@@ -12,5 +11,5 @@ import web.proj.barbosa.quiz.superbean.utils.IDAO;
  * @author husnjak
  */
 public interface IUserRegister extends IDAO<UserDB, Long> {
-    List<UserDB> getByName(String name);
+    UserDB getByName(String name);
 }
