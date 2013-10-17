@@ -13,7 +13,8 @@ import java.util.List;
 public class LoginManager {
     private UserRegister ur = (UserRegister) UserRegister.newInstance("quiz_pu");
     
-    public boolean login(UserDB user){
+    public boolean login(String name, String pass){
+        UserDB user = new UserDB(name,pass);
         List<UserDB> userChecker = ur.getByName(user.getUserName());
         if(userChecker.isEmpty()){
             return false;
@@ -24,7 +25,8 @@ public class LoginManager {
         }
     }
 
-    public boolean register(UserDB newUser) {
+    public boolean register(String name,String pass) {
+        UserDB newUser = new UserDB(name,pass);
         List<UserDB> userChecker = ur.getByName(newUser.getUserName());
         if(userChecker.isEmpty()){
             ur.add(newUser);

@@ -13,7 +13,7 @@
 
             <ui:define name="content">
                 <h3>My Page</h3>
-                <h:commandButton value="Log Out" action="#{loginBean.logout}"/>
+                <h:button outcome="#{loginBean.logout()}" value="Log Out"/>
             </ui:define>
         </ui:composition>
     </h:body>

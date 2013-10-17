@@ -75,4 +75,11 @@
             <to-view-id>/jsf/login/login.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/jsf/login/mypage.xhtml</from-view-id>
+            <navigation-case>
+            <from-outcome>logOut</from-outcome>
+            <to-view-id>/jsf/login/login.xhtml</to-view-id>
+            </navigation-case>
+    </navigation-rule>
 </faces-config>

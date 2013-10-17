@@ -27,9 +27,7 @@ public class LoginBean implements Serializable {
 
     // Handled by GlassFish file realm
     public String login() {
-        
-        UserDB user = new UserDB(username, password);
-        loggedIn = lm.login(user);
+        loggedIn = lm.login(username, password);
         if (loggedIn) {
             return "loginPass";
         } else {
@@ -38,8 +36,7 @@ public class LoginBean implements Serializable {
     }
 
     public String register() {
-        UserDB newUser = new UserDB(username, password);
-        if (lm.register(newUser)) {
+        if (lm.register(username,password)) {
             return "registerPass";
         } else {
             return "registerFail";
@@ -61,7 +58,10 @@ public class LoginBean implements Serializable {
     }
 
     public String logout() {
-        return ""; //DETTA SKA JAG FIXA!!!!!!!!!!!!!!!
+        loggedIn = false;
+        username = "";
+        password = "";
+        return "logOut"; 
     }
     
     public void setUsername(String username) {
