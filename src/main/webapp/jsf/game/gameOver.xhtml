@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <!--
 The game over page. shows the score and the answer of the previous game played.
 -->
@@ -18,24 +17,23 @@ The game over page. shows the score and the answer of the previous game played.
                 <div class="MainBox">
                     <div id="CenterBox">
                         <div id="BannerBox"></div>
-                        <div id="middleBox">
-                            <div id="InfoBox">
-                                <h1>Game Over</h1>
-                                <table>
-                                    <tr>
-                                        <h2>Your score was: </h2>
-                                        <h:outputText value="#{gameBean.score}"/>  
-                                    </tr>
-                                    <td>
-                                        <h2>The correct answer was: </h2>
-                                        <h:outputText value="#{gameBean.answer}"/>  
-                                    </td>
-                                </table>
-                                <h:button outcome="#{gameBean.newGame()}" value="New Game"/>
-                            </div> <!-- info -->
-                        </div><!-- middle -->
-                    </div>
+                        <div id="about">
+                            <h1>Game Over</h1>
+                            <table>
+                                <tr>
+                                    <h2>Your score was: </h2>
+                                    <h:outputText value="#{gameBean.score}"/>  
+                                </tr>
+                                <td>
+                                    <h2>The correct answer was: </h2>
+                                    <h:outputText value="#{gameBean.answer}"/>  
+                                </td>
+                            </table>
+                            <h:button outcome="#{gameBean.newGame()}" value="New Game"/>
+                        </div> <!-- info -->
+                    </div><!-- center -->
                 </div>
+                
             </ui:define>
         </ui:composition>
     </h:body>
