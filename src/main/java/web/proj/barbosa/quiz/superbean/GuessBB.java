@@ -30,7 +30,7 @@ public class GuessBB {
             game.increaseScore();
             game.nextRound();
             guess = "";
-            return "guess";
+            return "index";
         } else if (game.looseLife() == 0) {
             outcome = "GAME OVER";
             game.newGame();
@@ -38,7 +38,7 @@ public class GuessBB {
             outcome = "Your answer is wrong";
         }
         guess = "";
-        return "guess";
+        return "index";
     }
 
     public String getGuess() {

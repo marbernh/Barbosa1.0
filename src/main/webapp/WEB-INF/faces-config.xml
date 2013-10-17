@@ -9,11 +9,13 @@
             <!-- If customizing messages -->
         </message-bundle>
     </application>
+    
+    
     <!-- Main menu on all pages -->
     <navigation-rule>
         <from-view-id>*</from-view-id> 
         <navigation-case>
-            <from-outcome>guess</from-outcome>
+            <from-outcome>index</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
@@ -29,10 +31,6 @@
             <to-view-id>/content/login.html</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-outcome>home</from-outcome>
-            <to-view-id>/index.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
             <from-outcome>about</from-outcome>
             <to-view-id>/jsf/about/about.xhtml</to-view-id>
         </navigation-case>
@@ -40,9 +38,18 @@
             <from-outcome>gameOver</from-outcome>
             <to-view-id>/jsf/game/gameOver.xhtml</to-view-id>
         </navigation-case>
-
-
     </navigation-rule>
+        
+    <!-- Game over page -->
+    <navigation-rule>
+        <from-view-id>/jsf/game/gameOver.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>index</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    
     <!-- login pages -->
     <navigation-rule>
         <from-view-id>/jsf/login/login.xhtml</from-view-id>
@@ -62,7 +69,7 @@
     <!--register page-->
     <navigation-rule>
         <from-view-id>/jsf/login/register.xhtml</from-view-id>
-            <navigation-case>
+        <navigation-case>
             <from-outcome>registerPass</from-outcome>
             <to-view-id>/jsf/login/login.xhtml</to-view-id>
         </navigation-case>
@@ -75,11 +82,13 @@
             <to-view-id>/jsf/login/login.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    
+    <!--Mypage page-->
     <navigation-rule>
         <from-view-id>/jsf/login/mypage.xhtml</from-view-id>
-            <navigation-case>
+        <navigation-case>
             <from-outcome>logOut</from-outcome>
             <to-view-id>/jsf/login/login.xhtml</to-view-id>
-            </navigation-case>
+        </navigation-case>
     </navigation-rule>
 </faces-config>

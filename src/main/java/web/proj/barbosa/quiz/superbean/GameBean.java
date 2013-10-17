@@ -50,7 +50,7 @@ public class GameBean implements Serializable {
         score = 0;
         g.newGame();
         picUrl = g.getPics();
-        return "guess";
+        return "index";
     }
     
     public void nextRound(){
