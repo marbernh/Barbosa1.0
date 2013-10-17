@@ -5,11 +5,12 @@
 package web.proj.barbosa.quiz.superbean.utils;
 
 /**
- *The interface class for AbstractDAO
- * 
+ * The interface class for AbstractDAO
+ *
  * @author hajo
  */
-public interface IDAO<T,K> {
+public interface IDAO<T, K> {
+
     public void add(T t);
 
     public void remove(K id);

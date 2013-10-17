@@ -4,11 +4,9 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
- * This clas handles creation of hardcoded data.
- * The data are:
- *  - Sample uses for the leaderboard
- *  - Reads the words from a file
- * 
+ * This clas handles creation of hardcoded data. The data are: - Sample uses for
+ * the leaderboard - Reads the words from a file
+ *
  * @author Iron-Maven
  */
 public class GameFactory {

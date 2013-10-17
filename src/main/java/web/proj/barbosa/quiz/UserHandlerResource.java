@@ -77,7 +77,7 @@ public class UserHandlerResource {
             } else {
                 return Response.ok("login success").build();
             }
-        } catch(IllegalArgumentException e)  {
+        } catch (IllegalArgumentException e) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
         }
     }

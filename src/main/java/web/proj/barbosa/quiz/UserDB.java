@@ -12,8 +12,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 import web.proj.barbosa.quiz.superbean.utils.AbstractEntity;
 
 /**
+ * The UserDB class holds the player information such as username, password and
+ * top game score.
  *
- * @author Filip Husnjak
+ * @author Iron-Maven
  */
 @Entity
 @XmlRootElement

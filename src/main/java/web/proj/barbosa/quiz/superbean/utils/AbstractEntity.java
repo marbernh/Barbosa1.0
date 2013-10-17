@@ -1,4 +1,3 @@
-
 package web.proj.barbosa.quiz.superbean.utils;
 
 import java.io.Serializable;
@@ -9,27 +8,27 @@ import javax.persistence.MappedSuperclass;
 import javax.xml.bind.annotation.XmlAttribute;
 
 /**
- * Base class for all entities (later to be stored in database), 
- * Users, Score etc.
- * 
+ * Base class for all entities (later to be stored in database), Users, Score
+ * etc.
+ *
  * @author hajo
  */
 @MappedSuperclass
-public abstract class AbstractEntity implements Serializable{
-    
+public abstract class AbstractEntity implements Serializable {
+
     @Id
     @GeneratedValue
     private Long id;
 
-    public AbstractEntity(){
+    public AbstractEntity() {
     }
 
-    protected AbstractEntity(Long id){
+    protected AbstractEntity(Long id) {
         this.id = id;
     }
-    
+
     @XmlAttribute
-    public Long getId(){
+    public Long getId() {
         return id;
     }
 

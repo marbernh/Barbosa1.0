@@ -6,7 +6,7 @@ import web.proj.barbosa.quiz.superbean.utils.IDAO;
 /**
  * This is the interface for UserRegister
  *
- * @author husnjak
+ * @author Iron-Maven
  */
 public interface IUserRegister extends IDAO<UserDB, Long> {
     UserDB getByName(String name);

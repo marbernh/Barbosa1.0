@@ -26,7 +26,7 @@ public abstract class AbstractDAO<T, K> implements Serializable {
     }
 
     public void add(T t) {
-         em = emf.createEntityManager();
+        em = emf.createEntityManager();
         try {
             em.getTransaction().begin();
             em.persist(t);
@@ -42,7 +42,7 @@ public abstract class AbstractDAO<T, K> implements Serializable {
     }
 
     public void remove(K id) {
-         em = emf.createEntityManager();
+        em = emf.createEntityManager();
         try {
             em.getTransaction().begin();
             T t = em.getReference(clazz, id);
@@ -58,7 +58,7 @@ public abstract class AbstractDAO<T, K> implements Serializable {
     }
 
     public void update(T t) {
-         em = emf.createEntityManager();
+        em = emf.createEntityManager();
         try {
             em.getTransaction().begin();
             em.merge(t);
@@ -73,13 +73,14 @@ public abstract class AbstractDAO<T, K> implements Serializable {
     }
 
     public T find(K id) {
-         em = emf.createEntityManager();
+        em = emf.createEntityManager();
         T item = em.find(clazz, id);
         em.close();
         return item;
     }
+
     @PreDestroy
-    public void closeEntity(){
+    public void closeEntity() {
         em.getEntityManagerFactory().close();
     }
 }

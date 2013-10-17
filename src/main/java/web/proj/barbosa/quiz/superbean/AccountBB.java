@@ -15,7 +15,7 @@ import web.proj.barbosa.quiz.LoginManager;
  * @author Iron-Maven
  */
 @Named("AccountBean")
-@SessionScoped  // NOTE enterprise package, else disaster!!!
+@SessionScoped
 public class AccountBB implements Serializable {
 
     private boolean loggedIn = false;
@@ -107,5 +107,4 @@ public class AccountBB implements Serializable {
     public void setErrorMsg(String errorMsg) {
         this.errorMsg = errorMsg;
     }
-    
 }

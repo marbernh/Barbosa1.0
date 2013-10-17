@@ -12,9 +12,9 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 /**
- * The WordsMaker imports the words from our dictionary to later be used
- * in the game.
- * 
+ * The WordsMaker imports the words from our dictionary to later be used in the
+ * game.
+ *
  * @author Iron-Maven
  */
 public class WordsMaker {

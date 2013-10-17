@@ -15,14 +15,17 @@ import web.proj.barbosa.quiz.UserRegister;
 
 
 /*
- * @author Filip Husnjak
+ * The LeaderboardBB handels the leaderboard by taking the ten best
+ * players from the database and displays them on the game page. 
+ * 
+ * @author Iron-Maven
  */
 @Named
 @RequestScoped
 public class LeaderboardBB implements Serializable {
 
-    private UserRegister reg = (UserRegister) UserRegister.newInstance("quiz_pu");
-    private List<UserDB> topList = new ArrayList<>();
+    private UserRegister reg;
+    private List<UserDB> topList;
 
     public LeaderboardBB() {
     }
@@ -30,6 +33,7 @@ public class LeaderboardBB implements Serializable {
     @PostConstruct
     public void postConstruct() {
         reg = (UserRegister) UserRegister.newInstance("quiz_pu");
+        topList = new ArrayList<>();
     }
 
     public List<UserDB> getLeaderboard() {

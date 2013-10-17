@@ -14,8 +14,11 @@ import web.proj.barbosa.quiz.UserDB;
 import web.proj.barbosa.quiz.UserRegister;
 
 /**
- *
- * @author Filip Husnjak
+ * The GameBean handels the game by starting a new game, round and
+ * getting the url for the pictures. 
+ * It also handels the players life and score.
+ * 
+ * @author Iron-Maven
  */
 @Named("gameBean")
 @SessionScoped
