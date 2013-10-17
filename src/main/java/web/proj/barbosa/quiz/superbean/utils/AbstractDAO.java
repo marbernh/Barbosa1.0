@@ -13,9 +13,9 @@ import javax.persistence.Persistence;
 
 /**
  * This abstract class is "copied" from the JPA lab and first athured by hajo
- * but later changed by us in the workshop.
+ * but later changed by us in the workshop and in this project.
  *
- * @author Filip Husnjak
+ * @author Iron-Maven
  */
 @Startup
 public abstract class AbstractDAO<T, K> implements Serializable {

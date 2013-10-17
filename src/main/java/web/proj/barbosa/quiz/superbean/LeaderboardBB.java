@@ -23,7 +23,7 @@ public class LeaderboardBB implements Serializable {
 
     private UserRegister reg = (UserRegister) UserRegister.newInstance("quiz_pu");
     private List<UserDB> topList = new ArrayList<>();
-    
+
     public LeaderboardBB() {
     }
 

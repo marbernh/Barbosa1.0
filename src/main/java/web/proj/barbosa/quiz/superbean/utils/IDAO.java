@@ -4,12 +4,10 @@
  */
 package web.proj.barbosa.quiz.superbean.utils;
 
-import java.util.Comparator;
-import java.util.List;
-
 /**
- *
- * @author husnjak
+ *The instance class for AbstractDAO
+ * 
+ * @author Iron-Maven
  */
 public interface IDAO<T,K> {
     public void add(T t);

@@ -10,7 +10,8 @@ import javax.xml.bind.annotation.XmlAttribute;
 
 /**
  * Base class for all entities (later to be stored in database), 
- * Product, Order, etc
+ * Users, Score etc.
+ * 
  * @author hajo
  */
 @MappedSuperclass

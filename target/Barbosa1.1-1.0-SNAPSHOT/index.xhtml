@@ -18,23 +18,20 @@ and open the template in the editor.
         <ui:composition template="/WEB-INF/template.xhtml">
             <ui:define name="content">
                 <div class="MainBox">
-                    <h:outputText value="#{loginBean.logDisp()}" />
+                    <h:outputText value="#{AccountBean.logDisp()}" />
                     <div id="Leaderboard">
                         <table width="100%" border="1">
                             <tr>
+                                <td></td>
                                 <td>Name:</td>
                                 <td>Score:</td>
                             </tr>
-                            <c:forEach var="i" items="#{leaderboardBB.leaderboard}">
-                                <tr>
-                                    <td>
-                                        <h:outputText value="#{i.userName}"/>    
-                                    </td>
-                                    <td>
-                                        <h:outputText value="#{i.topGameScore}"/>
-                                    </td>
-                                </tr>
-                            </c:forEach>
+                                <c:forEach var="i" items="#{leaderboardBB.leaderboard}">
+                                    <tr>
+                                        <td><h:outputText value="#{i.userName}"/></td>
+                                        <td><h:outputText value="#{i.topGameScore}"/></td>
+                                    </tr>
+                                </c:forEach>
                         </table>
                     </div>
                     <div id="CenterBox">
