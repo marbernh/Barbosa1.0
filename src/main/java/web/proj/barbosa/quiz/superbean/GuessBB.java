@@ -4,14 +4,15 @@
  */
 package web.proj.barbosa.quiz.superbean;
 
-import java.util.Timer;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 /**
- * 
- * 
+ * GuessBB is a part of the game mechanics.
+ * It takes the players guess and compares it to the answer through
+ * the function validate.
+ *
  * @author Iron-Maven
  */
 @Named("guessBean")
@@ -20,7 +21,6 @@ public class GuessBB {
 
     private String guess;
     private String outcome = "";
-    private String start = "Your Guess is?";
     @Inject
     private GameBean game;
 
