@@ -4,8 +4,6 @@
  */
 package web.proj.barbosa.quiz;
 
-import java.util.List;
-
 /**
  *
  * @author Daniel

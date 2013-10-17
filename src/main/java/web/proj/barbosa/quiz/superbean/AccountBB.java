@@ -22,6 +22,7 @@ public class AccountBB implements Serializable {
     private String username;
     private String password;
     private String cPassword;
+    private String errorMsg = "";
     private LoginManager lm = new LoginManager();
 
     // Handled by GlassFish file realm
@@ -35,9 +36,16 @@ public class AccountBB implements Serializable {
     }
 
     public String register() {
-        if (lm.register(username, password)) {
-            return "registerPass";
+        if (cPassword.equals(password)) {
+            if (lm.register(username, password)) {
+                errorMsg = "";
+                return "registerPass";
+            } else {
+                errorMsg = "Username already taken";
+                return "registerFail";
+            }
         } else {
+            errorMsg = "Please confirm passowrd";
             return "registerFail";
         }
     }
@@ -91,4 +99,13 @@ public class AccountBB implements Serializable {
     public void setcPassword(String cPassword) {
         this.cPassword = cPassword;
     }
+
+    public String getErrorMsg() {
+        return errorMsg;
+    }
+
+    public void setErrorMsg(String errorMsg) {
+        this.errorMsg = errorMsg;
+    }
+    
 }

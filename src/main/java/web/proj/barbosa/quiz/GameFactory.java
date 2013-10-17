@@ -1,16 +1,15 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package web.proj.barbosa.quiz;
 
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.TreeMap;
 
 /**
- *
- * @author Filip Husnjak
+ * This clas handles creation of hardcoded data.
+ * The data are:
+ *  - Sample uses for the leaderboard
+ *  - Reads the words from a file
+ * 
+ * @author Iron-Maven
  */
 public class GameFactory {
 
