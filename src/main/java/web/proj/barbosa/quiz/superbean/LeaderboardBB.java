@@ -10,7 +10,6 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
-import web.proj.barbosa.quiz.GameFactory;
 import web.proj.barbosa.quiz.UserDB;
 import web.proj.barbosa.quiz.UserRegister;
 

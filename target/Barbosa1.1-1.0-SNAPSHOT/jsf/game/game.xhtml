@@ -7,34 +7,11 @@
       xmlns:c="http://java.sun.com/jsp/jstl/core">
 
     <h:body>
+       
         <ui:composition>
             <!--  <div class="MainBox"> -->
-            <div id="BannerBox">    
-                <script type = "text/javascript">
-                    var timeInSecs;
-                    var ticker;
-
-                    function startTimer(secs) {
-                        timeInSecs = parseInt(secs) - 1;
-                        ticker = setInterval("tick()", 1000);   // every second
-                    }
-
-                    function tick() {
-                        var secs = timeInSecs;
-                        if (secs > 0) {
-                            timeInSecs--;
-                        }
-                        else {
-                            clearInterval(ticker); // stop counting at zero
-                            // startTimer(30);  // remove forward slashes in front of startTimer to repeat if required
-                        }
-
-                        document.getElementById("countdown").innerHTML = secs;
-                    }
-
-                    startTimer(30);  // 60 seconds 
-
-                </script>
+            <div id="BannerBox">
+                 <script type="text/javascript" src="js/gui/Countdown.js"/>
             </div>
             <div id="middleBox">
                 <div id="GuessBox">

@@ -5,6 +5,8 @@
 package web.proj.barbosa.quiz.superbean.utils;
 
 import java.io.Serializable;
+import javax.annotation.PreDestroy;
+import javax.ejb.Startup;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -12,22 +14,23 @@ import javax.persistence.Persistence;
 /**
  * This abstract class is "copied" from the JPA lab and first athured by hajo
  * but later changed by us in the workshop.
+ *
  * @author Filip Husnjak
  */
-public abstract class AbstractDAO<T, K> implements Serializable{
+@Startup
+public abstract class AbstractDAO<T, K> implements Serializable {
 
     protected EntityManagerFactory emf;
+    private EntityManager em;
     private final Class<T> clazz;
 
     protected AbstractDAO(Class<T> clazz, String puName) {
         this.clazz = clazz;
-        System.out.println("2 "+ puName);
         emf = Persistence.createEntityManagerFactory("quiz_pu");
-        System.out.println("Abstrc");
     }
 
     public void add(T t) {
-        EntityManager em = emf.createEntityManager();
+         em = emf.createEntityManager();
         try {
             em.getTransaction().begin();
             em.persist(t);
@@ -37,12 +40,13 @@ public abstract class AbstractDAO<T, K> implements Serializable{
         } finally {
             if (em != null) {
                 em.close();
+
             }
         }
     }
 
     public void remove(K id) {
-        EntityManager em = emf.createEntityManager();
+         em = emf.createEntityManager();
         try {
             em.getTransaction().begin();
             T t = em.getReference(clazz, id);
@@ -58,7 +62,7 @@ public abstract class AbstractDAO<T, K> implements Serializable{
     }
 
     public void update(T t) {
-        EntityManager em = emf.createEntityManager();
+         em = emf.createEntityManager();
         try {
             em.getTransaction().begin();
             em.merge(t);
@@ -73,8 +77,13 @@ public abstract class AbstractDAO<T, K> implements Serializable{
     }
 
     public T find(K id) {
-        EntityManager em = emf.createEntityManager();
+         em = emf.createEntityManager();
         T item = em.find(clazz, id);
+        em.close();
         return item;
+    }
+    @PreDestroy
+    public void closeEntity(){
+        em.getEntityManagerFactory().close();
     }
 }
