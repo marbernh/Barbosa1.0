@@ -87,7 +87,7 @@ body {
     width: 650px;
     height: auto;
     float: left;
-/*    border: 1px solid yellow;*/
+    /*    border: 1px solid yellow;*/
 }
 
 #BannerBox{
@@ -143,7 +143,7 @@ body {
     height: 630px;
     margin-left: 34%;
     margin-right: 16%;
-/*    border: 1px solid yellow;*/
+    /*    border: 1px solid yellow;*/
 }
 
 #table{
@@ -155,4 +155,3 @@ body {
 #table tr:nth-of-type(2n-1) {
     background: #eee
 }
-
