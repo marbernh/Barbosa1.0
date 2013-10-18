@@ -40,6 +40,10 @@ public class LoginManager {
         UserDB user = ur.getByName(name);
         return user.getTopGameScore();
     }
+    public int getUserGamesplayed(String name){
+        UserDB user = ur.getByName(name);
+        return user.getGamesPlayed();
+    }
     
     
     

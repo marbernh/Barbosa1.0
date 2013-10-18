@@ -57,6 +57,9 @@ public class AccountBB implements Serializable {
     public int getHighscore(){
         return lm.getUserHighscore(username);
     }
+    public int getGamesplayed(){
+        return lm.getUserGamesplayed(username);
+    }
 
     //Used to navigate to the correct page when account-button clicked
     public String checklogged() {
