@@ -3,23 +3,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html">
-          
-    <!--
-        
-      THIS IS THE OVERALL LAYOUT FOR THE SITE
-          
-    -->
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <h:outputStylesheet library="css" name="ImageQuiz.css"  />
-        <title>JSF Shop</title>
-    </h:head>
-        
+        <title>ImageQuiz</title>
+    </h:head>  
     <h:body id="body">  
         <div style ="width:100%; ">
             <ui:insert name="content">Content</ui:insert>
-            
-            <!--Menu for all the pages-->
             
             <div class="MenuBox">
                 <ul id="menu">
@@ -27,7 +18,7 @@
                     <li id="menu"><h:button class="button" outcome="login2" value="Login 2"/></li>
                     <li id="menu"><h:button class="button" outcome="#{AccountBean.checklogged()}" value="Account"/></li>
                     <li id="menu"><h:button class="button" outcome="about" value="About"/></li>
-                    <li id="menu"><h:button class="button" outcome="gameOver" value="Game over"/></li>
+                    <li id="menu"><h:button class="button" outcome="gameOver" value="Game Over"/></li>
                 </ul>
             </div>
         </div>
