@@ -13,6 +13,7 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    font-family: sans-serif;
 }
 #menu {
     display: block;
@@ -114,6 +115,7 @@ body {
     float: left;
     width: auto;
     height: auto;
+    font-size: 20px;
 }
 
 #about{
