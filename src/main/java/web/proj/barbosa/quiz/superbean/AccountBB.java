@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package web.proj.barbosa.quiz.superbean;
 
 import java.io.Serializable;
@@ -19,8 +15,8 @@ import web.proj.barbosa.quiz.LoginManager;
 public class AccountBB implements Serializable {
 
     private boolean loggedIn = false;
-    private String username,password,cPassword,newPass;
-    private String errorReg,errorLgn = "";
+    private String username,password,cPassword; //set by form
+    private String errorReg,errorLgn = ""; 
     private LoginManager lm = new LoginManager();
 
     // Handled by GlassFish file realm
@@ -36,9 +32,10 @@ public class AccountBB implements Serializable {
     }
 
     public String register() {
-        if (cPassword.equals(password)) {
+        if (cPassword.equals(password)) { // controlles password
             if (lm.register(username, password)) {
                 errorReg = "";
+                errorLgn = "";
                 return "registerPass";
             } else {
                 errorReg = "Username already taken";
@@ -49,28 +46,24 @@ public class AccountBB implements Serializable {
             return "registerFail";
         }
     }
+    
+    
     public String logout() {
         loggedIn = false;
         username = "";
         password = "";
         return "logOut";
     }
-    public String setNewPass(){
-        if(cPassword.equals(newPass)){
-            return lm.newPass(username,password,newPass);
-        }else{
-            errorReg = "Please confirm passowrd";
-            return "updateFail";
-        }
-    }
 
+    //Used to navigate to the correct page when account-button clicked
     public String checklogged() {
         if (loggedIn) {
             return "myacc";
         }
         return "loggedoff";
     }
-
+    
+    //Used to display the loggen in user in the game page
     public String logDisp() {
         if (loggedIn) {
             return "Logged in as: " + username;
@@ -101,37 +94,19 @@ public class AccountBB implements Serializable {
         return loggedIn;
     }
 
-    public String getcPassword() {
-        return cPassword;
-    }
-
     public void setcPassword(String cPassword) {
         this.cPassword = cPassword;
+    }
+
+    public String getcPassword() {
+        return cPassword;
     }
 
     public String getErrorLgn() {
         return errorLgn;
     }
 
-    public void setErrorLgn(String errorMsg) {
-        this.errorLgn = errorMsg;
-    }
-
     public String getErrorReg() {
         return errorReg;
     }
-
-    public void setErrorReg(String errorReg) {
-        this.errorReg = errorReg;
-    }
-
-    public String getNewPass() {
-        return newPass;
-    }
-
-    public void setNewPass(String newPass) {
-        this.newPass = newPass;
-    }
-    
-    
 }
