@@ -14,18 +14,17 @@
                     <h:form id="register-form"> <!--css-->
                         <h1>Register</h1>
                         <h:panelGrid columns="3">
-                            <h:outputText value="Username : "></h:outputText>
-                            <h:inputText id="username" value="#{AccountBean.username}"/>
-                            <h:message for="username" style="color:red"/>
-                            <h:outputText value="Password : "></h:outputText>
-                            <h:inputSecret id="password" value="#{AccountBean.password}"/>
-                            <h:message for="password" style="color:red"/>
+                            <h:outputText value="Old Password : "></h:outputText>
+                            <h:inputText id="password" value="#{AccountBean.password}"/>
+                            <h:message for="oldPass" style="color:red"/>
+                            <h:outputText value="New Password : "></h:outputText>
+                            <h:inputSecret id="newPass" value="#{AccountBean.newPass}"/>
+                            <h:message for="newpassword" style="color:red"/>
                             <h:outputText value="Confirm Password : "></h:outputText>
                             <h:inputSecret id="cPassword" value="#{AccountBean.cPassword}"/>
                             <h:message for="cPassword" style="color:red"/>
-                                <h:commandButton value="Register" action="#{AccountBean.register}" type="submit"/>
+                            <h:commandButton value="New Password" action="#{AccountBean.setNewPass()}" type="submit"/>
                                 <h:commandButton value="Cancel" action="cancel" type="submit"/>
-                            
                         </h:panelGrid>
                     </h:form>
                     <h:outputText value="#{AccountBean.errorReg}" style="color: red"/>

@@ -19,18 +19,18 @@ import web.proj.barbosa.quiz.LoginManager;
 public class AccountBB implements Serializable {
 
     private boolean loggedIn = false;
-    private String username;
-    private String password;
-    private String cPassword;
-    private String errorMsg = "";
+    private String username,password,cPassword,newPass;
+    private String errorReg,errorLgn = "";
     private LoginManager lm = new LoginManager();
 
     // Handled by GlassFish file realm
     public String login() {
         loggedIn = lm.login(username, password);
         if (loggedIn) {
+            errorLgn = "";
             return "loginPass";
         } else {
+            errorLgn = "Login Failed, confirm correct username and password!";
             return "LoginFail";
         }
     }
@@ -38,15 +38,29 @@ public class AccountBB implements Serializable {
     public String register() {
         if (cPassword.equals(password)) {
             if (lm.register(username, password)) {
-                errorMsg = "";
+                errorReg = "";
                 return "registerPass";
             } else {
-                errorMsg = "Username already taken";
+                errorReg = "Username already taken";
                 return "registerFail";
             }
         } else {
-            errorMsg = "Please confirm passowrd";
+            errorReg = "Please confirm passowrd";
             return "registerFail";
+        }
+    }
+    public String logout() {
+        loggedIn = false;
+        username = "";
+        password = "";
+        return "logOut";
+    }
+    public String setNewPass(){
+        if(cPassword.equals(newPass)){
+            return lm.newPass(username,password,newPass);
+        }else{
+            errorReg = "Please confirm passowrd";
+            return "updateFail";
         }
     }
 
@@ -65,12 +79,7 @@ public class AccountBB implements Serializable {
         }
     }
 
-    public String logout() {
-        loggedIn = false;
-        username = "";
-        password = "";
-        return "logOut";
-    }
+    
 
     public void setUsername(String username) {
         this.username = username;
@@ -100,11 +109,29 @@ public class AccountBB implements Serializable {
         this.cPassword = cPassword;
     }
 
-    public String getErrorMsg() {
-        return errorMsg;
+    public String getErrorLgn() {
+        return errorLgn;
     }
 
-    public void setErrorMsg(String errorMsg) {
-        this.errorMsg = errorMsg;
+    public void setErrorLgn(String errorMsg) {
+        this.errorLgn = errorMsg;
     }
+
+    public String getErrorReg() {
+        return errorReg;
+    }
+
+    public void setErrorReg(String errorReg) {
+        this.errorReg = errorReg;
+    }
+
+    public String getNewPass() {
+        return newPass;
+    }
+
+    public void setNewPass(String newPass) {
+        this.newPass = newPass;
+    }
+    
+    
 }

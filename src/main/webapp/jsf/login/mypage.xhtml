@@ -11,7 +11,12 @@
             <ui:define name="content">
                 <div id="about"> 
                     <h1>My Page</h1>
-                    <h:button outcome="#{AccountBean.logout()}" value="Log Out"/>
+                    <p>This is your page: </p>
+                    <h:outputText value="#{AccountBean.username}"/>
+                    
+                    <h:form>
+                        <h:commandButton action="#{AccountBean.logout()}" value="Log Out"/>
+                    </h:form>
                 </div>            
             </ui:define>
         </ui:composition>

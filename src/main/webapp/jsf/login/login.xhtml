@@ -20,10 +20,11 @@
                             <h:inputSecret id="password" value="#{AccountBean.password}"/>
                             <h:message for="password" style="color:red"/>
                             <h:commandButton value="Login" action="#{AccountBean.login}" type="submit"/>
-                            <h:outputText value="Don't have an account? Head over to the register page!"></h:outputText>
-                            <h:commandButton value="Register" action="register" type="submit"/>  
+                            <p>"Don't have an account? Head over to the </p>
+                            <h:link value="register page!" outcome="register"/> 
                         </h:panelGrid>
                     </h:form>
+                    <h:outputText value="#{AccountBean.errorLgn}" style="color: red"/>
                 </div>
             </ui:define>
         </ui:composition>

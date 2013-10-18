@@ -35,4 +35,14 @@ public class LoginManager {
             return false;
         }
     }
+    public String newPass(String name, String oldPass, String newPass){
+        UserDB checkUser = ur.getByName(name);
+        if(checkUser.getPassword().equals(oldPass)){
+            UserDB updatedUser  = new UserDB(checkUser.getId(),name,newPass);
+            ur.update(updatedUser);
+            return "updatePass";
+        }else{
+            return "updateFail";
+        }
+    }
 }
