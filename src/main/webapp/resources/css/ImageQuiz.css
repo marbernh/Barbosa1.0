@@ -8,6 +8,7 @@
 
 body {
     background: url("#{resource['img:background.jpg']}") no-repeat center center fixed; 
+    margin: 0px auto;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -58,14 +59,11 @@ body {
 
 .GameBox {
     background: #ffffff;
-    position: relative;
-    margin: auto;
     width: 610px;
     padding-left: 19px;
     padding-right: 19px;
     padding-top: 15px;
     padding-bottom: 0px;
-    -min-height: 100%;
     height: 100%;
     border: 1px solid black;
 }
@@ -88,26 +86,28 @@ body {
 #CenterBox{
     width: 650px;
     height: auto;
-    margin: auto;
+    float: left;
     border: 1px solid yellow;
 }
 
 #BannerBox{
     width: 650px;
     height: 150px;
-    margin: auto;
     background-image:url("#{resource['img:imagequiz.png']}");
 }
+
 #middleBox{
     width: 649px;
     height: 100px;
 }
+
 #GuessBox{
     width: 380px;
     height: 78px;
     float: left;
     padding-top: 20px;
 }
+
 #InfoBox{
     margin-top: 4.2%;
     margin-left: 7.5%;
@@ -129,14 +129,21 @@ body {
 }
 
 #Leaderboard{
-    position: fixed;
-    right: 15%;
+    float: right;
     overflow: hidden;
     width: 200px;
     height: 16.5em;
-    margin-top: -20%;
+    margin-top: 26.5%;
     background-color: white;
     border: 2px solid blue;
+}
+
+#contentBox{
+    width: 58em;
+    height: 630px;
+    margin-left: 34%;
+    margin-right: 16%;
+    border: 1px solid yellow;
 }
 
 #table{
