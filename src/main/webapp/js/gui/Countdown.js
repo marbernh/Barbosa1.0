@@ -19,6 +19,7 @@ function tick() {
     else {
         clearInterval(ticker); // stanna vid 0.
         // startTimer(30);  // repeat....
+        location.href = "http://localhost:8080/Barbosa1.0/faces/jsf/game/gameOver.xhtml";
     }
 
     document.getElementById("countdown").innerHTML = secs;
