@@ -11,9 +11,10 @@
             <ui:define name="content">
                 <div id="about"> 
                     <h1>My Page</h1>
-                    <p>This is your page
-                        <h:outputText value="#{AccountBean.username}"/></p>
-                    
+                    <p>Welcome 
+                        <h:outputText value="#{AccountBean.username}"/> this is your page.</p>
+                    <p>Your best highscore is:
+                        <h:outputText value="#{AccountBean.getHighscore()}"/></p>
                     <h:form>
                         <h:commandButton action="#{AccountBean.logout()}" value="Log Out"/>
                     </h:form>

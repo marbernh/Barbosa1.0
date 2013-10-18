@@ -54,6 +54,9 @@ public class AccountBB implements Serializable {
         password = "";
         return "logOut";
     }
+    public int getHighscore(){
+        return lm.getUserHighscore(username);
+    }
 
     //Used to navigate to the correct page when account-button clicked
     public String checklogged() {

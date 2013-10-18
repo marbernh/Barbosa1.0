@@ -35,6 +35,15 @@ public class LoginManager {
             return false;
         }
     }
+    
+    public int getUserHighscore(String name){
+        UserDB user = ur.getByName(name);
+        return user.getTopGameScore();
+    }
+    
+    
+    
+    
     public String newPass(String name, String oldPass, String newPass){
         UserDB checkUser = ur.getByName(name);
         if(checkUser.getPassword().equals(oldPass)){
