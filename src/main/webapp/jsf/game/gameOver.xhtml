@@ -28,6 +28,9 @@
                                 <h:button outcome="#{gameBean.newGame()}" value="New Game"/>
                             </div> <!-- info -->
                         </div><!-- centerBox -->
+                        <h:link style="color: black; font-weight: bold; text-decoration: none;" outcome="myacc">
+                            <br/><h:outputText value="#{AccountBean.logDisp()}"/>
+                        </h:link>
                         <ui:include src="Leaderboard.xhtml"/>
                     </div> <!-- contentBox -->
                 </div>  

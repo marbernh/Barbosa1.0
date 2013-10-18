@@ -13,11 +13,13 @@
         <div class="MainBox">
             <ui:composition template="/WEB-INF/template.xhtml">
                 <ui:define name="content">
-                    <h:outputText value="#{AccountBean.logDisp()}" />
                     <div id="contentBox">
                         <div id="CenterBox">
                             <ui:include src="jsf/game/game.xhtml" />
                         </div> <!-- CenterBox -->
+                        <h:link style="color: black; font-weight: bold; text-decoration: none;" outcome="myacc">
+                            <br/><h:outputText value="#{AccountBean.logDisp()}"/>
+                        </h:link>
                         <ui:include src="jsf/game/Leaderboard.xhtml"/>
                     </div> <!-- ContentBox-->
                 </ui:define>

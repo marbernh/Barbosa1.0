@@ -6,12 +6,21 @@ The about page, from menu option "About"
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets">
-    
+
     <h:body>
         <ui:composition template="/WEB-INF/template.xhtml">
             <ui:define name="content">
-                <div id="about">
-                    The game is to guess the phrase that has been used to display the images, good luck! 
+                <div id="contentBox">
+                    <div id="CenterBox">
+                        <div id="BannerBox"></div>
+                        <div id="middleBox"></div>
+                        <div id="about">
+                            The game is to guess the phrase that has been used to display the images, good luck! 
+                        </div>
+                    </div>
+                    <h:link style="color: black; font-weight: bold; text-decoration: none;" outcome="myacc">
+                        <br/><h:outputText value="#{AccountBean.logDisp()}"/>
+                    </h:link>
                 </div>
             </ui:define>
         </ui:composition>
