@@ -20,11 +20,15 @@ public class GameFactory {
 
     public void createCompetition() {
         if (reg.getAll().isEmpty()) {
+            UserDB u;
             for (int i = 1; i <= 10; i++) {
-                UserDB u = new UserDB("Player nr: " + i, "password");
+                u = new UserDB("Player nr: " + i, "password");
                 u.update(scoreMaker.nextInt(750));
                 reg.add(u);
             }
+            u = new UserDB("Filip", "pass");
+            u.update(9999);
+            reg.add(u);
         }
     }
 

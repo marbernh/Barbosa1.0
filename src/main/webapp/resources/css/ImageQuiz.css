@@ -80,14 +80,14 @@ body {
 .MainBox{
     height: auto;
     width: auto;
-    border: 1px solid red;
+    /*border: 1px solid red;*/
 }
 
 #CenterBox{
     width: 650px;
     height: auto;
     float: left;
-    border: 1px solid yellow;
+/*    border: 1px solid yellow;*/
 }
 
 #BannerBox{
@@ -143,7 +143,7 @@ body {
     height: 630px;
     margin-left: 34%;
     margin-right: 16%;
-    border: 1px solid yellow;
+/*    border: 1px solid yellow;*/
 }
 
 #table{

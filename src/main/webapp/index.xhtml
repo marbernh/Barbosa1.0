@@ -18,22 +18,7 @@
                         <div id="CenterBox">
                             <ui:include src="jsf/game/game.xhtml" />
                         </div> <!-- CenterBox -->
-
-                        <div id="Leaderboard">
-                            <table id="table">
-                                <tr>
-                                    <td>Name:</td>
-                                    <td>Score:</td>
-                                </tr>
-                                <c:forEach var="i" items="#{leaderboardBB.leaderboard}">
-                                    <tr>
-                                        <td><h:outputText value="#{i.userName}"/></td>
-                                        <td><h:outputText value="#{i.topGameScore}"/></td>
-                                    </tr>
-                                </c:forEach>
-                            </table>
-                        </div> <!-- Leaderboard -->
-
+                        <ui:include src="jsf/game/Leaderboard.xhtml"/>
                     </div> <!-- ContentBox-->
                 </ui:define>
             </ui:composition>

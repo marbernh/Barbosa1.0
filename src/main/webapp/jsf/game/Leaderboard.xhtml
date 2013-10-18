@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <head>
+        <title>ImageQuiz Leaderboard</title>
+    </head>
+    <body>
+        <ui:composition>
+            <div id="Leaderboard">
+                <table id="table">
+                    <tr>
+                        <td>Name:</td>
+                        <td>Score:</td>
+                    </tr>
+                    <c:forEach var="i" items="#{leaderboardBB.leaderboard}">
+                        <tr>
+                            <td><h:outputText value="#{i.userName}"/></td>
+                            <td><h:outputText value="#{i.topGameScore}"/></td>
+                        </tr>
+                    </c:forEach>
+                </table>
+            </div> <!-- Leaderboard -->
+        </ui:composition>
+    </body>
+</html>
