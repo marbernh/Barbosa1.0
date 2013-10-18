@@ -69,12 +69,12 @@ body {
 }
 
 .MenuBox {
-    margin-top: 54em;
+    margin-bottom: 4em;
     position: absolute;
     width: auto;
-    margin-left: 42em;
+    margin-left: 35%;
     margin-right: auto;
-    top: 0px;
+    bottom: 0px;
 }
 
 .MainBox{
