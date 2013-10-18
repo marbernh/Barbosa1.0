@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import web.proj.barbosa.quiz.UserDB;
 import web.proj.barbosa.quiz.UserRegister;
@@ -21,7 +21,7 @@ import web.proj.barbosa.quiz.UserRegister;
  * @author Iron-Maven
  */
 @Named
-@RequestScoped
+@SessionScoped
 public class LeaderboardBB implements Serializable {
 
     private UserRegister reg;

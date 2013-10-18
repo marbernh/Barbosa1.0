@@ -82,14 +82,14 @@ body {
 .MainBox{
     height: auto;
     width: auto;
-    /*border: 1px solid red;*/
+    border: 1px solid red;
 }
 
 #CenterBox{
     width: 650px;
     height: auto;
     margin: auto;
-    /*border: 1px solid yellow;*/
+    border: 1px solid yellow;
 }
 
 #BannerBox{
@@ -134,7 +134,7 @@ body {
     overflow: hidden;
     width: 200px;
     height: 16.5em;
-    margin-top: 13.2%;
+    margin-top: -20%;
     background-color: white;
     border: 2px solid blue;
 }
