@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
  *
  * @author husnjak
  */
-public class TestTest {
+public class TestDB {
 
     private Random scoreMaker = new Random();
 

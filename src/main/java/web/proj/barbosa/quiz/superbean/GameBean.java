@@ -10,14 +10,13 @@ import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import web.proj.barbosa.quiz.GameEngine;
-import web.proj.barbosa.quiz.UserDB;
 import web.proj.barbosa.quiz.UserRegister;
 
 /**
- * The GameBean handels the game by starting a new game, round and
- * getting the url for the pictures. 
- * It also handels the players life and score.
- * 
+ * The GameBean handles the game by starting a new game, round and
+ * getting the url for the pictures.
+ * It also handles the players life and score.
+ *
  * @author Iron-Maven
  */
 @Named("gameBean")
@@ -27,66 +26,56 @@ public class GameBean implements Serializable {
     
     @Inject
     private AccountBB lb;
-    private ArrayList<String> lifes;
     private final GameEngine g = new GameEngine();
-    private int life,score;
-    private ArrayList<String> picUrl = new ArrayList<>();
-    private UserRegister ur = (UserRegister) UserRegister.newInstance("quiz_pu");
-
+//    private int life,score;
+//    private ArrayList<String> picUrl = new ArrayList<>();
+//    private UserRegister ur = (UserRegister) UserRegister.newInstance("quiz_pu");
+    
     
     public GameBean() {
-        life = 3;
-        score = 0;
         g.newGame();
-        picUrl = g.getPics();
     }
-      
+    
+    public GameEngine getGameEngine(){
+        return g;
+    }
+    
     public String newGame(){
         if(lb.getLoggedIn()){
-            UserDB user = ur.getByName(lb.getUsername());
-            if(score > user.getTopGameScore()){
-                user.update(score);
-                ur.update(user);
-            }
+            g.updateScore(lb.getUsername());
         }
-        life = 3;
-        score = 0;
         g.newGame();
-        picUrl = g.getPics();
         return "index";
     }
     
     public void nextRound(){
-        life = 3;
+        //        life = 3;
         g.nextRound();
-        picUrl = g.getPics();
+        g.getLife();
     }
     
     public void increaseScore(){
-        score = score + (life * 5);
+        g.increaseScore();
     }
     
     public int looseLife(){
-        life--;
-        return life;
-    }
-    
-    public ArrayList<String> getLifes(){
-        return lifes;
+        g.looseLife();
+//        life--;
+        return g.getLife();
     }
     
     public String getLife(){
-        return Integer.toString(life);
+        return Integer.toString(g.getLife());
     }
     
     public String getScore(){
-        return Integer.toString(score);
+        return Integer.toString(g.getScore());
     }
     
     public ArrayList<String> getPicUrl(){
-        return picUrl;
+        return g.getPics();
     }
-
+    
     public String getAnswer(){
         return g.getAnswer();
     }
