@@ -24,26 +24,26 @@ public class TestDB {
 
     @Test
     public void TestQuizBase() {
-        UserRegister r = (UserRegister) UserRegister.newInstance("quiz_pu");
+        PlayerRegister r = (PlayerRegister) PlayerRegister.newInstance("quiz_pu");
 
-        UserDB u1 = new UserDB("Daniel", "1234567");
+        Player u1 = new Player("Daniel", "1234567");
         
         //Test add
         r.add(u1);
         assertTrue(r.find(u1.getId()).getUserName().equals("Daniel"));
 
         //Test find
-        UserDB u2 = r.find(u1.getId());
+        Player u2 = r.find(u1.getId());
         assertTrue(u2.equals(u1));
         assertTrue(!(u1 == u2));
 
         //Test Update
-        UserDB u3 = new UserDB(u1.getId(), "Filip", "1234567");
+        Player u3 = new Player(u1.getId(), "Filip", "1234567");
         r.update(u3);
         assertTrue(!(u1.getUserName().equals(r.find(u3.getId()).getUserName())));
 
         //TEST getByName
-        UserDB collectedU1 = r.getByName("Filip");
+        Player collectedU1 = r.getByName("Filip");
         assertTrue(collectedU1.getUserName().equals("Filip"));
 
         //Test Remove
@@ -53,7 +53,7 @@ public class TestDB {
         /**
          * ********************Result*******************************
          */
-        UserDB u5 = new UserDB("Marcus", "lösen");
+        Player u5 = new Player("Marcus", "lösen");
         r.add(u5);
         u5 = r.find(u5.getId());
         u5.update(150);
@@ -65,7 +65,7 @@ public class TestDB {
          * ***************getTopTen*******************************
          */
         for (int i = 1; i < 10; i++) {
-            UserDB u = new UserDB("Player nr: " + i, "password");
+            Player u = new Player("Player nr: " + i, "password");
             r.add(u);
             u = r.find(u.getId());
             u.update(scoreMaker.nextInt(500));

@@ -1,0 +1,20 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package web.proj.barbosa.quiz.Account;
+
+/**
+ *
+ * @author Daniel
+ */
+public interface IAccountManager {
+    
+    public boolean login(String name, String pass);
+    
+    public boolean register(String name, String pass);
+    
+    public int getUserHighscore(String name);
+    
+    public int getUserGamesPlayed(String name);
+}

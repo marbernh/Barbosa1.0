@@ -8,8 +8,11 @@ import web.proj.barbosa.quiz.superbean.utils.IDAO;
  *
  * @author Iron-Maven
  */
-public interface IUserRegister extends IDAO<UserDB, Long> {
-    UserDB getByName(String name);
-    List<UserDB> getTopTen();
-    List<UserDB> getAll();
+public interface IPlayerRegister extends IDAO<Player, Long> {
+    
+    Player getByName(String name);
+    
+    List<Player> getTopTen();
+    
+    List<Player> getAll();
 }

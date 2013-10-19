@@ -13,16 +13,16 @@ import java.util.List;
  */
 public class Leaderboard {
     
-    private UserRegister reg;
-    private List<UserDB> topList;
+    private PlayerRegister reg;
+    private List<Player> topList;
     
     
     public Leaderboard() {
-        reg = (UserRegister) UserRegister.newInstance("quiz_pu");
+        reg = (PlayerRegister) PlayerRegister.newInstance("quiz_pu");
         topList = new ArrayList<>();
     }
     
-    public List<UserDB> getLeaderboard() {
+    public List<Player> getLeaderboard() {
         topList = reg.getTopTen();
         return topList;
     }

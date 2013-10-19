@@ -5,14 +5,11 @@
 package web.proj.barbosa.quiz.superbean;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
-import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import web.proj.barbosa.quiz.Leaderboard;
-import web.proj.barbosa.quiz.UserDB;
-import web.proj.barbosa.quiz.UserRegister;
+import web.proj.barbosa.quiz.Player;
 
 
 /*
@@ -31,7 +28,7 @@ public class LeaderboardBB implements Serializable {
         leaderboard = new Leaderboard();
     }
 
-    public List<UserDB> getLeaderboard() {
+    public List<Player> getLeaderboard() {
         return leaderboard.getLeaderboard();
     }
 }

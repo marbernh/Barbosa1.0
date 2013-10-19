@@ -14,22 +14,22 @@ import web.proj.barbosa.quiz.superbean.utils.AbstractDAO;
  *
  * @author Iron-Maven
  */
-public class UserRegister extends AbstractDAO<UserDB, Long>
-        implements IUserRegister {
+public class PlayerRegister extends AbstractDAO<Player, Long>
+        implements IPlayerRegister {
 
-    public static IUserRegister newInstance(String puName) {
-        return new UserRegister(puName);
+    public static IPlayerRegister newInstance(String puName) {
+        return new PlayerRegister(puName);
     }
 
-    private UserRegister(String puName) {
-        super(UserDB.class, puName);
+    private PlayerRegister(String puName) {
+        super(Player.class, puName);
     }
 
     @Override
-    public UserDB getByName(String name) {
+    public Player getByName(String name) {
         EntityManager em = emf.createEntityManager();
-        List<UserDB> us = em.createQuery(
-                "SELECT u FROM UserDB u WHERE u.userName LIKE :name ")
+        List<Player> us = em.createQuery(
+                "SELECT u FROM Player u WHERE u.userName LIKE :name ")
                 .setParameter("name", name)
                 .getResultList();
         if (us.isEmpty()) {
@@ -40,17 +40,17 @@ public class UserRegister extends AbstractDAO<UserDB, Long>
     }
 
     @Override
-    public List<UserDB> getTopTen() {
+    public List<Player> getTopTen() {
         EntityManager em = emf.createEntityManager();
         return em.createQuery(
-                "SELECT u FROM UserDB u order by u.topGameScore desc").setMaxResults(10)
+                "SELECT u FROM Player u order by u.topGameScore desc").setMaxResults(10)
                 .getResultList();
     }
 
     @Override
-    public List<UserDB> getAll() {
+    public List<Player> getAll() {
         EntityManager em = emf.createEntityManager();
         return em.createQuery(
-                "SELECT u FROM UserDB u").getResultList();
+                "SELECT u FROM Player u").getResultList();
     }
 }

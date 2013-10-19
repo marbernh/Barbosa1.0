@@ -3,6 +3,8 @@ package web.proj.barbosa.quiz;
 import web.proj.barbosa.quiz.search.ImageSearch;
 import java.util.ArrayList;
 import java.util.Random;
+import web.proj.barbosa.quiz.answersGenerator.AnswersGenerator;
+import web.proj.barbosa.quiz.answersGenerator.AnswersGeneratorFactory;
 import web.proj.barbosa.quiz.search.ImageSearchFactory;
 
 /**
@@ -11,55 +13,24 @@ import web.proj.barbosa.quiz.search.ImageSearchFactory;
  *
  * @author Iron-Maven
  */
-public class GameEngine {
+public class Quiz implements IQuiz{
     
     private int life,score;
-    private GameFactory gf;                 //GameFactory contains hardcoded data for testing
     private ArrayList<String> answers;      //answers contain the list of possible words
     private String answer;                  //answer is the current word
     private static Random generator;
     private ImageSearch searcher;
     private ArrayList<String> pics;         //the listof pucture url's
-    private UserRegister ur = (UserRegister) UserRegister.newInstance("quiz_pu");
     
-    
-    
-    public GameEngine() {
+    public Quiz() {
         life = 3;
         score = 0;
         generator = new Random();
         searcher = (ImageSearch) ImageSearchFactory.getImageSearch();
-        gf = new GameFactory();
-        gf.createCompetition();             // creates some users to fill the leaderboard
-        this.answers = gf.getTestWords();   //imports the words
+        getWords();   //imports all words
     }
     
-    //This method uses the ImageSearch class to search new pics from "answer"
-    public void getNewPics() {
-        boolean filled = false;
-        while (!filled) {
-            int newRandom = generator.nextInt(answers.size());
-            this.answer = answers.get(newRandom);
-            pics = searcher.searchAndFind(answer);
-            answers.remove(answer);
-            if (pics != null && !(pics.isEmpty())) {
-                filled = true;
-            }
-        }
-    }
-    
-    public void newGame() {
-        this.answers = gf.getTestWords();
-        getNewPics();
-        life = 3;
-        score = 0;
-    }
-    
-    public void nextRound() {
-        life = 3;
-        getNewPics();
-    }
-    
+    @Override
     public String validate(String guess) {
         if ( answer.equals(guess)){
             increaseScore();
@@ -70,6 +41,60 @@ public class GameEngine {
         } else{
             return "Your answer is wrong";
         }
+    }
+    
+    @Override
+    public void updateScore(String name) {
+        PlayerRegister ur = (PlayerRegister) PlayerRegister.newInstance("quiz_pu");
+        Player user = ur.getByName(name);
+        if(score > user.getTopGameScore()){
+            user.update(score);
+            ur.update(user);
+        }
+    }
+    
+    //This method uses the ImageSearch class to search new pics from "answer"
+    @Override
+    public void newGame() {
+        getWords();
+        getNewPics();
+        life = 3;
+        score = 0;
+    }
+    
+    @Override
+    public void nextRound() {
+        life = 3;
+        getNewPics();
+    }
+    
+    private void getNewPics() {
+        boolean filled = false;
+        while (!filled) {
+            int newRandom = generator.nextInt(answers.size());
+            this.answer = answers.get(newRandom);
+            pics = searcher.searchAndFind(answer);
+            answers.remove(answer);
+            
+            if (pics != null && !(pics.isEmpty())) {
+                filled = true;
+            }
+        }
+    }
+    
+    private void getWords() {
+        AnswersGenerator answersGenerator = 
+                (AnswersGenerator) AnswersGeneratorFactory.getAnswerGenerator();
+        answers = answersGenerator.getWords();
+    }
+    
+    public void increaseScore() {
+        score = score + (life * 5);
+    }
+    
+    public int looseLife() {
+        life--;
+        return life;
     }
     
     public String getAnswer() {
@@ -94,22 +119,5 @@ public class GameEngine {
     
     public void setScore(int score) {
         this.score = score;
-    }
-    
-    public void increaseScore() {
-        score = score + (life * 5);
-    }
-    
-    public int looseLife() {
-        life--;
-        return life;
-    }
-    
-    public void updateScore(String name) {
-        UserDB user = ur.getByName(name);
-        if(score > user.getTopGameScore()){
-            user.update(score);
-            ur.update(user);
-        }
     }
 }

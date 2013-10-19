@@ -7,7 +7,8 @@ package web.proj.barbosa.quiz.superbean;
 import java.io.Serializable;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
-import web.proj.barbosa.quiz.AccountManager;
+import web.proj.barbosa.quiz.Account.AccountManager;
+import web.proj.barbosa.quiz.Account.AccountManagerFactory;
 
 /**
  * AccountBB handels the login function for the site.
@@ -21,7 +22,7 @@ public class AccountBB implements Serializable {
     private boolean loggedIn = false;
     private String username,password,cPassword,newPass;
     private String errorReg,errorLgn = "";
-    private AccountManager am = new AccountManager();
+    private AccountManager am = (AccountManager) AccountManagerFactory.getAccountManager();
 
     // Handled by GlassFish file realm
     public String login() {
@@ -79,7 +80,12 @@ public class AccountBB implements Serializable {
         }
     }
 
-    
+    public int getHighscore(){
+        return am.getUserHighscore(username);
+    }
+    public int getGamesPlayed(){
+        return am.getUserGamesPlayed(username);
+    }
 
     public void setUsername(String username) {
         this.username = username;

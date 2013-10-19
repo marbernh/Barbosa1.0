@@ -10,31 +10,33 @@ import java.util.Random;
  *
  * @author Iron-Maven
  */
-public class GameFactory {
+public class QuizFactory {
 
-    private AnswersGenerator wm = new AnswersGenerator();
-    private UserRegister reg = (UserRegister) UserRegister.newInstance("quiz_pu");
+    
+//    private static PlayerRegister reg = (PlayerRegister) PlayerRegister.newInstance("quiz_pu");
     private static Random scoreMaker = new Random();
-
-    public GameFactory() {
+    
+    public static IQuiz getQuiz(Boolean fill){
+        if(fill){
+            createCompetition();
+        }
+        return new Quiz();
     }
 
-    public void createCompetition() {
+    public static void createCompetition() {
+        PlayerRegister reg = (PlayerRegister) PlayerRegister.newInstance("quiz_pu");
         if (reg.getAll().isEmpty()) {
-            UserDB u;
+            Player u;
             for (int i = 1; i <= 10; i++) {
-                u = new UserDB("Player nr: " + i, "password");
+                u = new Player("Player nr: " + i, "password");
                 u.update(scoreMaker.nextInt(750));
                 reg.add(u);
             }
-            u = new UserDB("Filip", "pass");
+            u = new Player("Filip", "pass");
             u.update(9999);
             reg.add(u);
         }
     }
 
-    public ArrayList<String> getTestWords() {
-        ArrayList<String> list = wm.getWords();
-        return list;
-    }
+
 }

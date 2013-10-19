@@ -16,12 +16,12 @@
                     <h:form id="guessForm">
                         <h:panelGrid columns="2">
                             <h:panelGrid>
-                                <h:inputText id="guess" autocomplete ="off" value="#{guessBean.guess}"/>
+                                <h:inputText id="guess" autocomplete ="off" value="#{gameBean.guess}"/>
                             </h:panelGrid>
-                            <h:commandButton action="#{guessBean.validate}" value="Submit" >
+                            <h:commandButton action="#{gameBean.validate}" value="Submit" >
                                 <span id="countdown" style="font-weight: bold; color: red;">30</span>
                             </h:commandButton>
-                            <h:outputText value="#{guessBean.outcome}"/>
+                            <h:outputText value="#{gameBean.outcome}"/>
                         </h:panelGrid>
                     </h:form>
                 </div> <!-- guess -->

@@ -14,22 +14,22 @@ import web.proj.barbosa.quiz.superbean.utils.AbstractEntity;
  * @author Iron-Maven
  */
 @Entity
-public class UserDB extends AbstractEntity {
+public class Player extends AbstractEntity {
 
     private String userName, password;
     private int topGameScore = 0;
     private int gamesPlayed;
 
-    public UserDB() {
+    public Player() {
     }
 
-    public UserDB(String userName, String password) {
+    public Player(String userName, String password) {
         this.userName = userName;
         this.password = password;
         gamesPlayed = 0;
     }
 
-    public UserDB(Long id, String userName, String password) {
+    public Player(Long id, String userName, String password) {
         super(id);
         this.userName = userName;
         this.password = password;

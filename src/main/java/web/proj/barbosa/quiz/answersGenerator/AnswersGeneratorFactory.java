@@ -12,7 +12,7 @@ public class AnswersGeneratorFactory {
         public AnswersGeneratorFactory() {
     }
     
-    public static IAnswersGenerator getImageSearch(){
+    public static IAnswersGenerator getAnswerGenerator(){
         return new AnswersGenerator();
     }
 }
