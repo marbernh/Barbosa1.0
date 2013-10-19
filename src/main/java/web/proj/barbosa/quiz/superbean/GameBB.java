@@ -10,10 +10,9 @@ import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import web.proj.barbosa.quiz.GameEngine;
-import web.proj.barbosa.quiz.UserRegister;
 
 /**
- * The GameBean handles the game by starting a new game, round and
+ * The GameBB handles the game by starting a new game, round and
  * getting the url for the pictures.
  * It also handles the players life and score.
  *
@@ -21,18 +20,13 @@ import web.proj.barbosa.quiz.UserRegister;
  */
 @Named("gameBean")
 @SessionScoped
-public class GameBean implements Serializable {
-    
+public class GameBB implements Serializable {
     
     @Inject
     private AccountBB lb;
     private final GameEngine g = new GameEngine();
-//    private int life,score;
-//    private ArrayList<String> picUrl = new ArrayList<>();
-//    private UserRegister ur = (UserRegister) UserRegister.newInstance("quiz_pu");
     
-    
-    public GameBean() {
+    public GameBB() {
         g.newGame();
     }
     
@@ -60,7 +54,6 @@ public class GameBean implements Serializable {
     
     public int looseLife(){
         g.looseLife();
-//        life--;
         return g.getLife();
     }
     

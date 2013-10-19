@@ -1,5 +1,6 @@
 package web.proj.barbosa.quiz;
 
+import web.proj.barbosa.quiz.answersGenerator.AnswersGenerator;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -11,7 +12,7 @@ import java.util.Random;
  */
 public class GameFactory {
 
-    private WordsMaker wm = new WordsMaker();
+    private AnswersGenerator wm = new AnswersGenerator();
     private UserRegister reg = (UserRegister) UserRegister.newInstance("quiz_pu");
     private static Random scoreMaker = new Random();
 

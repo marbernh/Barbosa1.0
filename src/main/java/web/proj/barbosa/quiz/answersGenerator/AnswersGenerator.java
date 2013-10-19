@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package web.proj.barbosa.quiz;
+package web.proj.barbosa.quiz.answersGenerator;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -12,22 +12,23 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 /**
- * The WordsMaker imports the words from our dictionary to later be used in the
+ * The AnswersGenerator imports the words from our dictionary to later be used in the
  * game.
  *
  * @author Iron-Maven
  */
-public class WordsMaker {
-
+public class AnswersGenerator implements IAnswersGenerator {
+    
     final static Charset ENCODING = StandardCharsets.UTF_8;
-
+    
+    @Override
     public ArrayList<String> getWords() {
         ArrayList<String> ws = readFile();
         return ws;
     }
 
     public static ArrayList<String> readFile() {
-        InputStream in = WordsMaker.class.getResourceAsStream("/ord.txt");
+        InputStream in = AnswersGenerator.class.getResourceAsStream("/ord.txt");
 
         ArrayList<String> words = new ArrayList<String>();
         try {

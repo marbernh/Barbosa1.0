@@ -4,13 +4,11 @@
  */
 package web.proj.barbosa.quiz.superbean;
 
-import java.util.ArrayList;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-import web.proj.barbosa.quiz.Guess;
-import web.proj.barbosa.quiz.UserRegister;
+import web.proj.barbosa.quiz.GameEngine;
 
 /**
  * GuessBB is a part of the game mechanics.
@@ -26,20 +24,20 @@ public class GuessBB {
     private String guess;
     private String outcome = "";
     @Inject
-    private GameBean game;
-    private Guess guessHandler;
+    private GameBB game;
+    private GameEngine engine;
     
     public GuessBB() {
     }
     
     @PostConstruct
     public void postConstruct() {
-        guessHandler = new Guess(game.getGameEngine());
+        engine = game.getGameEngine();
     }
     
     public String validate() {
         //        guessHandler = new Guess(game.getGameEngine());
-        outcome = guessHandler.validate(guess);
+        outcome = engine.validate(guess);
         guess = "";
         if(outcome.equals("gameOver")){
             return outcome;

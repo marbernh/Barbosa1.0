@@ -10,6 +10,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
+import web.proj.barbosa.quiz.Leaderboard;
 import web.proj.barbosa.quiz.UserDB;
 import web.proj.barbosa.quiz.UserRegister;
 
@@ -24,20 +25,13 @@ import web.proj.barbosa.quiz.UserRegister;
 @SessionScoped
 public class LeaderboardBB implements Serializable {
 
-    private UserRegister reg;
-    private List<UserDB> topList;
+    private Leaderboard leaderboard;
 
     public LeaderboardBB() {
-    }
-
-    @PostConstruct
-    public void postConstruct() {
-        reg = (UserRegister) UserRegister.newInstance("quiz_pu");
-        topList = new ArrayList<>();
+        leaderboard = new Leaderboard();
     }
 
     public List<UserDB> getLeaderboard() {
-        topList = reg.getTopTen();
-        return topList;
+        return leaderboard.getLeaderboard();
     }
 }

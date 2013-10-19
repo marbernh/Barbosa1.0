@@ -1,7 +1,9 @@
 package web.proj.barbosa.quiz;
 
+import web.proj.barbosa.quiz.search.ImageSearch;
 import java.util.ArrayList;
 import java.util.Random;
+import web.proj.barbosa.quiz.search.ImageSearchFactory;
 
 /**
  * This class handles new searches and new games. It generates a word and the
@@ -16,7 +18,7 @@ public class GameEngine {
     private ArrayList<String> answers;      //answers contain the list of possible words
     private String answer;                  //answer is the current word
     private static Random generator;
-    private Search searcher;
+    private ImageSearch searcher;
     private ArrayList<String> pics;         //the listof pucture url's
     private UserRegister ur = (UserRegister) UserRegister.newInstance("quiz_pu");
     
@@ -26,13 +28,13 @@ public class GameEngine {
         life = 3;
         score = 0;
         generator = new Random();
-        searcher = new Search();
+        searcher = (ImageSearch) ImageSearchFactory.getImageSearch();
         gf = new GameFactory();
         gf.createCompetition();             // creates some users to fill the leaderboard
         this.answers = gf.getTestWords();   //imports the words
     }
     
-    //This method uses the Search class to search new pics from "answer"
+    //This method uses the ImageSearch class to search new pics from "answer"
     public void getNewPics() {
         boolean filled = false;
         while (!filled) {
@@ -56,6 +58,18 @@ public class GameEngine {
     public void nextRound() {
         life = 3;
         getNewPics();
+    }
+    
+    public String validate(String guess) {
+        if ( answer.equals(guess)){
+            increaseScore();
+            nextRound();
+            return "Your answer is correct";
+        } else if(looseLife() == 0){
+            return "gameOver";
+        } else{
+            return "Your answer is wrong";
+        }
     }
     
     public String getAnswer() {

@@ -43,10 +43,6 @@ public class TestQuiz {
         String rightAnswer2 = e.getAnswer();
         assertFalse(rightAnswer1.equals(rightAnswer2));
         
-        
-        
-
-        
     }
     
     

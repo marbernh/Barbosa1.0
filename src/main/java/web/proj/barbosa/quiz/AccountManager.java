@@ -5,11 +5,11 @@
 package web.proj.barbosa.quiz;
 
 /**
- * The LoginManager handels the login and register function.
+ * The AccountManager handels the login and register function.
  *
  * @author Iron-Maven
  */
-public class LoginManager {
+public class AccountManager {
 
     private UserRegister ur = (UserRegister) UserRegister.newInstance("quiz_pu");
 
@@ -35,19 +35,6 @@ public class LoginManager {
             return false;
         }
     }
-    
-    public int getUserHighscore(String name){
-        UserDB user = ur.getByName(name);
-        return user.getTopGameScore();
-    }
-    public int getUserGamesplayed(String name){
-        UserDB user = ur.getByName(name);
-        return user.getGamesPlayed();
-    }
-    
-    
-    
-    
     public String newPass(String name, String oldPass, String newPass){
         UserDB checkUser = ur.getByName(name);
         if(checkUser.getPassword().equals(oldPass)){
