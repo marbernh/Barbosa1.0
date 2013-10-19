@@ -21,7 +21,7 @@
                             <h:inputSecret id="password" value="#{AccountBean.password}"/>
                             <h:message for="password" style="color:red"/>
                             <h:outputText value="Confirm Password : "></h:outputText>
-                            <h:inputSecret id="cPassword" value="#{AccountBean.cPassword}"/>
+                            <h:inputSecret id="cPassword" value="#{AccountBean.confirmPass}"/>
                             <h:message for="cPassword" style="color:red"/>
                                 <h:commandButton value="Register" action="#{AccountBean.register}" type="submit"/>
                                 <h:commandButton value="Cancel" action="cancel" type="submit"/>

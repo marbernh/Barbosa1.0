@@ -53,15 +53,23 @@ public class AccountManager implements IAccountManager{
         return user.getGamesPlayed();
     }
 
-    //Not implemented!
-    public String newPass(String name, String oldPass, String newPass){
-        Player checkUser = userRegister.getByName(name);
-        if(checkUser.getPassword().equals(oldPass)){
-            Player updatedUser  = new Player(checkUser.getId(),name,newPass);
-            userRegister.update(updatedUser);
-            return "updatePass";
+    
+    @Override
+    public String changePass(String name,String oldPass, String newPass, String cPass){
+        String status = "";
+        Player old = userRegister.getByName(name);
+        
+        if(old.getPassword().equals(oldPass)){
+            if(newPass.equals(cPass)){
+                Player updated = new Player(old.getId(),old.getUserName(),newPass);
+                userRegister.update(updated);
+                status = "pass";
+            }else{
+                status = "fail1"; // mismatch newPass and cPass
+            }
         }else{
-            return "updateFail";
+            status = "fail2"; // mismatch oldPass and the current password
         }
+        return status;
     }
 }

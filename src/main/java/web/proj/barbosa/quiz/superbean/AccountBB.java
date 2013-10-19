@@ -20,15 +20,15 @@ import web.proj.barbosa.quiz.Account.AccountManagerFactory;
 public class AccountBB implements Serializable {
 
     private boolean loggedIn = false;
-    private String username,password,cPassword,newPass;
+    private String username,password,confirmPass;
+    private String oldPass, newPass;
     private String errorReg,errorLgn = "";
-    private AccountManager am = (AccountManager) AccountManagerFactory.getAccountManager();
+    private AccountManager accountManager = (AccountManager) AccountManagerFactory.getAccountManager();
 
-    // Handled by GlassFish file realm
+    
     public String login() {
-        loggedIn = am.login(username, password);
+        loggedIn = accountManager.login(username, password);
         if (loggedIn) {
-            errorLgn = "";
             return "loginPass";
         } else {
             errorLgn = "Login Failed, confirm correct username and password!";
@@ -37,9 +37,8 @@ public class AccountBB implements Serializable {
     }
 
     public String register() {
-        if (cPassword.equals(password)) {
-            if (am.register(username, password)) {
-                errorReg = "";
+        if (confirmPass.equals(password)) {
+            if (accountManager.register(username, password)) {
                 return "registerPass";
             } else {
                 errorReg = "Username already taken";
@@ -54,14 +53,22 @@ public class AccountBB implements Serializable {
         loggedIn = false;
         username = "";
         password = "";
+        
+        errorLgn = "";
+        errorReg = "";
+        
         return "logOut"; 
     }
-    public String setNewPass(){
-        if(cPassword.equals(newPass)){
-            return am.newPass(username,password,newPass);
+    public String changePass(){
+        String status = accountManager.changePass(username,oldPass,newPass,confirmPass);
+        if(status.equals("fail1")){
+            errorReg = "Please confirm your new password";
+            return "changeFail";
+        }else if(status.equals("fail2")){
+            errorReg = "Please enter your current password";
+            return "changeFail";
         }else{
-            errorReg = "Please confirm passowrd";
-            return "updateFail";
+            return "changePass";
         }
     }
 
@@ -81,10 +88,10 @@ public class AccountBB implements Serializable {
     }
 
     public int getHighscore(){
-        return am.getUserHighscore(username);
+        return accountManager.getUserHighscore(username);
     }
     public int getGamesPlayed(){
-        return am.getUserGamesPlayed(username);
+        return accountManager.getUserGamesPlayed(username);
     }
 
     public void setUsername(String username) {
@@ -105,14 +112,6 @@ public class AccountBB implements Serializable {
 
     public boolean getLoggedIn() {
         return loggedIn;
-    }
-
-    public String getcPassword() {
-        return cPassword;
-    }
-
-    public void setcPassword(String cPassword) {
-        this.cPassword = cPassword;
     }
 
     public String getErrorLgn() {
@@ -138,6 +137,20 @@ public class AccountBB implements Serializable {
     public void setNewPass(String newPass) {
         this.newPass = newPass;
     }
-    
-    
+
+    public String getOldPass() {
+        return oldPass;
+    }
+
+    public void setOldPass(String oldPass) {
+        this.oldPass = oldPass;
+    }
+
+    public String getConfirmPass() {
+        return confirmPass;
+    }
+
+    public void setConfirmPass(String cPass) {
+        this.confirmPass = cPass;
+    }
 }

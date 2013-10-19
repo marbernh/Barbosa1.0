@@ -17,4 +17,6 @@ public interface IAccountManager {
     public int getUserHighscore(String name);
     
     public int getUserGamesPlayed(String name);
+    
+    public String changePass(String name,String oldPass, String newPass, String confirmPass);
 }

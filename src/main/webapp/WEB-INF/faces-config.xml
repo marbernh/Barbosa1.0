@@ -92,20 +92,25 @@
             <to-view-id>/jsf/login/login.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-outcome>newPass</from-outcome>
-            <to-view-id>/jsf/login/newPass.xhtml</to-view-id>
+            <from-outcome>change</from-outcome>
+            <to-view-id>/jsf/login/changePass.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
-    <!--newpass page-->
+    
+    <!--changePass page-->
     <navigation-rule>
-        <from-view-id>/jsf/login/newPass.xhtml</from-view-id>
+        <from-view-id>/jsf/login/changePass.xhtml</from-view-id>
         <navigation-case>
-            <from-outcome>updateFail</from-outcome>
-            <to-view-id>/jsf/login/newPass.xhtml</to-view-id>
+            <from-outcome>changeFail</from-outcome>
+            <to-view-id>/jsf/login/changePass.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-outcome>updatePass</from-outcome>
+            <from-outcome>changePass</from-outcome>
             <to-view-id>/jsf/login/mypage.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/jsf/login/login.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 </faces-config>
