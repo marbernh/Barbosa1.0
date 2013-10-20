@@ -62,6 +62,7 @@ public class AccountManager implements IAccountManager{
         if(old.getPassword().equals(oldPass)){
             if(newPass.equals(cPass)){
                 Player updated = new Player(old.getId(),old.getUserName(),newPass);
+                updated.update(old.getTopGameScore());
                 userRegister.update(updated);
                 status = "pass";
             }else{

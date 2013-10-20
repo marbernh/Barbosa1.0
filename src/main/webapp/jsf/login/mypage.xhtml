@@ -18,6 +18,7 @@
                     <p>Games played:
                         <h:outputText value="#{AccountBean.getGamesPlayed()}"/></p>
                     <h:form>
+                        <h:button outcome="index" value="Play Game"/>
                         <h:commandButton action="#{AccountBean.logout()}" value="Log Out"/>
                         <h:commandButton action="change" value="Change Password"/>
                     </h:form>
