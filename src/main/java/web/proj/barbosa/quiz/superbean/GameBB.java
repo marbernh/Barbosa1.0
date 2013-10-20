@@ -52,12 +52,6 @@ public class GameBB implements Serializable {
         return "index";
     }
     
-    public void nextRound(){
-        //        life = 3;
-        quiz.nextRound();
-        quiz.getLife();
-    }
-    
     public void increaseScore(){
         quiz.increaseScore();
     }

@@ -10,7 +10,6 @@ package web.proj.barbosa.quiz;
  */
 public interface IQuiz {
     public void newGame();
-    public void nextRound();
     public String validate(String guess);
     public void updateScore(String name);
 }

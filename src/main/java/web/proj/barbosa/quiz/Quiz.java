@@ -10,7 +10,7 @@ import web.proj.barbosa.quiz.search.ImageSearchFactory;
 /**
  * This class handles new searches and new games. It generates a word and the
  * links fore the pictures and then it returns it to the gamebean.
- *
+ * 
  * @author Iron-Maven
  */
 public class Quiz implements IQuiz{
@@ -27,11 +27,19 @@ public class Quiz implements IQuiz{
         score = 0;
         generator = new Random();
         searcher = (ImageSearch) ImageSearchFactory.getImageSearch();
-        getWords();   //imports all words
+        getAnswers();   //imports all words
     }
     
+    /**
+     * This is the most immoprtant method in Quiz, it handles the guess made
+     * by the user. It returns a message to be displayed on the client depending
+     * on if the guess was correct or incorrect.
+     * @param guess 
+     * @return String message
+     */
     @Override
     public String validate(String guess) {
+        guess = guess.trim().toLowerCase();
         if ( answer.equals(guess)){
             increaseScore();
             nextRound();
@@ -43,6 +51,10 @@ public class Quiz implements IQuiz{
         }
     }
     
+    /**
+     * This method updates the score of a user. 
+     * @param name 
+     */
     @Override
     public void updateScore(String name) {
         PlayerRegister playerRegister = (PlayerRegister) PlayerRegister.newInstance("quiz_pu");
@@ -51,21 +63,33 @@ public class Quiz implements IQuiz{
         playerRegister.update(user);
     }
     
-    //This method uses the ImageSearch class to search new pics from "answer"
+    /**
+     * This method initiates a new game, it resets the score, the lifes, gets a
+     * new set of words and lastly it searches for new images. 
+     * This method is called when a player gets game over.
+     */
     @Override
     public void newGame() {
-        getWords();
+        getAnswers();
         getNewPics();
         life = 3;
         score = 0;
     }
     
-    @Override
-    public void nextRound() {
+    /**
+     * This method searches for a new set of pictures and resets the life.
+     * The method is called when a player get the correct answer. 
+     */
+    private void nextRound() {
         life = 3;
         getNewPics();
     }
     
+    /**
+     * When this method is called it randomizes an answer from a random index.
+     * Then it uses the ImageSearch service to get a list of image url's related
+     * to that word(answer).
+     */
     private void getNewPics() {
         boolean filled = false;
         while (!filled) {
@@ -79,8 +103,11 @@ public class Quiz implements IQuiz{
             }
         }
     }
-    
-    private void getWords() {
+    /**
+     * This method uses the AnswersGenerator service to generate aa list of 
+     * possible answers.
+     */
+    private void getAnswers() {
         AnswersGenerator answersGenerator = 
                 (AnswersGenerator) AnswersGeneratorFactory.getAnswerGenerator();
         answers = answersGenerator.getWords();
