@@ -31,7 +31,20 @@ public class Quiz implements IQuiz{
     }
     
     /**
-     * This is the most immoprtant method in Quiz, it handles the guess made
+     * This method initiates a new game, it resets the score, the lifes, gets a
+     * new set of words and lastly it searches for new images.
+     * This method is called when a player gets game over.
+     */
+    @Override
+    public void newGame() {
+        getAnswers();
+        getNewPics();
+        life = 3;
+        score = 0;
+    }
+    
+    /**
+     * This is the most important method in Quiz, it handles the guess made
      * by the user. It returns a message to be displayed on the client depending
      * on if the guess was correct or incorrect.
      * @param guess 
@@ -61,19 +74,6 @@ public class Quiz implements IQuiz{
         Player user = playerRegister.getByName(name);
         user.update(score);
         playerRegister.update(user);
-    }
-    
-    /**
-     * This method initiates a new game, it resets the score, the lifes, gets a
-     * new set of words and lastly it searches for new images. 
-     * This method is called when a player gets game over.
-     */
-    @Override
-    public void newGame() {
-        getAnswers();
-        getNewPics();
-        life = 3;
-        score = 0;
     }
     
     /**

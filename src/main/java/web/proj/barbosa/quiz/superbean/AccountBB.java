@@ -6,10 +6,10 @@ package web.proj.barbosa.quiz.superbean;
 
 import java.io.Serializable;
 import javax.enterprise.context.SessionScoped;
-import javax.inject.Named;
+import javax.inject.Named; 
 import web.proj.barbosa.quiz.Account.AccountManager;
 import web.proj.barbosa.quiz.Account.AccountManagerFactory;
-
+ 
 /**
  * AccountBB handels the login function for the site.
  *

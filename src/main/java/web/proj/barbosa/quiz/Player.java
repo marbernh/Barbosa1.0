@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 import web.proj.barbosa.quiz.superbean.utils.AbstractEntity;
 
 /**
- * The UserDB class holds the player information such as username, password and
+ * The Player class holds the player information such as username, password and
  * top game score.
  *
  * @author Iron-Maven

@@ -34,6 +34,18 @@ public class GameBB implements Serializable {
         quiz.newGame();
     }
     
+    // When a new game starts we check if someone is logged in. In that case
+    // hes score is updated
+    public String newGame(){
+        if(account.getLoggedIn()){
+            quiz.updateScore(account.getUsername());
+        }
+        quiz.newGame();
+        return "index";
+    }
+        
+    // Depending on validate in model (Quiz.java) the game page is reloded (index)
+    // or else it's redirected to the game over page. 
     public String validate() {
         outcome = quiz.validate(guess);
         guess = "";
@@ -43,15 +55,7 @@ public class GameBB implements Serializable {
             return "index";
         }
     }
-    
-    public String newGame(){
-        if(account.getLoggedIn()){
-            quiz.updateScore(account.getUsername());
-        }
-        quiz.newGame();
-        return "index";
-    }
-    
+
     public void increaseScore(){
         quiz.increaseScore();
     }
