@@ -45,12 +45,10 @@ public class Quiz implements IQuiz{
     
     @Override
     public void updateScore(String name) {
-        PlayerRegister ur = (PlayerRegister) PlayerRegister.newInstance("quiz_pu");
-        Player user = ur.getByName(name);
-        if(score > user.getTopGameScore()){
-            user.update(score);
-            ur.update(user);
-        }
+        PlayerRegister playerRegister = (PlayerRegister) PlayerRegister.newInstance("quiz_pu");
+        Player user = playerRegister.getByName(name);
+        user.update(score);
+        playerRegister.update(user);
     }
     
     //This method uses the ImageSearch class to search new pics from "answer"

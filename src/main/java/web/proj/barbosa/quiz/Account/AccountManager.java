@@ -56,13 +56,14 @@ public class AccountManager implements IAccountManager{
     
     @Override
     public String changePass(String name,String oldPass, String newPass, String cPass){
-        String status = "";
+        String status;
         Player old = userRegister.getByName(name);
         
         if(old.getPassword().equals(oldPass)){
             if(newPass.equals(cPass)){
                 Player updated = new Player(old.getId(),old.getUserName(),newPass);
-                updated.update(old.getTopGameScore());
+                updated.setTopGameScore(old.getTopGameScore());
+                updated.setGamesPlayed(old.getGamesPlayed());
                 userRegister.update(updated);
                 status = "pass";
             }else{

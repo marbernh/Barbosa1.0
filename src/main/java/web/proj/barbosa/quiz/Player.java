@@ -58,4 +58,13 @@ public class Player extends AbstractEntity {
     public int getGamesPlayed(){
         return gamesPlayed;
     }
+
+    public void setTopGameScore(int topGameScore) {
+        this.topGameScore = topGameScore;
+    }
+
+    public void setGamesPlayed(int gamesPlayed) {
+        this.gamesPlayed = gamesPlayed;
+    }
+    
 }
