@@ -2,8 +2,7 @@
     Document   : ImageQuiz
     Created on : 2013-okt-05, 10:58:11
     Author     : Filip Husnjak
-    Description:
-        The CSS-file for image-quiz
+    Description: The CSS-file for image-quiz
 */
 
 body {
@@ -92,9 +91,10 @@ body {
 }
 
 #BannerBox{
+    margin: auto;
     width: 650px;
     height: 150px;
-    background-image:url("#{resource['img:imagequiz.png']}");
+    /*background-image:url("#{resource['img:imagequiz.png']}");*/
 }
 
 #middleBox{
@@ -140,14 +140,6 @@ body {
     border: 2px solid blue;
 }
 
-#contentBox{
-    width: 58em;
-    height: 630px;
-    margin-left: 34%;
-    margin-right: 16%;
-    /*    border: 1px solid yellow;*/
-}
-
 #table{
     width: 100%;
 }
@@ -157,3 +149,12 @@ body {
 #table tr:nth-of-type(2n-1) {
     background: #eee
 }
+
+#contentBox{
+    width: 58em;
+    height: 630px;
+    margin-left: 34%;
+    margin-right: 16%;
+    /*    border: 1px solid yellow;*/
+}
+

@@ -10,18 +10,18 @@ The about page, from menu option "About"
     <h:body>
         <ui:composition template="/WEB-INF/template.xhtml">
             <ui:define name="content">
-                <div id="contentBox">
-                    <div id="CenterBox">
-                        <div id="BannerBox"></div>
-                        <div id="middleBox"></div>
-                        <div id="about">
-                            The game is to guess the phrase that has been used to display the images, good luck! 
-                        </div>
-                    </div>
-                    <h:link style="color: black; font-weight: bold; text-decoration: none;" outcome="myacc">
-                        <br/><h:outputText value="#{AccountBean.logDisp()}"/>
-                    </h:link>
+
+                <div id="BannerBox">
+                    <a href="http://localhost:8080/Barbosa1.0/"><img src="/Barbosa1.0/faces/javax.faces.resource/imagequiz.png?ln=img"/></a>
                 </div>
+                <div id="middleBox"></div>
+                <div id="about">
+                    The game is to guess the phrase that has been used to display the images, good luck! 
+                </div>
+
+                <h:link style="color: black; font-weight: bold; text-decoration: none;" outcome="myacc">
+                    <br/><h:outputText value="#{AccountBean.logDisp()}"/>
+                </h:link>
             </ui:define>
         </ui:composition>
     </h:body>
