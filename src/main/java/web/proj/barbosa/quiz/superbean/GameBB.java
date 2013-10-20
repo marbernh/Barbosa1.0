@@ -37,8 +37,8 @@ public class GameBB implements Serializable {
     public String validate() {
         outcome = quiz.validate(guess);
         guess = "";
-        if(outcome.equals("gameOver")){
-            return outcome;
+        if(outcome.equals("")){
+            return "gameOver";
         } else{
             return "index";
         }

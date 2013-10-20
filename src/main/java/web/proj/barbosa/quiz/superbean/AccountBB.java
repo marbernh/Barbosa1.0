@@ -25,7 +25,14 @@ public class AccountBB implements Serializable {
     private String errorReg,errorLgn = "";
     private AccountManager accountManager = (AccountManager) AccountManagerFactory.getAccountManager();
 
-    
+    /**
+     * login()
+     * This method makes the call to the loginManager that handles the log in
+     * process, depending on if the login is sucsessfull or not the appropriate
+     * outcome is returned for navigation. If login is unsuccessfull the 
+     * appropriate error message will be displayed.
+     * @return String outcome
+     */
     public String login() {
         loggedIn = accountManager.login(username, password);
         if (loggedIn) {
@@ -36,6 +43,14 @@ public class AccountBB implements Serializable {
         }
     }
 
+    /**
+     * register()
+     * This method makes the call to the loginManager that handles the register
+     * process, depending on if the registration is sucsessfull or not the 
+     * appropriate outcome is returned for navigation. If registration is 
+     * unsuccessfull the appropriate error message will be displayed.
+     * @return String outcome
+     */
     public String register() {
         if (confirmPass.equals(password)) {
             if (accountManager.register(username, password)) {
@@ -49,6 +64,15 @@ public class AccountBB implements Serializable {
             return "registerFail";
         }
     }
+    
+    /**
+     * register()
+     * This method makes the call to the loginManager that handles the register
+     * process, depending on if the registration is sucsessfull or not the 
+     * appropriate outcome is returned for navigation. If registration is 
+     * unsuccessfull the appropriate error message will be displayed.
+     * @return String outcome
+     */
     public String logout() {
         loggedIn = false;
         username = "";
@@ -59,26 +83,44 @@ public class AccountBB implements Serializable {
         
         return "logOut"; 
     }
+    
+    /**
+     * changePass()
+     * This method makes the call to the loginManager that handles the change 
+     * password process, depending on if the change is sucsessfull or not the 
+     * appropriate outcome is returned for navigation. If the password change
+     * is unsuccessfull the appropriate error message will be displayed.
+     * @return String outcome
+     */
     public String changePass(){
         String status = accountManager.changePass(username,oldPass,newPass,confirmPass);
-        if(status.equals("fail1")){
-            errorReg = "Please confirm your new password";
-            return "changeFail";
-        }else if(status.equals("fail2")){
-            errorReg = "Please enter your current password";
-            return "changeFail";
-        }else{
-            return "changePass";
+        switch (status) {
+            case "fail1":
+                errorReg = "Please confirm your new password";
+                return "changeFail";
+            case "fail2":
+                errorReg = "Please enter your current password";
+                return "changeFail";
+            default:
+                return "changePass";
         }
     }
-
+    
+    /**
+     * This method is used to help with navigation.
+     * @return String outcome
+     */
     public String checklogged() {
         if (loggedIn) {
             return "myacc";
         }
         return "loggedoff";
     }
-
+    
+    /**
+     * This method is used to display the logged in user on the game page.
+     * @return 
+     */
     public String logDisp() {
         if (loggedIn) {
             return "Logged in as: " + username;

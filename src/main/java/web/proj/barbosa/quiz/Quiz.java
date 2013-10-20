@@ -37,7 +37,7 @@ public class Quiz implements IQuiz{
             nextRound();
             return "Your answer is correct";
         } else if(looseLife() == 0){
-            return "gameOver";
+            return "";
         } else{
             return "Your answer is wrong";
         }
