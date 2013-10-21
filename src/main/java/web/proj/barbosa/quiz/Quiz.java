@@ -110,7 +110,7 @@ public class Quiz implements IQuiz{
     private void getAnswers() {
         AnswersGenerator answersGenerator = 
                 (AnswersGenerator) AnswersGeneratorFactory.getAnswerGenerator();
-        answers = answersGenerator.getWords();
+        answers = answersGenerator.getAnswers();
     }
     
     public void increaseScore() {

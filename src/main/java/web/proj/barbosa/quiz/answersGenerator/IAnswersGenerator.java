@@ -12,5 +12,5 @@ import java.util.ArrayList;
  * @author Iron-Maven
  */
 public interface IAnswersGenerator {
-     public ArrayList<String> getWords();
+     public ArrayList<String> getAnswers();
 }

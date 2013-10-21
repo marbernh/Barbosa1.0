@@ -21,7 +21,14 @@ import java.util.ArrayList;
 public class ImageSearch implements IImageSearch{
 
     private int num = 6; //Antalet biler som skall hämtas från Google
-
+    
+    /**
+     * This method uses the help method search to make a google image search
+     * for the word from the parameter. Then the help method filter is used 
+     * to filter the response to get the correct image url's. 
+     * @param word
+     * @return A list of image url's
+     */
     @Override
     public ArrayList<String> searchAndFind(String word) {
         String str = search(word);
@@ -29,7 +36,6 @@ public class ImageSearch implements IImageSearch{
             ArrayList<String> urlResults = filter(str);
             return urlResults;
         } else {
-            System.out.println("fel");
             return null;
         }
     }
@@ -45,7 +51,7 @@ public class ImageSearch implements IImageSearch{
             String str = in.readLine();
             in.close();
             return str;
-
+            
         } catch (MalformedURLException e) {
             return "error";
         } catch (IOException e) {
