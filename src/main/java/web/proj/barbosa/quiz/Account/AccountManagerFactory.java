@@ -5,8 +5,9 @@
 package web.proj.barbosa.quiz.Account;
 
 /**
+ * 
  *
- * @author Daniel
+ * @author Iron-Maven
  */
 public class AccountManagerFactory {
     

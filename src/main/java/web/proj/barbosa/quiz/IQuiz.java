@@ -5,8 +5,9 @@
 package web.proj.barbosa.quiz;
 
 /**
+ * This is the interface for Quiz 
  *
- * @author Daniel
+ * @author Iron-Maven
  */
 public interface IQuiz {
     public void newGame();

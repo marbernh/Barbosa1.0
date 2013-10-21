@@ -7,8 +7,9 @@ package web.proj.barbosa.quiz.answersGenerator;
 import java.util.ArrayList;
 
 /**
+ * This is the interface for AnswersGenerator 
  *
- * @author marcus
+ * @author Iron-Maven
  */
 public interface IAnswersGenerator {
      public ArrayList<String> getWords();

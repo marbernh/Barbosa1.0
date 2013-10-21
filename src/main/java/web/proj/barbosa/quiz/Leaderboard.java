@@ -8,8 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * The Leaderboard class takes the ten best players from the database and
+ * puts them in a list. 
  *
- * @author marcus
+ * @author Iron-Maven
  */
 public class Leaderboard {
     

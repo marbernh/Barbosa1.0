@@ -1,7 +1,5 @@
 package web.proj.barbosa.quiz;
 
-import web.proj.barbosa.quiz.answersGenerator.AnswersGenerator;
-import java.util.ArrayList;
 import java.util.Random;
 
 /**

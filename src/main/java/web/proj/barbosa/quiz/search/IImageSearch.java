@@ -9,8 +9,9 @@ package web.proj.barbosa.quiz.search;
 import java.util.ArrayList;
 
 /**
+ * This is the interface for ImageSearch 
  *
- * @author marcus
+ * @author Iron.Maven
  */
 public interface IImageSearch {
     

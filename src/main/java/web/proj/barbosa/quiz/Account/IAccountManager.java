@@ -5,6 +5,7 @@
 package web.proj.barbosa.quiz.Account;
 
 /**
+ * This is the interface for AccountManager.
  *
  * @author Daniel
  */

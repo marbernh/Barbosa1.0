@@ -5,8 +5,9 @@
 package web.proj.barbosa.quiz.answersGenerator;
 
 /**
+ *  
  *
- * @author marcus
+ * @author Iron-Maven
  */
 public class AnswersGeneratorFactory {
         public AnswersGeneratorFactory() {

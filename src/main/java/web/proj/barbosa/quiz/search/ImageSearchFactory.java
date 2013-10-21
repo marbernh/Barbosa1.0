@@ -4,11 +4,9 @@
  */
 package web.proj.barbosa.quiz.search;
 
-import web.proj.barbosa.quiz.search.ImageSearch;
-
 /**
  *
- * @author marcus
+ * @author Iron-Maven
  */
 public class ImageSearchFactory {
 
